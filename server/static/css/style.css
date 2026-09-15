@@ -1,0 +1,21 @@
+* {
+    padding: 0;
+    margin: 0;
+    font-family: Montserrat, monospace;
+    color: #DDDDDD;
+}
+
+body {
+    display: flex;
+    background-color: #121212;
+    align-items: center;
+    justify-content: center;
+}
+
+.mapNDashboard {
+    padding: 100px;
+}
+
+.dashboard {
+    padding: 250px 0 0 0;
+}
