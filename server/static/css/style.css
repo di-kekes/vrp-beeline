@@ -4,6 +4,7 @@
     font-family: Montserrat, monospace;
     text-align: center;
     color: #DDDDDD;
+    border-radius: 6px;
 }
 
 body {
@@ -30,8 +31,11 @@ body {
 .engineer {
     width: 90%;
     background: none;
+    padding: 1%;
     border: #DDDDDD solid 1px;
     margin: 1%;
+
+    font-size: 16px;
 
     animation: ease-in;
     transition: all 200ms;
@@ -54,6 +58,7 @@ body {
     align-items: center;
     flex-direction: column-reverse;
 }
+
 #engineers_label {
     justify-self: flex-start;
 }

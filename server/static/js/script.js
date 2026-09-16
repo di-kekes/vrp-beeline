@@ -24,8 +24,8 @@ function getDataFromBackend() {
     return JSON_FROM_BACKEND; // тут гет запрос на API
 }
 
-function set_dashboard_info(id, name, points) {
-
+function setDashboardInfo(id, first_name, last_name) {
+    dashboard.textContent = `ID инженера: ${id}, Имя: ${first_name}, Фамилия: ${last_name}`;
 }
 
 const dataFromBackend = getDataFromBackend();
@@ -35,8 +35,9 @@ const dashboard = document.getElementById("dashboard");
 document.addEventListener("DOMContentLoaded", () => {
     for (let i in dataFromBackend) {
         let engineer_JSON = dataFromBackend[i];
-        document.getElementById("engineer" + engineer_JSON["id"]).addEventListener("click", () => {
-            dashboard.textContent = `ID инженера: ${engineer_JSON["id"]}, Имя: ${engineer_JSON["first_name"]}, Фамилия: ${engineer_JSON["last_name"]}`;
+        let id = engineer_JSON["id"];
+        document.getElementById("engineer" + id).addEventListener("click", () => {
+            setDashboardInfo(id, engineer_JSON["first_name"], engineer_JSON["last_name"]);
         });
     }
 });
