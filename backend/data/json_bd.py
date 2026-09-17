@@ -239,7 +239,8 @@ def delete_engineer(engineer_id: int) -> bool:
         engineer_id,
     )
 
-
+def engineer_unavailable(engineer_id:int) -> bool:
+    pass
 # =========================
 # Requests
 # =========================
