@@ -1,15 +1,14 @@
-from fastapi import APIRouter
+from fastapi import APIRouter, Request
 from fastapi.responses import HTMLResponse
 from fastapi.templating import Jinja2Templates
-router = APIRouter(prefix='/',tags=["Frontend Pages"])
+from backend.app.main import PATH_TO_TEMPLATES
+router = APIRouter(tags=["Frontend Pages"])
 
-templates = Jinja2Templates(directory="../../server/templates")
-
-@router.get("/",response_class=HTMLResponse)
+templates = Jinja2Templates(directory=PATH_TO_TEMPLATES)
 @router.get("/index",response_class=HTMLResponse)
-def root():
-    return templates.TemplateResponse(name="index.html")
+def root(request: Request):
+    return templates.TemplateResponse(name="index.html", request=request)
 
 @router.get("/admin",response_class=HTMLResponse)
-async def admin():
-    return templates.TemplateResponse(name="admin.html")
+async def admin(request: Request):
+    return templates.TemplateResponse(name="admin.html", request=request)
