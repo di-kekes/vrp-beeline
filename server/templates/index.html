@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../static/css/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>vrp-beeline</title>
+</head>
+<body>
+<div class="mapNDashboard">
+    <div class="map">Карта</div>
+    <div id="dashboard">Дэшборд</div>
+</div>
+<div id="engineers_container">
+    {% for engie in JSON%}
+    <button class="engineer" id="engineer{{engie['id']}}">{{ engie["first_name"] }} {{ engie["last_name"] }}</button>
+    {% endfor %}
+    <div id="engineers_label">Доступные бригады и инженеры</div>
+</div>
+<script src="../static/js/script.js"></script>
+</body>
+</html>
