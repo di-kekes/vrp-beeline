@@ -11,7 +11,7 @@ router = APIRouter(
 async def urgent_request(request: db.Request):
     try:
         data = db.create_request(request)
-        return {"code": 200}
+        return {"code":200, "data":data, "database":...}
     except Exception as e:
         return {"code":400, "message":str(e)}
 
@@ -19,13 +19,13 @@ async def urgent_request(request: db.Request):
 async def delete_request(request: db.Request):
     try:
         data = db.delete_request(request.id)
-        return {"code": 200}
+        return {"code": 200,"data":data,"database":...}
     except Exception as e:
-        return {"code": 400, "message": str(e)}
-@router.put("/engineer_unavailable")
+        return {"code": 400, "message": str(e),}
+@router.delete("/engineer_unavailable")
 async def engineer_unavailable(engineer: db.Engineer):
     try:
-        data = db.engineer_unavailable(engineer.id)
-        return {"code": 200}
+        data = db.delete_engineer(engineer.id )
+        return {"code": 200,"data":data,"database":...}
     except Exception as e:
         return {"code": 400, "message": str(e)}
