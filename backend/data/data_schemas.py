@@ -30,12 +30,12 @@ class Location(BaseModel):
     address: Optional[str] = None
 
 
-class Duration(list, Enum):
-    # время в пути + время работы + время на документы
-    CONNECTION_CLIENT_T = [20, 60, 10]
-    ACCIDENTS_ON_TKD_T = [20, 80,  0]
-    ADD_EQUIPMENT_ORDER_T = [20, 10, 10]
-    LOCAL_APPLICATION_T = [20, 30, 0]
+class Duration(int, Enum):
+    # время работы + время на документы
+    CONNECTION_CLIENT_T = 60+10
+    ACCIDENTS_ON_TKD_T = 80+0
+    ADD_EQUIPMENT_ORDER_T = 10+10
+    LOCAL_APPLICATION_T = 30+0
 
 
 # pydantic schemas

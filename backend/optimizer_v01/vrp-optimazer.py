@@ -1,7 +1,8 @@
+
 from __future__ import annotations
 
 from dataclasses import dataclass
-from datetime import datetime
+from datetime import datetime, timedelta
 from typing import Any
 
 from ortools.constraint_solver import (
@@ -32,14 +33,8 @@ class OptimizationResult:
 
 
 def enum_value(value: Any) -> Any:
-    """
-    Позволяет работать как с обычными значениями,
-    так и с Enum.
-    """
-
     if hasattr(value, "value"):
         return value.value
-
     return value
 
 
@@ -64,6 +59,7 @@ def optimize_vrptw(
     requests: list[Any],
     engineers: list[Any],
     time_matrix: list[list[int]],
+    depot_location: Any,
     solver_time_limit_seconds: int = 10,
 ) -> OptimizationResult:
 
@@ -77,21 +73,18 @@ def optimize_vrptw(
         )
 
     # ---------------------------------------------------------
-    # 1. Собираем точки
-    #
-    # Первые N точек — стартовые позиции инженеров.
-    # Затем идут заявки.
+    # 1. Проверка матрицы и создание точек
     # ---------------------------------------------------------
 
-    locations = []
+    num_engineers = len(engineers)
+    num_requests = len(requests)
 
-    for engineer in engineers:
-        locations.append(
-            (
-                engineer.start_location.latitude,
-                engineer.start_location.longitude,
-            )
+    locations = [
+        (
+            depot_location.latitude,
+            depot_location.longitude,
         )
+    ]
 
     for request in requests:
         locations.append(
@@ -101,21 +94,22 @@ def optimize_vrptw(
             )
         )
 
+    expected_size = num_requests + 1
 
-    num_engineers = len(engineers)
-    num_requests = len(requests)
+    if len(time_matrix) != expected_size:
+        raise ValueError("Неверный размер time_matrix")
 
-    # ---------------------------------------------------------
-    # 2. Индексы заявок
-    # ---------------------------------------------------------
+    if any(len(row) != expected_size for row in time_matrix):
+        raise ValueError("Матрица времени должна быть квадратной")
 
+    # Узел заявки: 1 ... N
     request_node_by_index = {
-        request_index: num_engineers + request_index
+        request_index: request_index + 1
         for request_index in range(num_requests)
     }
 
     # ---------------------------------------------------------
-    # 3. Временная шкала
+    # 2. Временная шкала
     # ---------------------------------------------------------
 
     all_start_times = []
@@ -137,60 +131,6 @@ def optimize_vrptw(
             (value - planning_start).total_seconds() / 60
         )
 
-    # ---------------------------------------------------------
-    # 4. OR-Tools Manager
-    #
-    # Для каждого инженера start/end — его собственная
-    # стартовая точка.
-    # ---------------------------------------------------------
-
-    starts = list(range(num_engineers))
-    ends = list(range(num_engineers))
-
-    manager = pywrapcp.RoutingIndexManager(
-        len(locations),
-        num_engineers,
-        starts,
-        ends,
-    )
-
-    routing = pywrapcp.RoutingModel(manager)
-
-    # ---------------------------------------------------------
-    # 5. Travel callback
-    # ---------------------------------------------------------
-
-    def time_callback(from_index: int, to_index: int) -> int:
-
-        from_node = manager.IndexToNode(from_index)
-        to_node = manager.IndexToNode(to_index)
-
-        travel_time = time_matrix[from_node][to_node]
-
-        # Добавляем обслуживание заявки в момент,
-        # когда инженер уезжает из неё.
-        if from_node >= num_engineers:
-            request_index = from_node - num_engineers
-            service_time = requests[request_index].duration
-
-            return travel_time + service_time
-
-        return travel_time
-
-    transit_callback_index = routing.RegisterTransitCallback(
-        time_callback
-    )
-
-    # Основная стоимость маршрута —
-    # суммарное время движения.
-    routing.SetArcCostEvaluatorOfAllVehicles(
-        transit_callback_index
-    )
-
-    # ---------------------------------------------------------
-    # 6. Time Dimension
-    # ---------------------------------------------------------
-
     planning_horizon = max(
         to_minutes(
             max(
@@ -206,10 +146,64 @@ def optimize_vrptw(
         ),
     )
 
+    # ---------------------------------------------------------
+    # 3. OR-Tools Manager
+    # Все инженеры начинают и заканчивают в одном депо
+    # ---------------------------------------------------------
+
+    starts = [0] * num_engineers
+    ends = [0] * num_engineers
+
+    manager = pywrapcp.RoutingIndexManager(
+        len(locations),
+        num_engineers,
+        starts,
+        ends,
+    )
+
+    routing = pywrapcp.RoutingModel(manager)
+
+    # ---------------------------------------------------------
+    # 4. Travel callback
+    # Время обслуживания добавляется после посещения узла
+    # ---------------------------------------------------------
+
+    def time_callback(
+        from_index: int,
+        to_index: int,
+    ) -> int:
+
+        from_node = manager.IndexToNode(from_index)
+        to_node = manager.IndexToNode(to_index)
+
+        travel_time = time_matrix[from_node][to_node]
+
+        if from_node > 0:
+            request_index = from_node - 1
+            service_time = int(
+                requests[request_index].duration
+            )
+
+            return travel_time + service_time
+
+        return travel_time
+
+    transit_callback_index = routing.RegisterTransitCallback(
+        time_callback
+    )
+
+    routing.SetArcCostEvaluatorOfAllVehicles(
+        transit_callback_index
+    )
+
+    # ---------------------------------------------------------
+    # 5. Time Dimension
+    # ---------------------------------------------------------
+
     routing.AddDimension(
         transit_callback_index,
-        planning_horizon,  # разрешённое ожидание
-        planning_horizon,  # максимум времени маршрута
+        planning_horizon,  # Разрешённое ожидание
+        planning_horizon,  # Максимальное время
         False,
         "Time",
     )
@@ -217,7 +211,7 @@ def optimize_vrptw(
     time_dimension = routing.GetDimensionOrDie("Time")
 
     # ---------------------------------------------------------
-    # 7. Shift каждого инженера
+    # 6. Смены инженеров
     # ---------------------------------------------------------
 
     for vehicle_id, engineer in enumerate(engineers):
@@ -243,8 +237,6 @@ def optimize_vrptw(
             shift_end,
         )
 
-        # OR-Tools старается определить разумное
-        # начало/окончание маршрута.
         routing.AddVariableMinimizedByFinalizer(
             time_dimension.CumulVar(start_index)
         )
@@ -254,13 +246,13 @@ def optimize_vrptw(
         )
 
     # ---------------------------------------------------------
-    # 8. Time Window каждой заявки
+    # 7. Временные окна заявок
+    # CumulVar заявки = начало обслуживания
     # ---------------------------------------------------------
 
     for request_index, request in enumerate(requests):
 
         node = request_node_by_index[request_index]
-
         index = manager.NodeToIndex(node)
 
         window_start = to_minutes(
@@ -277,9 +269,7 @@ def optimize_vrptw(
         )
 
     # ---------------------------------------------------------
-    # 9. Совместимость инженер <-> заявка
-    #
-    # skill
+    # 8. Совместимость навыков и транспорта
     # ---------------------------------------------------------
 
     for request_index, request in enumerate(requests):
@@ -288,10 +278,25 @@ def optimize_vrptw(
             request.required_skill
         )
 
-        if required_skill is None:
-            continue
+        required_skill = (
+            str(required_skill)
+            if required_skill is not None
+            else None
+        )
 
-        required_skill = str(required_skill)
+        required_vehicle = enum_value(
+            getattr(
+                request,
+                "required_vehicle",
+                None,
+            )
+        )
+
+        required_vehicle = (
+            str(required_vehicle)
+            if required_vehicle is not None
+            else None
+        )
 
         allowed_engineers = []
 
@@ -301,16 +306,25 @@ def optimize_vrptw(
                 engineer.skills
             )
 
-            if required_skill in engineer_skills:
+            engineer_vehicle = str(
+                enum_value(engineer.vehicle_type)
+            )
+
+            skill_match = (
+                required_skill is None
+                or required_skill in engineer_skills
+            )
+
+            vehicle_match = (
+                required_vehicle is None
+                or engineer_vehicle == required_vehicle
+            )
+
+            if skill_match and vehicle_match:
                 allowed_engineers.append(engineer_id)
 
         node = request_node_by_index[request_index]
         index = manager.NodeToIndex(node)
-
-        if not allowed_engineers:
-            # Ни один инженер не умеет выполнять заявку.
-            # Разрешаем ей быть пропущенной через disjunction.
-            continue
 
         routing.SetAllowedVehiclesForIndex(
             allowed_engineers,
@@ -318,37 +332,45 @@ def optimize_vrptw(
         )
 
     # ---------------------------------------------------------
-    # 10. Приоритеты
+    # 9. Приоритеты и необслуженные заявки
     #
-    # Добавляем возможность пропускать заявки.
-    # Чем выше priority — тем выше штраф.
+    # NORMAL -> можно не выполнять, но за это большой штраф
+    # URGENT -> обязательна к выполнению
     # ---------------------------------------------------------
 
     for request_index, request in enumerate(requests):
 
-        priority = getattr(request, "priority", 1)
+        priority = enum_value(
+            getattr(request, "priority", "default")
+        )
 
-        try:
-            priority = int(
-                enum_value(priority)
-            )
-        except (ValueError, TypeError):
-            priority = 1
-
-        priority = max(1, priority)
-
-        penalty = 100_000 * priority
+        priority = str(priority).lower()
 
         node = request_node_by_index[request_index]
         index = manager.NodeToIndex(node)
 
-        routing.AddDisjunction(
-            [index],
-            penalty,
-        )
+        if priority == "urgent":
+            # Срочная заявка ОБЯЗАТЕЛЬНА.
+            # Не добавляем Disjunction -> OR-Tools не может её пропустить.
+            continue
+
+        elif priority == "default":
+            # Обычную заявку можно не выполнять,
+            # но это будет сильно штрафоваться.
+            penalty = 100_000
+
+            routing.AddDisjunction(
+                [index],
+                penalty,
+            )
+
+        else:
+            raise ValueError(
+                f"Неизвестный приоритет заявки: {priority}"
+            )
 
     # ---------------------------------------------------------
-    # 11. Алгоритм поиска
+    # 10. Алгоритм поиска
     # ---------------------------------------------------------
 
     search_parameters = (
@@ -368,7 +390,7 @@ def optimize_vrptw(
     )
 
     # ---------------------------------------------------------
-    # 12. Решение
+    # 11. Решение
     # ---------------------------------------------------------
 
     solution = routing.SolveWithParameters(
@@ -381,14 +403,11 @@ def optimize_vrptw(
         )
 
     # ---------------------------------------------------------
-    # 13. Разбираем результат
+    # 12. Разбор маршрутов
     # ---------------------------------------------------------
 
     routes = []
-
     assigned_request_ids = set()
-
-    total_travel_all = 0
 
     for vehicle_id, engineer in enumerate(engineers):
 
@@ -407,24 +426,18 @@ def optimize_vrptw(
 
             node = manager.IndexToNode(index)
 
-            if node >= num_engineers:
+            if node > 0:
 
-                request_index = node - num_engineers
+                request_index = node - 1
                 request = requests[request_index]
 
-                time_var = time_dimension.CumulVar(
-                    index
-                )
+                time_var = time_dimension.CumulVar(index)
 
-                visit_minutes = solution.Value(
-                    time_var
-                )
+                visit_minutes = solution.Value(time_var)
 
                 visit_datetime = (
                     planning_start
-                    + __import__("datetime").timedelta(
-                        minutes=visit_minutes
-                    )
+                    + timedelta(minutes=visit_minutes)
                 )
 
                 route_stops.append(
@@ -474,10 +487,8 @@ def optimize_vrptw(
             )
         )
 
-        total_travel_all += route_travel
-
     # ---------------------------------------------------------
-    # 14. Невыполненные заявки
+    # 13. Невыполненные заявки
     # ---------------------------------------------------------
 
     unassigned = [
