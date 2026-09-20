@@ -1,9 +1,13 @@
 from fastapi import FastAPI
-# Импортируем роутер из файла с логикой
-from api.routers import router
-
+from api.routers import router as api_router
+from web.web import router as web_router
+from fastapi.staticfiles import StaticFiles
+#здесь переменные templates и статик
+PATH_TO_STATIC = "../frontend/static"
+PATH_TO_TEMPLATES = "../frontend/templates"
 app = FastAPI(title="My Great Project")
 
-# Подключаем роутер к главному приложению
-app.include_router(router)
-
+app.mount("/static", StaticFiles(directory=PATH_TO_STATIC), name="static")
+# Подключаем роутеры
+app.include_router(api_router)
+app.include_router(web_router)
