@@ -46,6 +46,7 @@ class Request(BaseModel):
 
     required_skill: Skill
     required_equipment: Optional[Equipment] = None
+    required_vehicle: Optional[VehicleType] = None
 
     time_window_start: datetime
     time_window_end: datetime
