@@ -4,7 +4,7 @@ from web.web import router as web_router
 from fastapi.staticfiles import StaticFiles
 #здесь переменные templates и статик
 PATH_TO_STATIC = "../frontend/static"
-PATH_TO_TEMPLATES = "../frontend/templates"
+
 app = FastAPI(title="My Great Project")
 
 app.mount("/static", StaticFiles(directory=PATH_TO_STATIC), name="static")

@@ -2,21 +2,24 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <script src="https://api-maps.yandex.ru/v3/?apikey=6be2d624-5dd1-481c-882d-379bf43379bf&lang=ru_RU"></script>
     <link rel="stylesheet" href="../static/css/style.css">
+    <link rel="stylesheet" href="../static/css/map_style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>vrp-beeline</title>
 </head>
 <body>
 <div class="mapNDashboard">
-    <div class="map">Карта</div>
+    <div id="map" class="map"></div>
     <div id="dashboard">Дэшборд</div>
 </div>
 <div id="engineers_container">
     {% for engie in JSON%}
-    <button class="engineer" id="engineer{{engie['id']}}">{{ engie["first_name"] }} {{ engie["last_name"] }}</button>
+    <button class="engineer" id="engineer{{engie['id']}}">{{ engie["name"] }}: {{ engie["id"] }}</button>
     {% endfor %}
     <div id="engineers_label">Доступные бригады и инженеры</div>
 </div>
 <script src="../static/js/script.js"></script>
+<script src="../static/js/map.js"></script>
 </body>
 </html>
