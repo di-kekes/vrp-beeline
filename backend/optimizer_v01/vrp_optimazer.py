@@ -325,10 +325,9 @@ def optimize_vrptw(
 
         node = request_node_by_index[request_index]
         index = manager.NodeToIndex(node)
-
         routing.SetAllowedVehiclesForIndex(
-            allowed_engineers,
-            index,
+            tuple(allowed_engineers),
+            int(index),
         )
 
     # ---------------------------------------------------------
@@ -392,6 +391,20 @@ def optimize_vrptw(
     # ---------------------------------------------------------
     # 11. Решение
     # ---------------------------------------------------------
+
+    for request in requests:
+        priority = str(
+            enum_value(getattr(request, "priority", "default"))
+        ).lower()
+
+        if priority == "urgent":
+            print(
+                f"URGENT: id={request.id}, "
+                f"window={request.time_window_start} - {request.time_window_end}, "
+                f"duration={request.duration}, "
+                f"skill={request.required_skill}, "
+                f"vehicle={request.required_vehicle}"
+            )
 
     solution = routing.SolveWithParameters(
         search_parameters
