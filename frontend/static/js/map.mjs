@@ -19,6 +19,24 @@ async function initMap() {
     );
 
     map.addChild(new YMapDefaultSchemeLayer({theme: "dark"}));
+    // map.addChild(new YMapDefaultFeaturesLayer());
+
+    return map;
 }
 
-initMap();
+export default function updateMap(center, marks) {
+    yMap.setLocation({
+        center: [center["longitude"], center["latitude"]],
+        zoom: 17
+    });
+
+    for (let mark in marks) {
+        addMark(mark)
+    }
+}
+
+function addMark() {
+    return NaN;
+}
+
+const yMap = await initMap();

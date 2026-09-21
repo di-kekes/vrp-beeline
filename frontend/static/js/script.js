@@ -1,43 +1,45 @@
+import updateMap from "./map.mjs"
+
 function getDataFromBackend() {
     let JSON_FROM_BACKEND = [
         {
             "id": 1,
-            "first_name": "Алексей",
-            "last_name": "Понарин",
-        },
-        {
-            "id": 2,
-            "first_name": "Андрей",
-            "last_name": "Руднев",
-        },
-        {
-            "id": 3,
-            "first_name": "Егор",
-            "last_name": "Чагаев",
-        },
-        {
-            "id": 4,
-            "first_name": "Ярослав",
-            "last_name": "Бессемянников",
+            "name": "Иван Сидоров",
+            "start_location": {
+                "latitude": 55.7558,
+                "longitude": 37.6173,
+                "address": "Москва"
+            },
+            "shift_start": "2026-09-17T09:00:00+03:00",
+            "shift_end": "2026-09-17T18:00:00+03:00",
+            "skills": [
+                "connection_client",
+                "accidents_on_tkd"
+            ],
+            "vehicle_type": "car"
         }
     ]
     return JSON_FROM_BACKEND; // тут гет запрос на API
 }
 
-function setDashboardInfo(id, first_name, last_name) {
-    dashboard.textContent = `ID инженера: ${id}, Имя: ${first_name}, Фамилия: ${last_name}`;
+function setDashboardInfo(id, name) {
+    dashboard.textContent = `ID инженера: ${id}, Имя: ${name}`;
 }
 
-const dataFromBackend = getDataFromBackend();
-const dashboard = document.getElementById("dashboard");
-
-
-document.addEventListener("DOMContentLoaded", () => {
+function main() {
     for (let i in dataFromBackend) {
         let engineer_JSON = dataFromBackend[i];
         let id = engineer_JSON["id"];
         document.getElementById("engineer" + id).addEventListener("click", () => {
-            setDashboardInfo(id, engineer_JSON["first_name"], engineer_JSON["last_name"]);
+            updateMap(engineer_JSON["start_location"], []);
+            setDashboardInfo(id, engineer_JSON["name"]);
         });
     }
-});
+}
+
+
+const dataFromBackend = getDataFromBackend();
+const dashboard = document.getElementById("dashboard");
+
+main();
+
