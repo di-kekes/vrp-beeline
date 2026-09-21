@@ -41,6 +41,7 @@ async def test_optimizer_assigns_compatible_engineers():
 
     print(result)
     print(assigned)
+
     check = []
     for i in result.routes:
         a = [json_bd.get_engineer_by_id(int(i.engineer_id)),
@@ -83,3 +84,4 @@ async def test_optimizer_assigns_compatible_engineers():
                 f"[{request.time_window_start}, "
                 f"{request.time_window_end}]"
             )
+            
