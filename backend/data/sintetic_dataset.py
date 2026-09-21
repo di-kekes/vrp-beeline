@@ -1,17 +1,17 @@
 import random
 from datetime import datetime, timedelta
 
-from data_schemas import (
+from .data_schemas import (
     Engineer,
     Request,
     Location,
     Priority,
     VehicleType,
     Skill,
-    Duration,
+    Duration
 )
 
-from backend.data.json_bd import (
+from data.json_bd import (
     initialize_database,
     create_engineer,
     create_request,
@@ -321,7 +321,7 @@ def save_dataset(
 # MAIN
 # ============================================================
 
-def main():
+def start():
 
     print("Генерация датасета...")
 
@@ -360,4 +360,4 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    start()

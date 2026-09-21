@@ -1,6 +1,6 @@
 from pydantic import TypeAdapter
 from fastapi import APIRouter
-
+from data import sintetic_dataset
 import data.json_bd as db
 router = APIRouter(
     prefix="/api",
@@ -54,3 +54,11 @@ async def engineer_unavailable(engineer: db.Engineer):
         return {"code": 200,"data":data,"database":...}
     except Exception as e:
         return {"code": 500, "message": str(e)}
+#PUT
+@router.put("/generate_dataset")
+async def generate_dataset(data=None):
+    try:
+        sintetic_dataset.start()
+        return {"code":200}
+    except Exception as e:
+        return {"code":500, "error":e}
