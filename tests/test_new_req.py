@@ -1,10 +1,10 @@
 import requests
 #Создание новой задачи
 data = {
-    "id":2,
-    "location":{"latitude":87.5,
-                "longitude":43.58,
-                "address":"какойто адресс"},
+    "id":4,
+    "location":{"latitude":87.542,
+                "longitude":43.452,
+                "address":"какойто адресс24"},
     "priority": "default",
     "required_skill":"connection_client",
     "time_window_start":"2008-06-17",
