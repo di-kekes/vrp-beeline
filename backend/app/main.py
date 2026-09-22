@@ -7,7 +7,7 @@ PATH_TO_STATIC = "../frontend/static"
 
 app = FastAPI(title="My Great Project")
 
-app.mount("/static", StaticFiles(directory=PATH_TO_STATIC), name="static")
+app.mount("/static", StaticFiles(directory="../frontend/static"), name="static")
 # Подключаем роутеры
 app.include_router(api_router)
 app.include_router(web_router)

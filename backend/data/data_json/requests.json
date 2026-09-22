@@ -1,1 +1,74 @@
-[]
+[
+    {
+        "id": 1,
+        "location": {
+            "latitude": 87.5,
+            "longitude": 43.58,
+            "address": "какойто адресс"
+        },
+        "priority": "default",
+        "required_skill": "connection_client",
+        "required_equipment": null,
+        "time_window_start": "2008-06-17T00:00:00",
+        "time_window_end": "2008-06-18T00:00:00",
+        "duration": [
+            20,
+            80,
+            0
+        ]
+    },
+    {
+        "id": 2,
+        "location": {
+            "latitude": 87.52,
+            "longitude": 43.582,
+            "address": "какойто адресс2"
+        },
+        "priority": "default",
+        "required_skill": "connection_client",
+        "required_equipment": null,
+        "time_window_start": "2008-06-17T00:00:00",
+        "time_window_end": "2008-06-18T00:00:00",
+        "duration": [
+            20,
+            80,
+            0
+        ]
+    },
+    {
+        "id": 3,
+        "location": {
+            "latitude": 87.52,
+            "longitude": 43.52,
+            "address": "какойто адресс2"
+        },
+        "priority": "default",
+        "required_skill": "connection_client",
+        "required_equipment": null,
+        "time_window_start": "2008-06-17T00:00:00",
+        "time_window_end": "2008-06-18T00:00:00",
+        "duration": [
+            20,
+            80,
+            0
+        ]
+    },
+    {
+        "id": 4,
+        "location": {
+            "latitude": 87.542,
+            "longitude": 43.452,
+            "address": "какойто адресс24"
+        },
+        "priority": "default",
+        "required_skill": "connection_client",
+        "required_equipment": null,
+        "time_window_start": "2008-06-17T00:00:00",
+        "time_window_end": "2008-06-18T00:00:00",
+        "duration": [
+            20,
+            80,
+            0
+        ]
+    }
+]
