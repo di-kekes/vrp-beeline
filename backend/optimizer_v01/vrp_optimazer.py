@@ -325,17 +325,18 @@ def optimize_vrptw(
 
         node = request_node_by_index[request_index]
         index = manager.NodeToIndex(node)
-
         routing.SetAllowedVehiclesForIndex(
-            allowed_engineers,
-            index,
+            tuple(allowed_engineers),
+            int(index),
         )
 
     # ---------------------------------------------------------
     # 9. Приоритеты и необслуженные заявки
     #
-    # NORMAL -> можно не выполнять, но за это большой штраф
-    # URGENT -> обязательна к выполнению
+    # DEFAULT -> можно не выполнять, большой штраф
+    # URGENT -> можно не выполнять, ОЧЕНЬ большой штраф
+    #
+    # Это позволяет оптимизатору всегда искать допустимое решение.
     # ---------------------------------------------------------
 
     for request_index, request in enumerate(requests):
@@ -350,13 +351,17 @@ def optimize_vrptw(
         index = manager.NodeToIndex(node)
 
         if priority == "urgent":
-            # Срочная заявка ОБЯЗАТЕЛЬНА.
-            # Не добавляем Disjunction -> OR-Tools не может её пропустить.
-            continue
+            # Срочная заявка имеет очень большой штраф
+            # за невыполнение.
+            penalty = 1_000_000
+
+            routing.AddDisjunction(
+                [index],
+                penalty,
+            )
 
         elif priority == "default":
-            # Обычную заявку можно не выполнять,
-            # но это будет сильно штрафоваться.
+            # Обычная заявка имеет меньший штраф.
             penalty = 100_000
 
             routing.AddDisjunction(
@@ -368,7 +373,6 @@ def optimize_vrptw(
             raise ValueError(
                 f"Неизвестный приоритет заявки: {priority}"
             )
-
     # ---------------------------------------------------------
     # 10. Алгоритм поиска
     # ---------------------------------------------------------
@@ -392,6 +396,20 @@ def optimize_vrptw(
     # ---------------------------------------------------------
     # 11. Решение
     # ---------------------------------------------------------
+
+    for request in requests:
+        priority = str(
+            enum_value(getattr(request, "priority", "default"))
+        ).lower()
+
+        if priority == "urgent":
+            print(
+                f"URGENT: id={request.id}, "
+                f"window={request.time_window_start} - {request.time_window_end}, "
+                f"duration={request.duration}, "
+                f"skill={request.required_skill}, "
+                f"vehicle={request.required_vehicle}"
+            )
 
     solution = routing.SolveWithParameters(
         search_parameters
