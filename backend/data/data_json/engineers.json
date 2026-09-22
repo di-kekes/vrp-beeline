@@ -1,0 +1,83 @@
+[
+    {
+        "id": 1,
+        "name": "Engineer 1",
+        "start_location": {
+            "latitude": 55.78172549409885,
+            "longitude": 37.65676360025509,
+            "address": null
+        },
+        "shift_start": "2026-09-21T08:00:00",
+        "shift_end": "2026-09-21T17:00:00",
+        "skills": [
+            "add_equipment_order",
+            "local_application",
+            "connection_client"
+        ],
+        "vehicle_type": "on_foot"
+    },
+    {
+        "id": 2,
+        "name": "Engineer 2",
+        "start_location": {
+            "latitude": 55.75150857808382,
+            "longitude": 37.62271630041329,
+            "address": null
+        },
+        "shift_start": "2026-09-21T08:00:00",
+        "shift_end": "2026-09-21T17:00:00",
+        "skills": [
+            "local_application",
+            "add_equipment_order",
+            "accidents_on_tkd"
+        ],
+        "vehicle_type": "car"
+    },
+    {
+        "id": 3,
+        "name": "Engineer 3",
+        "start_location": {
+            "latitude": 55.731554501853076,
+            "longitude": 37.68304501558064,
+            "address": null
+        },
+        "shift_start": "2026-09-21T08:00:00",
+        "shift_end": "2026-09-21T17:00:00",
+        "skills": [
+            "connection_client"
+        ],
+        "vehicle_type": "car"
+    },
+    {
+        "id": 4,
+        "name": "Engineer 4",
+        "start_location": {
+            "latitude": 55.67633216682928,
+            "longitude": 37.626551867249,
+            "address": null
+        },
+        "shift_start": "2026-09-21T08:00:00",
+        "shift_end": "2026-09-21T17:00:00",
+        "skills": [
+            "connection_client",
+            "add_equipment_order"
+        ],
+        "vehicle_type": "car"
+    },
+    {
+        "id": 5,
+        "name": "Engineer 5",
+        "start_location": {
+            "latitude": 55.691593654838734,
+            "longitude": 37.60664274064891,
+            "address": null
+        },
+        "shift_start": "2026-09-21T08:00:00",
+        "shift_end": "2026-09-21T17:00:00",
+        "skills": [
+            "local_application",
+            "accidents_on_tkd"
+        ],
+        "vehicle_type": "public_transport"
+    }
+]
