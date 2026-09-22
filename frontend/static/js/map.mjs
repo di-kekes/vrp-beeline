@@ -19,7 +19,6 @@ async function initMap() {
     );
 
     map.addChild(new YMapDefaultSchemeLayer({theme: "dark"}));
-    // map.addChild(new YMapDefaultFeaturesLayer());
 
     return map;
 }
