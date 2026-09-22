@@ -1,0 +1,64 @@
+* {
+    padding: 0;
+    margin: 0;
+    font-family: Montserrat, monospace;
+    text-align: center;
+    color: #DDDDDD;
+    border-radius: 6px;
+}
+
+body {
+    display: flex;
+    padding: 5vh 5vw 0 5vw;
+
+    background-color: #121212;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.map {
+    width: 70vw;
+    height: 70vh;
+    border: #DDDDDD solid 2px;
+}
+
+#dashboard {
+    height: 10vh;
+    margin: 5vh 0 0 0;
+    border: #DDDDDD solid 2px;
+}
+
+.engineer {
+    width: 90%;
+    background: none;
+    padding: 1%;
+    border: #DDDDDD solid 1px;
+    margin: 1%;
+
+    font-size: 16px;
+
+    animation: ease-in;
+    transition: all 200ms;
+}
+
+.engineer:hover {
+    transform: scale(103%);
+}
+
+#engineers_container {
+    display: flex;
+    width: 15vw;
+    height: 85vh;
+    padding: 5px;
+
+    overflow: auto;
+
+    border: #DDDDDD solid 2px;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column-reverse;
+}
+
+#engineers_label {
+    justify-self: flex-start;
+}
