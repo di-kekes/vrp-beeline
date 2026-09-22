@@ -1,45 +1,26 @@
-import updateMap from "./map.mjs"
+import {addMark} from "./map.mjs"
+import {connectEngineerButtons} from "./elements.mjs";
 
-function getDataFromBackend() {
-    let JSON_FROM_BACKEND = [
-        {
-            "id": 1,
-            "name": "Иван Сидоров",
-            "start_location": {
-                "latitude": 55.7558,
-                "longitude": 37.6173,
-                "address": "Москва"
-            },
-            "shift_start": "2026-09-17T09:00:00+03:00",
-            "shift_end": "2026-09-17T18:00:00+03:00",
-            "skills": [
-                "connection_client",
-                "accidents_on_tkd"
-            ],
-            "vehicle_type": "car"
-        }
-    ]
-    return JSON_FROM_BACKEND; // тут гет запрос на API
-}
+async function placeAllMArks() {
+    const requestsResponse = await fetch("http://localhost:8000/api/get_requests");
+    const requestsResponseData = await requestsResponse.json();
+    const requestsJSON = JSON.parse(requestsResponseData['data']);
 
-function setDashboardInfo(id, name) {
-    dashboard.textContent = `ID инженера: ${id}, Имя: ${name}`;
-}
-
-function main() {
-    for (let i in dataFromBackend) {
-        let engineer_JSON = dataFromBackend[i];
-        let id = engineer_JSON["id"];
-        document.getElementById("engineer" + id).addEventListener("click", () => {
-            updateMap(engineer_JSON["start_location"], []);
-            setDashboardInfo(id, engineer_JSON["name"]);
-        });
+    for (let i in requestsJSON) {
+        let request = requestsJSON[i];
+        await addMark(request["location"], "Заяка " + request["id"]);
     }
 }
 
 
-const dataFromBackend = getDataFromBackend();
-const dashboard = document.getElementById("dashboard");
+async function main() {
+    await placeAllMArks();
+    await connectEngineerButtons();
+}
 
-main();
 
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', main);
+} else {
+    main();
+}

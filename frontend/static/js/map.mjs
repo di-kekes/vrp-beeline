@@ -1,7 +1,12 @@
 async function initMap() {
     await ymaps3.ready;
 
-    const {YMap, YMapDefaultSchemeLayer} = ymaps3;
+    ymaps3.import.registerCdn(
+        'https://cdn.jsdelivr.net/npm/{package}',
+        ['@yandex/ymaps3-default-ui-theme@0.0'] // или @latest / конкретная версия
+    );
+
+    const {YMap, YMapDefaultSchemeLayer, YMapDefaultFeaturesLayer} = ymaps3;
 
     const map = new YMap(
         document.getElementById('map'),
@@ -19,23 +24,31 @@ async function initMap() {
     );
 
     map.addChild(new YMapDefaultSchemeLayer({theme: "dark"}));
+    const defaultFeaturesLayer = new YMapDefaultFeaturesLayer({theme: "dark"});
+    map.addChild(defaultFeaturesLayer);
 
     return map;
 }
 
-export default function updateMap(center, marks) {
+export function updateMap(center, mark) {
     yMap.setLocation({
         center: [center["longitude"], center["latitude"]],
         zoom: 17
     });
 
-    for (let mark in marks) {
-        addMark(mark)
-    }
+    addMark(mark["coordinates"], mark["name"], "red");
 }
 
-function addMark() {
-    return NaN;
+export async function addMark(coordinates, name, color="white") {
+    const {YMapDefaultMarker} = await ymaps3.import('@yandex/ymaps3-default-ui-theme');
+
+    const marker = new YMapDefaultMarker({
+        coordinates: [coordinates['longitude'], coordinates['latitude']],
+        title: name,
+        onClick: () => {console.log(name)}
+    });
+
+    yMap.addChild(marker);
 }
 
 const yMap = await initMap();

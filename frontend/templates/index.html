@@ -15,7 +15,7 @@
 </div>
 <div id="engineers_container">
     {% for engie in JSON%}
-    <button class="engineer" id="engineer{{engie['id']}}">{{ engie["name"] }}: {{ engie["id"] }}</button>
+    <button class="engineer" id="engineer{{engie['id']}}">{{ engie["name"] }}</button>
     {% endfor %}
     <div id="engineers_label">Доступные бригады и инженеры</div>
 </div>
