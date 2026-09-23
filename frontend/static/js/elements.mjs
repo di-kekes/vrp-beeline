@@ -1,4 +1,4 @@
-import {updateMap} from "./map.mjs";
+import {updateMap, addMark} from "./map.mjs";
 
 export async function connectEngineerButtons() {
     const engineerResponse = await fetch("http://localhost:8000/api/get_engineers");
@@ -14,6 +14,7 @@ export async function connectEngineerButtons() {
                 'coordinates': engineer["start_location"]
             });
             setDashboardInfo(id, engineer["name"]);
+            addMark(engineer["start_location"], "Engineer" + id);
         });
     }
 }

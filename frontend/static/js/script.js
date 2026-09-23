@@ -8,7 +8,7 @@ async function placeAllMArks() {
 
     for (let i in requestsJSON) {
         let request = requestsJSON[i];
-        await addMark(request["location"], "Заяка " + request["id"]);
+        await addMark(request["location"], "Заявка " + request["id"]);
     }
 }
 

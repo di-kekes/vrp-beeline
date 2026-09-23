@@ -14,27 +14,35 @@ async function initMap() {
 }
 
 
-function addMark(map, mark) {
-    return new mapgl.Marker(map, {
+export function addMark(mark, name) {
+    let marker = new mapgl.Marker(map, {
         coordinates: [
             mark["longitude"],
-            mark["latitude"]
-        ]
+            mark["latitude"],
+
+        ],
+        label: {
+            text: name,
+            offset: [20, 0],
+            relativeAnchor: [0, 0.5],
+        },
     });
+    marker.on('click', (e) => {
+        updateMap(mark);
+    });
+
+    return marker;
+
 }
 
 
-export default function updateMap(center, marks) {
+export function updateMap(center) {
     map.setCenter([
         center["longitude"],
         center["latitude"]
     ]);
 
     map.setZoom(17);
-
-    for (const mark of marks) {
-        addMark(map, mark);
-    }
 }
 
 
