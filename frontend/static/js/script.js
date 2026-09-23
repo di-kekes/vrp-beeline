@@ -1,5 +1,5 @@
 import updateMap from "./map.mjs"
-
+import setupDialogs from "./form.js"
 function getDataFromBackend() {
     let JSON_FROM_BACKEND = [
         {
@@ -35,6 +35,7 @@ function main() {
             setDashboardInfo(id, engineer_JSON["name"]);
         });
     }
+    setupDialogs();
 }
 
 

@@ -10,15 +10,153 @@
     <title>vrp-beeline</title>
 </head>
 <body>
-<div class="mapNDashboard">
-    <div id="map" class="map"></div>
-    <div id="dashboard">Дэшборд</div>
-</div>
-<div id="engineers_container">
-    {% for engie in JSON%}
-    <button class="engineer" id="engineer{{engie['id']}}">{{ engie["name"] }}: {{ engie["id"] }}</button>
-    {% endfor %}
-    <div id="engineers_label">Доступные бригады и инженеры</div>
+<div class="main-container">
+
+    <!-- Левая часть -->
+    <div class="left-container">
+
+        <div id="map" class="map"></div>
+
+        <div id="dashboard">
+            Дэшборд
+        </div>
+
+        <div id="controls">
+
+            <button class="control-button" id="requests-button">
+                Заявки
+            </button>
+
+            <button class="control-button" id="engineers-button">
+                Инженеры
+            </button>
+
+            <button class="control-button" id="plan-button">
+                Планирование
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- Правая часть -->
+    <div id="engineers_container">
+        <div id="engineers_label">
+            Доступные бригады и инженеры
+        </div>
+
+        {% for engie in JSON %}
+
+        <button
+            class="engineer"
+            id="engineer{{ engie['id'] }}"
+        >
+            {{ engie["name"] }}: {{ engie["id"] }}
+        </button>
+
+        {% endfor %}
+
+
+    </div>
+<!-- Модальное окно заявок -->
+<dialog id="requests-dialog">
+
+    <div class="dialog-content">
+
+        <button
+            class="close-button"
+            data-close="requests-dialog"
+        >
+            ×
+        </button>
+
+        <h2>Заявки</h2>
+
+        <button id="add-request-button">
+            Добавить заявку
+        </button>
+
+        <button id="edit-request-button">
+            Изменить заявку
+        </button>
+
+        <button id="delete-request-button">
+            Удалить заявку
+        </button>
+
+    </div>
+
+</dialog>
+
+
+<!-- Модальное окно инженеров -->
+<dialog id="engineers-dialog">
+
+    <div class="dialog-content">
+
+        <button
+            class="close-button"
+            data-close="engineers-dialog"
+        >
+            ×
+        </button>
+
+        <h2>Инженеры</h2>
+
+        <button id="add-engineer-button">
+            Добавить инженера
+        </button>
+
+        <button id="edit-engineer-button">
+            Изменить инженера
+        </button>
+
+        <button id="delete-engineer-button">
+            Удалить инженера
+        </button>
+
+    </div>
+
+</dialog>
+
+
+<!-- Модальное окно планирования -->
+<dialog id="plan-dialog">
+
+    <div class="dialog-content">
+
+        <button
+            class="close-button"
+            data-close="plan-dialog"
+        >
+            ×
+        </button>
+
+        <h2>Планирование</h2>
+
+        <button id="generate-button">
+            Сгенерировать заявки
+        </button>
+
+        <button id="csv-button">
+            Загрузить CSV
+        </button>
+
+        <input
+            type="file"
+            id="csv-input"
+            accept=".csv"
+            hidden
+        >
+
+        <button id="recalculate-button">
+            Пересчитать план
+        </button>
+
+    </div>
+
+</dialog>
 </div>
 <script src="../static/js/map.mjs" type="module"></script>
 <script src="../static/js/script.js" type="module"></script>
