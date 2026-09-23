@@ -1,18 +1,14 @@
 from fastapi import APIRouter, Request
 from fastapi.responses import HTMLResponse
 from fastapi.templating import Jinja2Templates
-from requests import get
-import json
-
+from data.json_bd import get_all_engineers
 router = APIRouter(tags=["Frontend Pages"])
-
+JSON_FROM_BACKEND = get_all_engineers()
 templates = Jinja2Templates(directory="../frontend/templates")
 @router.get("/index",response_class=HTMLResponse)
 @router.get("/",response_class=HTMLResponse)
 def root(request: Request):
-    response = get("http://localhost:8000/api/get_engineers")
-    engineers_json = json.loads(response.json()['data'])
-    return templates.TemplateResponse(name="index.html", request=request, context={"JSON": engineers_json})
+    return templates.TemplateResponse(name="index.html", request=request, context={"JSON": JSON_FROM_BACKEND})
 
 @router.get("/admin",response_class=HTMLResponse)
 async def admin(request: Request):

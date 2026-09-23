@@ -1,54 +1,41 @@
 async function initMap() {
-    await ymaps3.ready;
+    const map = new mapgl.Map("map", {
+        key: "2d64e373-d8b2-4338-b90b-53939cd66d6c",
 
-    ymaps3.import.registerCdn(
-        'https://cdn.jsdelivr.net/npm/{package}',
-        ['@yandex/ymaps3-default-ui-theme@0.0'] // или @latest / конкретная версия
-    );
+        // [longitude, latitude]
+        center: [37.70068539695633, 55.793981382041714],
 
-    const {YMap, YMapDefaultSchemeLayer, YMapDefaultFeaturesLayer} = ymaps3;
+        zoom: 17,
 
-    const map = new YMap(
-        document.getElementById('map'),
-
-        {
-            location: {
-                // Координаты центра карты
-                center: [37.70068539695633, 55.793981382041714],
-
-                // Уровень масштабирования
-                zoom: 17,
-                theme: "dark"
-            }
-        }
-    );
-
-    map.addChild(new YMapDefaultSchemeLayer({theme: "dark"}));
-    const defaultFeaturesLayer = new YMapDefaultFeaturesLayer({theme: "dark"});
-    map.addChild(defaultFeaturesLayer);
+        zoomControl: true
+    });
 
     return map;
 }
 
-export function updateMap(center, mark) {
-    yMap.setLocation({
-        center: [center["longitude"], center["latitude"]],
-        zoom: 17
-    });
 
-    addMark(mark["coordinates"], mark["name"], "red");
+function addMark(map, mark) {
+    return new mapgl.Marker(map, {
+        coordinates: [
+            mark["longitude"],
+            mark["latitude"]
+        ]
+    });
 }
 
-export async function addMark(coordinates, name, color="white") {
-    const {YMapDefaultMarker} = await ymaps3.import('@yandex/ymaps3-default-ui-theme');
 
-    const marker = new YMapDefaultMarker({
-        coordinates: [coordinates['longitude'], coordinates['latitude']],
-        title: name,
-        onClick: () => {console.log(name)}
-    });
+export default function updateMap(center, marks) {
+    map.setCenter([
+        center["longitude"],
+        center["latitude"]
+    ]);
 
-    yMap.addChild(marker);
+    map.setZoom(17);
+
+    for (const mark of marks) {
+        addMark(map, mark);
+    }
 }
 
-const yMap = await initMap();
+
+const map = await initMap();
