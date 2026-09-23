@@ -1,74 +1,752 @@
 [
     {
-        "id": 1,
-        "location": {
-            "latitude": 87.5,
-            "longitude": 43.58,
-            "address": "какойто адресс"
-        },
-        "priority": "default",
-        "required_skill": "connection_client",
-        "required_equipment": null,
-        "time_window_start": "2008-06-17T00:00:00",
-        "time_window_end": "2008-06-18T00:00:00",
-        "duration": [
-            20,
-            80,
-            0
-        ]
-    },
-    {
         "id": 2,
         "location": {
-            "latitude": 87.52,
-            "longitude": 43.582,
-            "address": "какойто адресс2"
+            "latitude": 55.82608007794815,
+            "longitude": 37.589130668970085,
+            "address": null
         },
         "priority": "default",
-        "required_skill": "connection_client",
+        "required_skill": "local_application",
         "required_equipment": null,
-        "time_window_start": "2008-06-17T00:00:00",
-        "time_window_end": "2008-06-18T00:00:00",
-        "duration": [
-            20,
-            80,
-            0
-        ]
+        "required_vehicle": null,
+        "time_window_start": "2026-09-21T13:27:00",
+        "time_window_end": "2026-09-21T14:27:00",
+        "duration": 70
     },
     {
         "id": 3,
         "location": {
-            "latitude": 87.52,
-            "longitude": 43.52,
-            "address": "какойто адресс2"
+            "latitude": 55.68746868053355,
+            "longitude": 37.57464218680049,
+            "address": null
         },
         "priority": "default",
-        "required_skill": "connection_client",
+        "required_skill": "add_equipment_order",
         "required_equipment": null,
-        "time_window_start": "2008-06-17T00:00:00",
-        "time_window_end": "2008-06-18T00:00:00",
-        "duration": [
-            20,
-            80,
-            0
-        ]
+        "required_vehicle": "on_foot",
+        "time_window_start": "2026-09-21T09:20:00",
+        "time_window_end": "2026-09-21T10:20:00",
+        "duration": 80
     },
     {
         "id": 4,
         "location": {
-            "latitude": 87.542,
-            "longitude": 43.452,
-            "address": "какойто адресс24"
+            "latitude": 55.79223584934847,
+            "longitude": 37.59394172734646,
+            "address": null
+        },
+        "priority": "default",
+        "required_skill": "add_equipment_order",
+        "required_equipment": null,
+        "required_vehicle": "on_foot",
+        "time_window_start": "2026-09-21T14:37:00",
+        "time_window_end": "2026-09-21T16:37:00",
+        "duration": 80
+    },
+    {
+        "id": 5,
+        "location": {
+            "latitude": 55.72012432078517,
+            "longitude": 37.5706797317018,
+            "address": null
+        },
+        "priority": "urgent",
+        "required_skill": "accidents_on_tkd",
+        "required_equipment": null,
+        "required_vehicle": "bicycle",
+        "time_window_start": "2026-09-21T15:17:00",
+        "time_window_end": "2026-09-21T16:17:00",
+        "duration": 20
+    },
+    {
+        "id": 6,
+        "location": {
+            "latitude": 55.7780244657302,
+            "longitude": 37.69630716030026,
+            "address": null
+        },
+        "priority": "default",
+        "required_skill": "add_equipment_order",
+        "required_equipment": null,
+        "required_vehicle": null,
+        "time_window_start": "2026-09-21T14:43:00",
+        "time_window_end": "2026-09-21T16:13:00",
+        "duration": 30
+    },
+    {
+        "id": 7,
+        "location": {
+            "latitude": 55.74186457092455,
+            "longitude": 37.68995158121204,
+            "address": null
         },
         "priority": "default",
         "required_skill": "connection_client",
         "required_equipment": null,
-        "time_window_start": "2008-06-17T00:00:00",
-        "time_window_end": "2008-06-18T00:00:00",
-        "duration": [
-            20,
-            80,
-            0
-        ]
+        "required_vehicle": null,
+        "time_window_start": "2026-09-21T08:41:00",
+        "time_window_end": "2026-09-21T10:41:00",
+        "duration": 70
+    },
+    {
+        "id": 8,
+        "location": {
+            "latitude": 55.794907014836845,
+            "longitude": 37.673289198883694,
+            "address": null
+        },
+        "priority": "default",
+        "required_skill": "accidents_on_tkd",
+        "required_equipment": null,
+        "required_vehicle": null,
+        "time_window_start": "2026-09-21T11:40:00",
+        "time_window_end": "2026-09-21T13:40:00",
+        "duration": 70
+    },
+    {
+        "id": 9,
+        "location": {
+            "latitude": 55.71905050965511,
+            "longitude": 37.6207867093483,
+            "address": null
+        },
+        "priority": "default",
+        "required_skill": "local_application",
+        "required_equipment": null,
+        "required_vehicle": null,
+        "time_window_start": "2026-09-21T08:28:00",
+        "time_window_end": "2026-09-21T10:28:00",
+        "duration": 20
+    },
+    {
+        "id": 10,
+        "location": {
+            "latitude": 55.78255988165246,
+            "longitude": 37.66126003748615,
+            "address": null
+        },
+        "priority": "default",
+        "required_skill": "accidents_on_tkd",
+        "required_equipment": null,
+        "required_vehicle": null,
+        "time_window_start": "2026-09-21T13:08:00",
+        "time_window_end": "2026-09-21T14:38:00",
+        "duration": 30
+    },
+    {
+        "id": 11,
+        "location": {
+            "latitude": 55.727441916034266,
+            "longitude": 37.5674209636684,
+            "address": null
+        },
+        "priority": "default",
+        "required_skill": "local_application",
+        "required_equipment": null,
+        "required_vehicle": null,
+        "time_window_start": "2026-09-21T08:33:00",
+        "time_window_end": "2026-09-21T10:33:00",
+        "duration": 30
+    },
+    {
+        "id": 12,
+        "location": {
+            "latitude": 55.74298821417879,
+            "longitude": 37.5567845019898,
+            "address": null
+        },
+        "priority": "default",
+        "required_skill": "local_application",
+        "required_equipment": null,
+        "required_vehicle": null,
+        "time_window_start": "2026-09-21T13:01:00",
+        "time_window_end": "2026-09-21T14:01:00",
+        "duration": 80
+    },
+    {
+        "id": 13,
+        "location": {
+            "latitude": 55.76758175420241,
+            "longitude": 37.59309825863734,
+            "address": null
+        },
+        "priority": "default",
+        "required_skill": "local_application",
+        "required_equipment": null,
+        "required_vehicle": null,
+        "time_window_start": "2026-09-21T08:02:00",
+        "time_window_end": "2026-09-21T09:32:00",
+        "duration": 30
+    },
+    {
+        "id": 14,
+        "location": {
+            "latitude": 55.74337403926797,
+            "longitude": 37.60715200230701,
+            "address": null
+        },
+        "priority": "default",
+        "required_skill": "add_equipment_order",
+        "required_equipment": null,
+        "required_vehicle": null,
+        "time_window_start": "2026-09-21T10:55:00",
+        "time_window_end": "2026-09-21T11:55:00",
+        "duration": 70
+    },
+    {
+        "id": 15,
+        "location": {
+            "latitude": 55.747776052378406,
+            "longitude": 37.59375766058275,
+            "address": null
+        },
+        "priority": "default",
+        "required_skill": "add_equipment_order",
+        "required_equipment": null,
+        "required_vehicle": "public_transport",
+        "time_window_start": "2026-09-21T13:14:00",
+        "time_window_end": "2026-09-21T14:44:00",
+        "duration": 80
+    },
+    {
+        "id": 16,
+        "location": {
+            "latitude": 55.74554330842666,
+            "longitude": 37.5497016175888,
+            "address": null
+        },
+        "priority": "default",
+        "required_skill": "add_equipment_order",
+        "required_equipment": null,
+        "required_vehicle": null,
+        "time_window_start": "2026-09-21T08:15:00",
+        "time_window_end": "2026-09-21T10:15:00",
+        "duration": 80
+    },
+    {
+        "id": 17,
+        "location": {
+            "latitude": 55.832202025574524,
+            "longitude": 37.6468998914862,
+            "address": null
+        },
+        "priority": "default",
+        "required_skill": "connection_client",
+        "required_equipment": null,
+        "required_vehicle": null,
+        "time_window_start": "2026-09-21T13:37:00",
+        "time_window_end": "2026-09-21T16:37:00",
+        "duration": 20
+    },
+    {
+        "id": 18,
+        "location": {
+            "latitude": 55.68215809071846,
+            "longitude": 37.62455108339411,
+            "address": null
+        },
+        "priority": "urgent",
+        "required_skill": "local_application",
+        "required_equipment": null,
+        "required_vehicle": "bicycle",
+        "time_window_start": "2026-09-21T10:45:00",
+        "time_window_end": "2026-09-21T13:45:00",
+        "duration": 20
+    },
+    {
+        "id": 19,
+        "location": {
+            "latitude": 55.793751553906894,
+            "longitude": 37.58649996602929,
+            "address": null
+        },
+        "priority": "urgent",
+        "required_skill": "add_equipment_order",
+        "required_equipment": null,
+        "required_vehicle": null,
+        "time_window_start": "2026-09-21T10:15:00",
+        "time_window_end": "2026-09-21T12:15:00",
+        "duration": 80
+    },
+    {
+        "id": 20,
+        "location": {
+            "latitude": 55.68918395880605,
+            "longitude": 37.58918020753981,
+            "address": null
+        },
+        "priority": "default",
+        "required_skill": "connection_client",
+        "required_equipment": null,
+        "required_vehicle": "car",
+        "time_window_start": "2026-09-21T11:58:00",
+        "time_window_end": "2026-09-21T14:58:00",
+        "duration": 20
+    },
+    {
+        "id": 21,
+        "location": {
+            "latitude": 55.73766372533539,
+            "longitude": 37.59344872876548,
+            "address": null
+        },
+        "priority": "default",
+        "required_skill": "connection_client",
+        "required_equipment": null,
+        "required_vehicle": null,
+        "time_window_start": "2026-09-21T14:09:00",
+        "time_window_end": "2026-09-21T15:39:00",
+        "duration": 70
+    },
+    {
+        "id": 22,
+        "location": {
+            "latitude": 55.72789134594763,
+            "longitude": 37.55295477993356,
+            "address": null
+        },
+        "priority": "default",
+        "required_skill": "connection_client",
+        "required_equipment": null,
+        "required_vehicle": null,
+        "time_window_start": "2026-09-21T12:29:00",
+        "time_window_end": "2026-09-21T14:29:00",
+        "duration": 30
+    },
+    {
+        "id": 23,
+        "location": {
+            "latitude": 55.73922192895203,
+            "longitude": 37.689228928599746,
+            "address": null
+        },
+        "priority": "default",
+        "required_skill": "add_equipment_order",
+        "required_equipment": null,
+        "required_vehicle": null,
+        "time_window_start": "2026-09-21T11:02:00",
+        "time_window_end": "2026-09-21T12:02:00",
+        "duration": 20
+    },
+    {
+        "id": 24,
+        "location": {
+            "latitude": 55.820575295835546,
+            "longitude": 37.627718700414945,
+            "address": null
+        },
+        "priority": "default",
+        "required_skill": "accidents_on_tkd",
+        "required_equipment": null,
+        "required_vehicle": null,
+        "time_window_start": "2026-09-21T09:55:00",
+        "time_window_end": "2026-09-21T10:55:00",
+        "duration": 80
+    },
+    {
+        "id": 25,
+        "location": {
+            "latitude": 55.73816217105337,
+            "longitude": 37.65012482454012,
+            "address": null
+        },
+        "priority": "default",
+        "required_skill": "local_application",
+        "required_equipment": null,
+        "required_vehicle": "on_foot",
+        "time_window_start": "2026-09-21T13:32:00",
+        "time_window_end": "2026-09-21T14:32:00",
+        "duration": 70
+    },
+    {
+        "id": 26,
+        "location": {
+            "latitude": 55.725678215339975,
+            "longitude": 37.540599213892655,
+            "address": null
+        },
+        "priority": "default",
+        "required_skill": "accidents_on_tkd",
+        "required_equipment": null,
+        "required_vehicle": null,
+        "time_window_start": "2026-09-21T12:59:00",
+        "time_window_end": "2026-09-21T14:29:00",
+        "duration": 80
+    },
+    {
+        "id": 27,
+        "location": {
+            "latitude": 55.72649112364434,
+            "longitude": 37.650348553982646,
+            "address": null
+        },
+        "priority": "default",
+        "required_skill": "add_equipment_order",
+        "required_equipment": null,
+        "required_vehicle": "car",
+        "time_window_start": "2026-09-21T11:52:00",
+        "time_window_end": "2026-09-21T14:52:00",
+        "duration": 70
+    },
+    {
+        "id": 28,
+        "location": {
+            "latitude": 55.742135712479666,
+            "longitude": 37.6154629774107,
+            "address": null
+        },
+        "priority": "default",
+        "required_skill": "connection_client",
+        "required_equipment": null,
+        "required_vehicle": null,
+        "time_window_start": "2026-09-21T15:12:00",
+        "time_window_end": "2026-09-21T16:42:00",
+        "duration": 80
+    },
+    {
+        "id": 29,
+        "location": {
+            "latitude": 55.739040313285415,
+            "longitude": 37.55885369574929,
+            "address": null
+        },
+        "priority": "urgent",
+        "required_skill": "add_equipment_order",
+        "required_equipment": null,
+        "required_vehicle": null,
+        "time_window_start": "2026-09-21T11:05:00",
+        "time_window_end": "2026-09-21T12:35:00",
+        "duration": 20
+    },
+    {
+        "id": 30,
+        "location": {
+            "latitude": 55.82442549384663,
+            "longitude": 37.61313906839818,
+            "address": null
+        },
+        "priority": "urgent",
+        "required_skill": "accidents_on_tkd",
+        "required_equipment": null,
+        "required_vehicle": null,
+        "time_window_start": "2026-09-21T12:28:00",
+        "time_window_end": "2026-09-21T15:28:00",
+        "duration": 30
+    },
+    {
+        "id": 31,
+        "location": {
+            "latitude": 55.75990303426267,
+            "longitude": 37.68862893063745,
+            "address": null
+        },
+        "priority": "default",
+        "required_skill": "connection_client",
+        "required_equipment": null,
+        "required_vehicle": null,
+        "time_window_start": "2026-09-21T14:49:00",
+        "time_window_end": "2026-09-21T16:49:00",
+        "duration": 80
+    },
+    {
+        "id": 32,
+        "location": {
+            "latitude": 55.818891014449264,
+            "longitude": 37.67796483724672,
+            "address": null
+        },
+        "priority": "default",
+        "required_skill": "accidents_on_tkd",
+        "required_equipment": null,
+        "required_vehicle": "public_transport",
+        "time_window_start": "2026-09-21T12:09:00",
+        "time_window_end": "2026-09-21T13:39:00",
+        "duration": 20
+    },
+    {
+        "id": 33,
+        "location": {
+            "latitude": 55.786281298472716,
+            "longitude": 37.56223239254266,
+            "address": null
+        },
+        "priority": "default",
+        "required_skill": "connection_client",
+        "required_equipment": null,
+        "required_vehicle": null,
+        "time_window_start": "2026-09-21T09:19:00",
+        "time_window_end": "2026-09-21T12:19:00",
+        "duration": 70
+    },
+    {
+        "id": 34,
+        "location": {
+            "latitude": 55.72885841581702,
+            "longitude": 37.57994493128185,
+            "address": null
+        },
+        "priority": "default",
+        "required_skill": "local_application",
+        "required_equipment": null,
+        "required_vehicle": null,
+        "time_window_start": "2026-09-21T09:04:00",
+        "time_window_end": "2026-09-21T12:04:00",
+        "duration": 20
+    },
+    {
+        "id": 35,
+        "location": {
+            "latitude": 55.70910731734831,
+            "longitude": 37.563514804057164,
+            "address": null
+        },
+        "priority": "default",
+        "required_skill": "add_equipment_order",
+        "required_equipment": null,
+        "required_vehicle": "bicycle",
+        "time_window_start": "2026-09-21T10:36:00",
+        "time_window_end": "2026-09-21T13:36:00",
+        "duration": 80
+    },
+    {
+        "id": 36,
+        "location": {
+            "latitude": 55.67703585993984,
+            "longitude": 37.58563582708143,
+            "address": null
+        },
+        "priority": "urgent",
+        "required_skill": "accidents_on_tkd",
+        "required_equipment": null,
+        "required_vehicle": null,
+        "time_window_start": "2026-09-21T13:50:00",
+        "time_window_end": "2026-09-21T15:50:00",
+        "duration": 80
+    },
+    {
+        "id": 37,
+        "location": {
+            "latitude": 55.785653634200905,
+            "longitude": 37.55697090283978,
+            "address": null
+        },
+        "priority": "urgent",
+        "required_skill": "local_application",
+        "required_equipment": null,
+        "required_vehicle": null,
+        "time_window_start": "2026-09-21T08:53:00",
+        "time_window_end": "2026-09-21T10:53:00",
+        "duration": 80
+    },
+    {
+        "id": 38,
+        "location": {
+            "latitude": 55.74027143546531,
+            "longitude": 37.57157828737973,
+            "address": null
+        },
+        "priority": "default",
+        "required_skill": "accidents_on_tkd",
+        "required_equipment": null,
+        "required_vehicle": "on_foot",
+        "time_window_start": "2026-09-21T10:43:00",
+        "time_window_end": "2026-09-21T13:43:00",
+        "duration": 80
+    },
+    {
+        "id": 39,
+        "location": {
+            "latitude": 55.755529136666475,
+            "longitude": 37.68261985118798,
+            "address": null
+        },
+        "priority": "default",
+        "required_skill": "local_application",
+        "required_equipment": null,
+        "required_vehicle": null,
+        "time_window_start": "2026-09-21T13:21:00",
+        "time_window_end": "2026-09-21T14:21:00",
+        "duration": 20
+    },
+    {
+        "id": 40,
+        "location": {
+            "latitude": 55.75682636767428,
+            "longitude": 37.655680030006586,
+            "address": null
+        },
+        "priority": "default",
+        "required_skill": "connection_client",
+        "required_equipment": null,
+        "required_vehicle": "public_transport",
+        "time_window_start": "2026-09-21T12:54:00",
+        "time_window_end": "2026-09-21T15:54:00",
+        "duration": 20
+    },
+    {
+        "id": 41,
+        "location": {
+            "latitude": 55.81007028522884,
+            "longitude": 37.682356259457364,
+            "address": null
+        },
+        "priority": "default",
+        "required_skill": "connection_client",
+        "required_equipment": null,
+        "required_vehicle": "bicycle",
+        "time_window_start": "2026-09-21T12:56:00",
+        "time_window_end": "2026-09-21T13:56:00",
+        "duration": 30
+    },
+    {
+        "id": 42,
+        "location": {
+            "latitude": 55.7309526818566,
+            "longitude": 37.564505325172476,
+            "address": null
+        },
+        "priority": "default",
+        "required_skill": "connection_client",
+        "required_equipment": null,
+        "required_vehicle": null,
+        "time_window_start": "2026-09-21T10:18:00",
+        "time_window_end": "2026-09-21T11:48:00",
+        "duration": 20
+    },
+    {
+        "id": 43,
+        "location": {
+            "latitude": 55.80421247561072,
+            "longitude": 37.587107207359395,
+            "address": null
+        },
+        "priority": "default",
+        "required_skill": "accidents_on_tkd",
+        "required_equipment": null,
+        "required_vehicle": "car",
+        "time_window_start": "2026-09-21T13:34:00",
+        "time_window_end": "2026-09-21T15:34:00",
+        "duration": 70
+    },
+    {
+        "id": 44,
+        "location": {
+            "latitude": 55.82637835113324,
+            "longitude": 37.68093591363694,
+            "address": null
+        },
+        "priority": "default",
+        "required_skill": "accidents_on_tkd",
+        "required_equipment": null,
+        "required_vehicle": "public_transport",
+        "time_window_start": "2026-09-21T12:31:00",
+        "time_window_end": "2026-09-21T14:01:00",
+        "duration": 20
+    },
+    {
+        "id": 45,
+        "location": {
+            "latitude": 55.81603459961235,
+            "longitude": 37.68045420827984,
+            "address": null
+        },
+        "priority": "default",
+        "required_skill": "add_equipment_order",
+        "required_equipment": null,
+        "required_vehicle": null,
+        "time_window_start": "2026-09-21T08:51:00",
+        "time_window_end": "2026-09-21T11:51:00",
+        "duration": 30
+    },
+    {
+        "id": 46,
+        "location": {
+            "latitude": 55.82426121252152,
+            "longitude": 37.6714856237562,
+            "address": null
+        },
+        "priority": "default",
+        "required_skill": "connection_client",
+        "required_equipment": null,
+        "required_vehicle": null,
+        "time_window_start": "2026-09-21T15:06:00",
+        "time_window_end": "2026-09-21T16:36:00",
+        "duration": 20
+    },
+    {
+        "id": 47,
+        "location": {
+            "latitude": 55.6971180715123,
+            "longitude": 37.58721130979146,
+            "address": null
+        },
+        "priority": "default",
+        "required_skill": "connection_client",
+        "required_equipment": null,
+        "required_vehicle": null,
+        "time_window_start": "2026-09-21T11:15:00",
+        "time_window_end": "2026-09-21T12:15:00",
+        "duration": 30
+    },
+    {
+        "id": 48,
+        "location": {
+            "latitude": 55.72408265727836,
+            "longitude": 37.596290622616415,
+            "address": null
+        },
+        "priority": "default",
+        "required_skill": "connection_client",
+        "required_equipment": null,
+        "required_vehicle": null,
+        "time_window_start": "2026-09-21T10:42:00",
+        "time_window_end": "2026-09-21T11:42:00",
+        "duration": 80
+    },
+    {
+        "id": 49,
+        "location": {
+            "latitude": 55.77106358127216,
+            "longitude": 37.573677800465994,
+            "address": null
+        },
+        "priority": "default",
+        "required_skill": "accidents_on_tkd",
+        "required_equipment": null,
+        "required_vehicle": "bicycle",
+        "time_window_start": "2026-09-21T14:17:00",
+        "time_window_end": "2026-09-21T15:47:00",
+        "duration": 20
+    },
+    {
+        "id": 50,
+        "location": {
+            "latitude": 55.70389059083416,
+            "longitude": 37.603351293536896,
+            "address": null
+        },
+        "priority": "default",
+        "required_skill": "local_application",
+        "required_equipment": null,
+        "required_vehicle": null,
+        "time_window_start": "2026-09-21T13:12:00",
+        "time_window_end": "2026-09-21T14:42:00",
+        "duration": 20
+    },
+    {
+        "id": 1,
+        "location": {
+            "latitude": 55.75339491070186,
+            "longitude": 37.69359927639858,
+            "address": null
+        },
+        "priority": "default",
+        "required_skill": "local_application",
+        "required_equipment": null,
+        "required_vehicle": null,
+        "time_window_start": "2026-09-21T09:20:00",
+        "time_window_end": "2026-09-21T10:20:00",
+        "duration": 70
     }
 ]

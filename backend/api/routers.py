@@ -2,6 +2,8 @@ from pydantic import TypeAdapter
 from fastapi import APIRouter
 from data import sintetic_dataset
 import data.json_bd as db
+
+
 router = APIRouter(
     prefix="/api",
     tags=["All api by now"]

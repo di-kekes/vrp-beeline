@@ -1,8 +1,9 @@
 from fastapi import APIRouter, Request
 from fastapi.responses import HTMLResponse
 from fastapi.templating import Jinja2Templates
+from data.json_bd import get_all_engineers
 router = APIRouter(tags=["Frontend Pages"])
-
+JSON_FROM_BACKEND = get_all_engineers()
 templates = Jinja2Templates(directory="../frontend/templates")
 @router.get("/index",response_class=HTMLResponse)
 @router.get("/",response_class=HTMLResponse)

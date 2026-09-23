@@ -1,41 +1,41 @@
 async function initMap() {
-    await ymaps3.ready;
+    const map = new mapgl.Map("map", {
+        key: "2d64e373-d8b2-4338-b90b-53939cd66d6c",
 
-    const {YMap, YMapDefaultSchemeLayer} = ymaps3;
+        // [longitude, latitude]
+        center: [37.70068539695633, 55.793981382041714],
 
-    const map = new YMap(
-        document.getElementById('map'),
+        zoom: 17,
 
-        {
-            location: {
-                // Координаты центра карты
-                center: [37.70068539695633, 55.793981382041714],
-
-                // Уровень масштабирования
-                zoom: 17,
-                theme: "dark"
-            }
-        }
-    );
-
-    map.addChild(new YMapDefaultSchemeLayer({theme: "dark"}));
+        zoomControl: true
+    });
 
     return map;
 }
 
-export default function updateMap(center, marks) {
-    yMap.setLocation({
-        center: [center["longitude"], center["latitude"]],
-        zoom: 17
-    });
 
-    for (let mark in marks) {
-        addMark(mark)
+function addMark(map, mark) {
+    return new mapgl.Marker(map, {
+        coordinates: [
+            mark["longitude"],
+            mark["latitude"]
+        ]
+    });
+}
+
+
+export default function updateMap(center, marks) {
+    map.setCenter([
+        center["longitude"],
+        center["latitude"]
+    ]);
+
+    map.setZoom(17);
+
+    for (const mark of marks) {
+        addMark(map, mark);
     }
 }
 
-function addMark() {
-    return NaN;
-}
 
-const yMap = await initMap();
+const map = await initMap();
