@@ -8,13 +8,12 @@ export async function connectEngineerButtons() {
     for (let i in engineerJSON) {
         let engineer = engineerJSON[i];
         let id = engineer["id"];
+        let coordinates = [engineer["start_location"]["longitude"], engineer["start_location"]["latitude"]];
+        addMark(engineer["start_location"], "Engineer" + id);
         document.getElementById("engineer" + id).addEventListener("click", () => {
-            updateMap(engineer["start_location"], {
-                'name': 'Engineer' + id,
-                'coordinates': engineer["start_location"]
-            });
+            updateMap(coordinates);
             setDashboardInfo(id, engineer["name"]);
-            addMark(engineer["start_location"], "Engineer" + id);
+            console.log(engineer["start_location"]);
         });
     }
 }
