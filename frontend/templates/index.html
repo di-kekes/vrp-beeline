@@ -1,37 +1,68 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
 
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>VRP Beeline</title>
+
+    <!-- 2GIS -->
     <script src="https://mapgl.2gis.com/api/js/v1"></script>
 
-    <link rel="stylesheet" href="../static/css/style.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>vrp-beeline</title>
+    <!-- CSS -->
+    <link
+        rel="stylesheet"
+        href="../static/css/style.css"
+    >
 </head>
+
 <body>
+
 <div class="main-container">
 
-    <!-- Левая часть -->
+    <!-- ==================== ЛЕВАЯ ЧАСТЬ ==================== -->
+
     <div class="left-container">
 
-        <div id="map" class="map"></div>
+        <!-- Карта -->
+        <div
+            id="map"
+            class="map"
+        ></div>
 
+        <!-- Дэшборд -->
         <div id="dashboard">
             Дэшборд
         </div>
 
+        <!-- Основные кнопки -->
         <div id="controls">
 
-            <button class="control-button" id="requests-button">
+            <button
+                type="button"
+                class="control-button"
+                id="requests-button"
+            >
                 Заявки
             </button>
 
-            <button class="control-button" id="engineers-button">
+            <button
+                type="button"
+                class="control-button"
+                id="engineers-button"
+            >
                 Инженеры
             </button>
 
-            <button class="control-button" id="plan-button">
+            <button
+                type="button"
+                class="control-button"
+                id="plan-button"
+            >
                 Планирование
             </button>
 
@@ -40,8 +71,10 @@
     </div>
 
 
-    <!-- Правая часть -->
+    <!-- ==================== ПРАВАЯ ЧАСТЬ ==================== -->
+
     <div id="engineers_container">
+
         <div id="engineers_label">
             Доступные бригады и инженеры
         </div>
@@ -49,6 +82,7 @@
         {% for engie in JSON %}
 
         <button
+            type="button"
             class="engineer"
             id="engineer{{ engie['id'] }}"
         >
@@ -57,31 +91,51 @@
 
         {% endfor %}
 
-
     </div>
-<!-- Модальное окно заявок -->
+
+</div>
+
+
+<!-- ========================================================= -->
+<!--                     МОДАЛЬНЫЕ ОКНА                        -->
+<!-- ========================================================= -->
+
+
+<!-- ==================== ЗАЯВКИ ==================== -->
+
 <dialog id="requests-dialog">
 
     <div class="dialog-content">
 
         <button
+            type="button"
             class="close-button"
             data-close="requests-dialog"
+            aria-label="Закрыть"
         >
             ×
         </button>
 
         <h2>Заявки</h2>
 
-        <button id="add-request-button">
+        <button
+            type="button"
+            id="add-request-button"
+        >
             Добавить заявку
         </button>
 
-        <button id="edit-request-button">
+        <button
+            type="button"
+            id="edit-request-button"
+        >
             Изменить заявку
         </button>
 
-        <button id="delete-request-button">
+        <button
+            type="button"
+            id="delete-request-button"
+        >
             Удалить заявку
         </button>
 
@@ -90,30 +144,180 @@
 </dialog>
 
 
-<!-- Модальное окно инженеров -->
-<dialog id="engineers-dialog">
+<!-- ==================== ДОБАВЛЕНИЕ ЗАЯВКИ ==================== -->
+
+<dialog id="add-request-dialog">
 
     <div class="dialog-content">
 
         <button
-            class="close-button"
-            data-close="engineers-dialog"
+            type="button"
+            class="close-button request-close-button"
+            data-close="add-request-dialog"
+            aria-label="Закрыть"
         >
             ×
         </button>
 
-        <h2>Инженеры</h2>
+        <h2>Добавить заявку</h2>
 
-        <button id="add-engineer-button">
-            Добавить инженера
+        <form id="request-form">
+
+            <!-- ID -->
+            <label for="request-id">
+                ID заявки
+            </label>
+
+            <input
+                id="request-id"
+                type="text"
+                placeholder="Например: 123"
+                required
+            >
+
+
+           <!-- Адрес -->
+<label for="request-address">
+    Адрес
+</label>
+
+<input
+    id="request-address"
+    type="text"
+    placeholder="Например: Москва, Тверская улица, 1"
+    required
+>
+
+
+            <!-- Приоритет -->
+            <label for="request-priority">
+                Приоритет
+            </label>
+
+            <select id="request-priority">
+
+                <option value="default">
+                    Обычная
+                </option>
+
+                <option value="urgent">
+                    Срочная
+                </option>
+
+            </select>
+
+
+            <!-- Навык -->
+            <label for="request-skill">
+                Требуемый навык
+            </label>
+
+            <select id="request-skill">
+
+                <option value="connection_client">
+                    connection_client
+                </option>
+
+                <option value="accidents_on_tkd">
+                    accidents_on_tkd
+                </option>
+
+                <option value="add_equipment_order">
+                    add_equipment_order
+                </option>
+
+                <option value="local_application">
+                    local_application
+                </option>
+
+            </select>
+
+
+            <!-- Начало временного окна -->
+            <label for="request-time-start">
+                Начало временного окна
+            </label>
+
+            <input
+                id="request-time-start"
+                type="datetime-local"
+                required
+            >
+
+
+            <!-- Конец временного окна -->
+            <label for="request-time-end">
+                Конец временного окна
+            </label>
+
+            <input
+                id="request-time-end"
+                type="datetime-local"
+                required
+            >
+
+
+            <!-- Длительность -->
+            <label for="request-duration">
+                Длительность, мин
+            </label>
+
+            <input
+                id="request-duration"
+                type="number"
+                min="1"
+                placeholder="Например: 30"
+                required
+            >
+
+
+            <!-- Сохранение -->
+            <button
+                type="button"
+                id="save-request-button"
+            >
+                Сохранить
+            </button>
+
+        </form>
+
+    </div>
+
+</dialog>
+
+
+<!-- ==================== ИЗМЕНЕНИЕ ЗАЯВКИ ==================== -->
+
+<dialog id="edit-request-dialog">
+
+    <div class="dialog-content">
+
+        <button
+            type="button"
+            class="close-button request-close-button"
+            data-close="edit-request-dialog"
+            aria-label="Закрыть"
+        >
+            ×
         </button>
 
-        <button id="edit-engineer-button">
-            Изменить инженера
-        </button>
+        <h2>Изменить заявку</h2>
 
-        <button id="delete-engineer-button">
-            Удалить инженера
+        <label for="edit-request-id">
+            ID заявки
+        </label>
+
+        <input
+            id="edit-request-id"
+            type="text"
+            placeholder="Введите ID заявки"
+        >
+
+        <button
+            type="button"
+            id="save-edit-request-button"
+        >
+            Найти и изменить
         </button>
 
     </div>
@@ -121,25 +325,399 @@
 </dialog>
 
 
-<!-- Модальное окно планирования -->
+<!-- ==================== УДАЛЕНИЕ ЗАЯВКИ ==================== -->
+
+<dialog id="delete-request-dialog">
+
+    <div class="dialog-content">
+
+        <button
+            type="button"
+            class="close-button request-close-button"
+            data-close="delete-request-dialog"
+            aria-label="Закрыть"
+        >
+            ×
+        </button>
+
+        <h2>Удалить заявку</h2>
+
+        <label for="delete-request-id">
+            ID заявки
+        </label>
+
+        <input
+            id="delete-request-id"
+            type="text"
+            placeholder="Введите ID заявки"
+        >
+
+        <button
+            type="button"
+            id="confirm-delete-request-button"
+        >
+            Удалить
+        </button>
+
+    </div>
+
+</dialog>
+
+
+<!-- ==================== ИНЖЕНЕРЫ ==================== -->
+
+<dialog id="engineers-dialog">
+
+    <div class="dialog-content">
+
+        <button
+            type="button"
+            class="close-button"
+            data-close="engineers-dialog"
+            aria-label="Закрыть"
+        >
+            ×
+        </button>
+
+        <h2>Инженеры</h2>
+
+        <button
+            type="button"
+            id="add-engineer-button"
+        >
+            Добавить инженера
+        </button>
+
+        <button
+            type="button"
+            id="edit-engineer-button"
+        >
+            Изменить инженера
+        </button>
+
+        <button
+            type="button"
+            id="delete-engineer-button"
+        >
+            Удалить инженера
+        </button>
+
+    </div>
+
+</dialog>
+
+<!-- ==================== ДОБАВЛЕНИЕ ИНЖЕНЕРА ==================== -->
+<dialog id="add-engineer-dialog">
+    <div class="dialog-content">
+
+        <button
+            type="button"
+            class="close-button engineer-close-button"
+            data-close="add-engineer-dialog"
+            aria-label="Закрыть"
+        >
+            ×
+        </button>
+
+        <h2>Добавить инженера</h2>
+
+        <form id="engineer-form">
+
+            <label for="engineer-id">ID инженера</label>
+            <input
+                id="engineer-id"
+                type="number"
+                min="1"
+                placeholder="Например: 1"
+                required
+            >
+
+            <label for="engineer-name">Имя</label>
+            <input
+                id="engineer-name"
+                type="text"
+                maxlength="150"
+                placeholder="Например: Иван Сидоров"
+                required
+            >
+
+            <label for="engineer-address">Адрес начальной точки</label>
+            <input
+                id="engineer-address"
+                type="text"
+                placeholder="Например: Москва, Тверская улица, 1"
+                required
+            >
+
+            <label for="engineer-shift-start">
+                Начало смены
+            </label>
+            <input
+                id="engineer-shift-start"
+                type="datetime-local"
+                required
+            >
+
+            <label for="engineer-shift-end">
+                Конец смены
+            </label>
+            <input
+                id="engineer-shift-end"
+                type="datetime-local"
+                required
+            >
+
+            <label for="engineer-skills">
+                Навыки
+            </label>
+
+            <select
+                id="engineer-skills"
+                multiple
+                required
+            >
+                <option value="connection_client">
+                    connection_client
+                </option>
+
+                <option value="accidents_on_tkd">
+                    accidents_on_tkd
+                </option>
+
+                <option value="add_equipment_order">
+                    add_equipment_order
+                </option>
+
+                <option value="local_application">
+                    local_application
+                </option>
+            </select>
+
+            <label for="engineer-vehicle">
+                Тип транспорта
+            </label>
+
+            <select id="engineer-vehicle" required>
+                <option value="car">Автомобиль</option>
+                <option value="on_foot">Пешком</option>
+                <option value="bicycle">Велосипед</option>
+                <option value="public_transport">
+                    Общественный транспорт
+                </option>
+            </select>
+
+            <button
+                type="button"
+                id="save-engineer-button"
+            >
+                Сохранить
+            </button>
+
+        </form>
+    </div>
+</dialog>
+
+<!-- ==================== ИЗМЕНЕНИЕ ИНЖЕНЕРА ==================== -->
+<dialog id="edit-engineer-dialog">
+    <div class="dialog-content">
+
+        <button
+            type="button"
+            class="close-button engineer-close-button"
+            data-close="edit-engineer-dialog"
+            aria-label="Закрыть"
+        >
+            ×
+        </button>
+
+        <h2>Изменить инженера</h2>
+
+        <form id="edit-engineer-form">
+
+            <label for="edit-engineer-id">
+                ID инженера
+            </label>
+
+            <input
+                id="edit-engineer-id"
+                type="number"
+                min="1"
+                placeholder="Введите ID инженера"
+                required
+            >
+
+            <label for="edit-engineer-name">
+                Имя
+            </label>
+
+            <input
+                id="edit-engineer-name"
+                type="text"
+                maxlength="150"
+                placeholder="Например: Иван Сидоров"
+                required
+            >
+
+            <label for="edit-engineer-address">
+                Адрес начальной точки
+            </label>
+
+            <input
+                id="edit-engineer-address"
+                type="text"
+                placeholder="Например: Москва, Тверская улица, 1"
+                required
+            >
+
+            <label for="edit-engineer-shift-start">
+                Начало смены
+            </label>
+
+            <input
+                id="edit-engineer-shift-start"
+                type="datetime-local"
+                required
+            >
+
+            <label for="edit-engineer-shift-end">
+                Конец смены
+            </label>
+
+            <input
+                id="edit-engineer-shift-end"
+                type="datetime-local"
+                required
+            >
+
+            <label for="edit-engineer-skills">
+                Навыки
+            </label>
+
+            <select
+                id="edit-engineer-skills"
+                multiple
+                required
+            >
+                <option value="connection_client">
+                    connection_client
+                </option>
+
+                <option value="accidents_on_tkd">
+                    accidents_on_tkd
+                </option>
+
+                <option value="add_equipment_order">
+                    add_equipment_order
+                </option>
+
+                <option value="local_application">
+                    local_application
+                </option>
+            </select>
+
+            <label for="edit-engineer-vehicle">
+                Тип транспорта
+            </label>
+
+            <select
+                id="edit-engineer-vehicle"
+                required
+            >
+                <option value="car">
+                    Автомобиль
+                </option>
+
+                <option value="on_foot">
+                    Пешком
+                </option>
+
+                <option value="bicycle">
+                    Велосипед
+                </option>
+
+                <option value="public_transport">
+                    Общественный транспорт
+                </option>
+            </select>
+
+            <button
+                type="button"
+                id="save-edit-engineer-button"
+            >
+                Сохранить изменения
+            </button>
+
+        </form>
+    </div>
+</dialog>
+<!-- ==================== УДАЛЕНИЕ ИНЖЕНЕРА ==================== -->
+<dialog id="delete-engineer-dialog">
+    <div class="dialog-content">
+
+        <button
+            type="button"
+            class="close-button engineer-close-button"
+            data-close="delete-engineer-dialog"
+            aria-label="Закрыть"
+        >
+            ×
+        </button>
+
+        <h2>Удалить инженера</h2>
+
+        <form id="delete-engineer-form">
+
+            <label for="delete-engineer-id">
+                ID инженера
+            </label>
+
+            <input
+                id="delete-engineer-id"
+                type="number"
+                min="1"
+                placeholder="Введите ID инженера"
+                required
+            >
+
+            <button
+                type="button"
+                id="confirm-delete-engineer-button"
+            >
+                Удалить
+            </button>
+
+        </form>
+    </div>
+</dialog>
+<!-- ==================== ПЛАНИРОВАНИЕ ==================== -->
+
 <dialog id="plan-dialog">
 
     <div class="dialog-content">
 
         <button
+            type="button"
             class="close-button"
             data-close="plan-dialog"
+            aria-label="Закрыть"
         >
             ×
         </button>
 
         <h2>Планирование</h2>
 
-        <button id="generate-button">
+        <button
+            type="button"
+            id="generate-button"
+        >
             Сгенерировать заявки
         </button>
 
-        <button id="csv-button">
+
+        <button
+            type="button"
+            id="csv-button"
+        >
             Загрузить CSV
         </button>
 
@@ -150,15 +728,30 @@
             hidden
         >
 
-        <button id="recalculate-button">
+
+        <button
+            type="button"
+            id="recalculate-button"
+        >
             Пересчитать план
         </button>
 
     </div>
 
 </dialog>
-</div>
-<script src="../static/js/map.mjs" type="module"></script>
-<script src="../static/js/script.js" type="module"></script>
+
+
+<!-- ==================== JAVASCRIPT ==================== -->
+
+<script
+    src="../static/js/map.mjs"
+    type="module"
+></script>
+
+<script
+    src="../static/js/script.js"
+    type="module"
+></script>
+
 </body>
 </html>
