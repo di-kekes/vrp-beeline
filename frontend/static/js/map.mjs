@@ -16,18 +16,21 @@ async function initMap() {
 }
 
 
-export function addMark(mark, name) {
+export function addMark(mark) {
     requestsMarks.push({
         coordinates: [
-            mark["longitude"],
-            mark["latitude"],
+            mark["location"]["longitude"],
+            mark["location"]["latitude"],
         ],
         label: {
-            text: name,
-            offset: [20, 0],
+            text: mark["name"],
+            offset: [30, 0],
             relativeAnchor: [0, 0.5],
         },
-        icon: "https://img.icons8.ru/ios-filled/50/marker.png"
+        icon: "../static/img/tooltip-line-text-svgrepo-com.svg",
+        hoverIcon: "../static/img/tooltip-line-text-svgrepo-com.svg",
+        size: [50, 50],
+        hoverSize: [55, 55],
     });
 }
 
@@ -38,12 +41,22 @@ export function updateMap(center, zoom = 17) {
         center[1]
     ]);
 
-    map.setZoom(zoom);
+    map.setZoom(zoom, {
+        duration: 1000,
+        easing: "easeInOutCubic"
+    });
 }
 
 export function initClusterer() {
     const clusterer = new Clusterer(map, {
-        radius: 200,
+        radius: 150,
+        clusterStyle: {
+            icon: "../static/img/tooltip-line-svgrepo-com.svg",
+            hoverIcon: "../static/img/tooltip-line-svgrepo-com.svg",
+            labelFontSize: 24,
+            size: [55, 55],
+            hoverSize: [55, 55],
+        }
     });
 
     clusterer.load(requestsMarks);
@@ -55,9 +68,25 @@ export function initClusterer() {
             updateMap(getClusterCenter(data), map.getZoom() + 2);
         } else {
             updateMap(data.coordinates);
+            console.log(data.coordinates);
         }
+    });
+}
+
+export function buildRoute(points) {
+    directions.pedestrianRoute({
+        points: points,
     });
 }
 
 let requestsMarks = [];
 const map = await initMap();
+const directions = new mapgl.Directions(map, {
+    directionsApiKey: '2d64e373-d8b2-4338-b90b-53939cd66d6c',
+});
+
+buildRoute([
+    [37.65082561320938, 55.79688181319625],
+    [37.673289198883694, 55.794907014836845],
+    [37.66126003748615, 55.78255988165246]
+]);

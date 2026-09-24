@@ -1,14 +1,14 @@
 import {addMark, initClusterer} from "./map.mjs"
 import {connectEngineerButtons} from "./elements.mjs";
+import {getRequestJSON} from "./functions.mjs";
 
 async function placeRequestMarks() {
-    const requestsResponse = await fetch("http://localhost:8000/api/get_requests");
-    const requestsResponseData = await requestsResponse.json();
-    const requestsJSON = JSON.parse(requestsResponseData['data']);
+    const requestsJSON = await getRequestJSON();
 
     for (let i in requestsJSON) {
         let request = requestsJSON[i];
-        await addMark(request["location"], "Заявка " + request["id"]);
+        request['name'] = "Заявка " + request["id"];
+        await addMark(request);
     }
 
 }

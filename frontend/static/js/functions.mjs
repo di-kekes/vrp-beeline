@@ -1,13 +1,25 @@
 export function getClusterCenter(points) {
-  if (!points || points.length === 0) return null;
+    if (!points || points.length === 0) return null;
 
-  let sumX = 0;
-  let sumY = 0;
+    let sumX = 0;
+    let sumY = 0;
 
-  for (let i = 0; i < points.length; i++) {
-    sumX += points[i].coordinates[0];
-    sumY += points[i].coordinates[1];
-  }
+    for (let i = 0; i < points.length; i++) {
+        sumX += points[i].coordinates[0];
+        sumY += points[i].coordinates[1];
+    }
 
-  return [sumX / points.length, sumY / points.length];
+    return [sumX / points.length, sumY / points.length];
+}
+
+export async function getRequestJSON() {
+    const requestsResponse = await fetch("http://localhost:8000/api/get_requests");
+    const requestsResponseData = await requestsResponse.json();
+    return JSON.parse(requestsResponseData['data']);
+}
+
+export async function getEngineerJSON() {
+    const engineerResponse = await fetch("http://localhost:8000/api/get_engineers");
+    const engineerResponseData = await engineerResponse.json();
+    return JSON.parse(engineerResponseData['data']);
 }
