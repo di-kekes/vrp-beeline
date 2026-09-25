@@ -3,15 +3,15 @@
         "id": 1,
         "name": "Engineer 1",
         "start_location": {
-            "latitude": 55.77119403394892,
-            "longitude": 37.62009472265925,
+            "latitude": 55.77113256092687,
+            "longitude": 37.65349500437646,
             "address": null
         },
         "shift_start": "2026-09-21T08:00:00",
         "shift_end": "2026-09-21T17:00:00",
         "skills": [
             "accidents_on_tkd",
-            "add_equipment_order"
+            "local_application"
         ],
         "vehicle_type": "on_foot"
     },
@@ -19,63 +19,66 @@
         "id": 2,
         "name": "Engineer 2",
         "start_location": {
-            "latitude": 55.67868788297601,
-            "longitude": 37.592932326170725,
+            "latitude": 55.68738967607128,
+            "longitude": 37.571110930851255,
             "address": null
         },
         "shift_start": "2026-09-21T08:00:00",
         "shift_end": "2026-09-21T17:00:00",
         "skills": [
-            "add_equipment_order",
             "local_application",
-            "connection_client"
+            "add_equipment_order",
+            "accidents_on_tkd"
         ],
-        "vehicle_type": "car"
+        "vehicle_type": "on_foot"
     },
     {
         "id": 3,
         "name": "Engineer 3",
         "start_location": {
-            "latitude": 55.76342437691915,
-            "longitude": 37.66001035659535,
+            "latitude": 55.830509142865,
+            "longitude": 37.60327664536237,
             "address": null
         },
         "shift_start": "2026-09-21T08:00:00",
         "shift_end": "2026-09-21T17:00:00",
         "skills": [
-            "add_equipment_order",
             "local_application",
             "connection_client"
         ],
-        "vehicle_type": "bicycle"
+        "vehicle_type": "public_transport"
     },
     {
         "id": 4,
         "name": "Engineer 4",
         "start_location": {
-            "latitude": 55.69458530207611,
-            "longitude": 37.631885260297516,
+            "latitude": 55.69615464584633,
+            "longitude": 37.59614228668545,
             "address": null
         },
         "shift_start": "2026-09-21T08:00:00",
         "shift_end": "2026-09-21T17:00:00",
         "skills": [
-            "connection_client"
+            "connection_client",
+            "accidents_on_tkd",
+            "add_equipment_order"
         ],
-        "vehicle_type": "bicycle"
+        "vehicle_type": "public_transport"
     },
     {
         "id": 5,
         "name": "Engineer 5",
         "start_location": {
-            "latitude": 55.740128904527644,
-            "longitude": 37.68966858096416,
+            "latitude": 55.67987362747154,
+            "longitude": 37.55656004920002,
             "address": null
         },
         "shift_start": "2026-09-21T08:00:00",
         "shift_end": "2026-09-21T17:00:00",
         "skills": [
-            "connection_client"
+            "accidents_on_tkd",
+            "add_equipment_order",
+            "local_application"
         ],
         "vehicle_type": "on_foot"
     }
