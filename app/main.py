@@ -3,7 +3,7 @@ from backend.api.routers import router as api_router
 from backend.web.web import router as web_router
 from fastapi.staticfiles import StaticFiles
 #здесь переменные templates и статик
-PATH_TO_STATIC = "frontend/static"
+PATH_TO_STATIC = "../frontend/static"
 
 app = FastAPI(title="My Great Project")
 

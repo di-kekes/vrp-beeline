@@ -19,7 +19,7 @@ export async function getRequestJSON() {
 }
 
 export async function getEngineerJSON() {
-    const engineerResponse = await fetch("http://localhost:8000/api/get_engineers");
+    const engineerResponse = await fetch("http://localhost:8000/api/get_optimizer_results");
     const engineerResponseData = await engineerResponse.json();
     return JSON.parse(engineerResponseData['data']);
 }

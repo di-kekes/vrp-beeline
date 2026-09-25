@@ -10,8 +10,8 @@ templates = Jinja2Templates(directory="frontend/templates")
 @router.get("/index",response_class=HTMLResponse)
 @router.get("/",response_class=HTMLResponse)
 def root(request: Request):
-    response = get("http://localhost:8000/api/get_engineers")
-    engineers_json = json.loads(response.json()['data'])
+    response = get("http://localhost:8000/api/get_optimizer_results")
+    engineers_json = response.json()
     return templates.TemplateResponse(name="index.html", request=request, context={"JSON": engineers_json})
 
 @router.get("/admin",response_class=HTMLResponse)

@@ -25,10 +25,10 @@ export function addMark(mark) {
         label: {
             text: mark["name"],
             offset: [30, 0],
-            relativeAnchor: [0, 0.5],
+            relativeAnchor: [0, 0.5]
         },
-        icon: "../static/img/tooltip-line-text-svgrepo-com.svg",
-        hoverIcon: "../static/img/tooltip-line-text-svgrepo-com.svg",
+        icon: "../static/img/chevron-down-circle-svgrepo-com.svg",
+        hoverIcon: "../static/img/chevron-down-circle-svgrepo-com.svg",
         size: [50, 50],
         hoverSize: [55, 55],
     });
@@ -51,8 +51,8 @@ export function initClusterer() {
     const clusterer = new Clusterer(map, {
         radius: 150,
         clusterStyle: {
-            icon: "../static/img/tooltip-line-svgrepo-com.svg",
-            hoverIcon: "../static/img/tooltip-line-svgrepo-com.svg",
+            icon: "../static/img/circle-svgrepo-com.svg",
+            hoverIcon: "../static/img/circle-svgrepo-com.svg",
             labelFontSize: 24,
             size: [55, 55],
             hoverSize: [55, 55],

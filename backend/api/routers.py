@@ -6,28 +6,35 @@ from backend.optimizer_v01.vrp_optimazer import optimize_vrptw
 import backend.data.data_schemas as schemas
 import backend.optimizer_v01.time_matrix as time
 from backend.optimizer_v01.vrp_optimazer import OptimizationResult
+
 router = APIRouter(
     prefix="/api",
     tags=["All api by now"]
 )
+
+
 # апишка
-#GET
+# GET
 @router.get("/get_engineers")
 async def get_engineers():
     try:
         type_adapter = TypeAdapter(list[db.Engineer])
         data = type_adapter.dump_json(db.get_all_engineers())
-        return {"code":200, "data":data}
+        return {"code": 200, "data": data}
     except Exception as e:
-        return {"code":500, "error":e}
+        return {"code": 500, "error": e}
+
+
 @router.get("/get_requests")
 async def get_requests():
     try:
         type_adapter = TypeAdapter(list[db.Request])
         data = type_adapter.dump_json(db.get_all_requests())
-        return {"code":200, "data":data}
+        return {"code": 200, "data": data}
     except Exception as e:
-        return {"code":500, "error":e}
+        return {"code": 500, "error": e}
+
+
 @router.get("/get_optimizer_results")
 async def get_optimizer_results():
     try:
@@ -47,48 +54,58 @@ async def get_optimizer_results():
             time_matrix=time_matrix,
             depot_location=depot_location,
             solver_time_limit_seconds=30,
-            )
+        )
+
         type_adapter = TypeAdapter(OptimizationResult)
         data = type_adapter.dump_json(result)
-        return {"code":200, "data":data}
+        return {"code": 200, "data": data}
     except Exception as e:
         return e
 
-#POST
+
+# POST
 @router.post("/add_engineer")
 async def add_engineer(engineer: db.Engineer):
     try:
         data = db.create_engineer(engineer)
-        return {"code":200, "data":data}
+        return {"code": 200, "data": data}
     except Exception as e:
-        return {"code":500, "message":str(e)}
+        return {"code": 500, "message": str(e)}
+
+
 @router.post("/urgent_request")
 async def urgent_request(request: db.Request):
     try:
         data = db.create_request(request)
-        return {"code":200, "data":data}
+        return {"code": 200, "data": data}
     except Exception as e:
-        return {"code":500, "message":str(e)}
-#DELETE
+        return {"code": 500, "message": str(e)}
+
+
+# DELETE
 @router.delete("/delete_request")
 async def delete_request(request: db.Request):
     try:
         data = db.delete_request(request.id)
-        return {"code": 200,"data":data}
+        return {"code": 200, "data": data}
     except Exception as e:
-        return {"code": 500, "message": str(e),}
+        return {"code": 500, "message": str(e), }
+
+
 @router.delete("/engineer_unavailable")
 async def engineer_unavailable(engineer: db.Engineer):
     try:
-        data = db.delete_engineer(engineer.id )
-        return {"code": 200,"data":data,"database":...}
+        data = db.delete_engineer(engineer.id)
+        return {"code": 200, "data": data, "database": ...}
     except Exception as e:
         return {"code": 500, "message": str(e)}
-#PUT
+
+
+# PUT
 @router.put("/generate_dataset")
 async def generate_dataset(data=None):
     try:
         sintetic_dataset.start()
-        return {"code":200}
+        return {"code": 200}
     except Exception as e:
-        return {"code":500, "error":e}
+        return {"code": 500, "error": e}
