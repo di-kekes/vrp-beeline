@@ -1,19 +1,19 @@
-import {updateMap} from "./map.mjs";
+import {updateMap, addMark, buildRoute} from "./map.mjs";
+import {getEngineerJSON} from "./functions.mjs";
 
 export async function connectEngineerButtons() {
-    const engineerResponse = await fetch("http://localhost:8000/api/get_engineers");
-    const engineerResponseData = await engineerResponse.json();
-    const engineerJSON = JSON.parse(engineerResponseData['data']);
-
+    const engineerJSON = await getEngineerJSON();
     for (let i in engineerJSON) {
         let engineer = engineerJSON[i];
         let id = engineer["id"];
+        let location = engineer["start_location"];
+        let coordinates = [location["longitude"], location["latitude"]];
+        engineer["location"] = location;
+        await addMark(engineer);
         document.getElementById("engineer" + id).addEventListener("click", () => {
-            updateMap(engineer["start_location"], {
-                'name': 'Engineer' + id,
-                'coordinates': engineer["start_location"]
-            });
+            updateMap(coordinates);
             setDashboardInfo(id, engineer["name"]);
+            buildRoute([]);
         });
     }
 }

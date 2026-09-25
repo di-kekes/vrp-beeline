@@ -6,27 +6,39 @@
     <link rel="stylesheet" href="../static/css/reset.css">
     <link rel="stylesheet" href="../static/css/style.css">
     <link rel="stylesheet" href="../static/css/map_style.css">
+    <script src="https://mapgl.2gis.com/api/js/v1"></script>
     <title>Beeline Business</title>
 </head>
 <body>
     <section class="wrapper">
         <div class="main_container">
-            <div class="map_container main_container_block">
-                <div class="map"></div>
+            <div class="map_container">
+                <div id="map" class="map"></div>
                 <div class="dashboard"></div>
             </div>
-            <div class="engineers_container main_container_block">
+            <div class="engineers_container">
                 <h2 class="text">Доступные инженеры</h2>
                 <div class="engineers">
                     {% for engie in JSON%}
                         <div class="engineer" id="engineer{{engie['id']}}">
                             <div class="engineer_block">
                                 <div class="engineers_block_name">
-                                    <p>Иванов Иван</p>
-                                    <p>Инженер 1</p>
+                                    <p class="engineer_name">Иванов Иван</p>
+                                    <p class="engineer_id">Инженер 1</p>
                                 </div>
                                 <div class="status">
-
+                                    <div class="point"></div>
+                                    <p class="status_text">Свободен</p>
+                                </div>
+                            </div>
+                            <div class="engineer_details">
+                                <img class="engineer_photo" src="../static/images/engineer_photo.png" alt="Инженер">
+                                <div class="engineer_info">
+                                    <p><b>Иванов Иван</b></p>
+                                    <p>ID: 1042</p>
+                                    <p>Инженер 1</p>
+                                    <p>Транспорт: 🚗</p>
+                                    <p>Навыки: Монтаж, настройка</p>
                                 </div>
                             </div>
                         </div>
@@ -42,5 +54,9 @@
             <button class="button button_5">Добавить</button>
         </div>
     </section>
+    <script src="https://unpkg.com/@2gis/mapgl-clusterer@^2/dist/clustering.js"></script>
+    <script src="https://unpkg.com/@2gis/mapgl-directions@^2/dist/directions.js"></script>
+    <script src="../static/js/map.mjs" type="module"></script>
+    <script src="../static/js/script.js" type="module"></script>
 </body>
 </html>

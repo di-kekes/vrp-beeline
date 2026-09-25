@@ -1,54 +1,92 @@
+import {getClusterCenter} from "./functions.mjs";
+
 async function initMap() {
-    await ymaps3.ready;
+    const map = new mapgl.Map("map", {
+        key: "2d64e373-d8b2-4338-b90b-53939cd66d6c",
 
-    ymaps3.import.registerCdn(
-        'https://cdn.jsdelivr.net/npm/{package}',
-        ['@yandex/ymaps3-default-ui-theme@0.0'] // или @latest / конкретная версия
-    );
+        // [longitude, latitude]
+        center: [37.70068539695633, 55.793981382041714],
 
-    const {YMap, YMapDefaultSchemeLayer, YMapDefaultFeaturesLayer} = ymaps3;
+        zoom: 17,
 
-    const map = new YMap(
-        document.getElementById('map'),
-
-        {
-            location: {
-                // Координаты центра карты
-                center: [37.70068539695633, 55.793981382041714],
-
-                // Уровень масштабирования
-                zoom: 17,
-                theme: "dark"
-            }
-        }
-    );
-
-    map.addChild(new YMapDefaultSchemeLayer({theme: "dark"}));
-    const defaultFeaturesLayer = new YMapDefaultFeaturesLayer({theme: "dark"});
-    map.addChild(defaultFeaturesLayer);
+        zoomControl: true
+    });
 
     return map;
 }
 
-export function updateMap(center, mark) {
-    yMap.setLocation({
-        center: [center["longitude"], center["latitude"]],
-        zoom: 17
-    });
 
-    addMark(mark["coordinates"], mark["name"], "red");
+export function addMark(mark) {
+    requestsMarks.push({
+        coordinates: [
+            mark["location"]["longitude"],
+            mark["location"]["latitude"],
+        ],
+        label: {
+            text: mark["name"],
+            offset: [30, 0],
+            relativeAnchor: [0, 0.5],
+        },
+        icon: "../static/img/tooltip-line-text-svgrepo-com.svg",
+        hoverIcon: "../static/img/tooltip-line-text-svgrepo-com.svg",
+        size: [50, 50],
+        hoverSize: [55, 55],
+    });
 }
 
-export async function addMark(coordinates, name, color="white") {
-    const {YMapDefaultMarker} = await ymaps3.import('@yandex/ymaps3-default-ui-theme');
 
-    const marker = new YMapDefaultMarker({
-        coordinates: [coordinates['longitude'], coordinates['latitude']],
-        title: name,
-        onClick: () => {console.log(name)}
+export function updateMap(center, zoom = 17) {
+    map.setCenter([
+        center[0],
+        center[1]
+    ]);
+
+    map.setZoom(zoom, {
+        duration: 1000,
+        easing: "easeInOutCubic"
     });
-
-    yMap.addChild(marker);
 }
 
-const yMap = await initMap();
+export function initClusterer() {
+    const clusterer = new Clusterer(map, {
+        radius: 150,
+        clusterStyle: {
+            icon: "../static/img/tooltip-line-svgrepo-com.svg",
+            hoverIcon: "../static/img/tooltip-line-svgrepo-com.svg",
+            labelFontSize: 24,
+            size: [55, 55],
+            hoverSize: [55, 55],
+        }
+    });
+
+    clusterer.load(requestsMarks);
+
+    clusterer.on('click', (event) => {
+        let data = event.target.data;
+        if (Array.isArray(data)) {
+            console.log(getClusterCenter(data));
+            updateMap(getClusterCenter(data), map.getZoom() + 2);
+        } else {
+            updateMap(data.coordinates);
+            console.log(data.coordinates);
+        }
+    });
+}
+
+export function buildRoute(points) {
+    directions.pedestrianRoute({
+        points: points,
+    });
+}
+
+let requestsMarks = [];
+const map = await initMap();
+const directions = new mapgl.Directions(map, {
+    directionsApiKey: '2d64e373-d8b2-4338-b90b-53939cd66d6c',
+});
+
+buildRoute([
+    [37.65082561320938, 55.79688181319625],
+    [37.673289198883694, 55.794907014836845],
+    [37.66126003748615, 55.78255988165246]
+]);
