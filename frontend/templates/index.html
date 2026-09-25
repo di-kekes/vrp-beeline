@@ -47,28 +47,32 @@
                 <h2 class="text">Доступные инженеры</h2>
                 <div class="engineers">
                     {% for engie in JSON%}
-                        <div class="engineer" id="engineer{{engie['id']}}">
-                            <div class="engineer_block">
-                                <div class="engineers_block_name">
-                                    <p class="engineer_name">Иванов Иван</p>
-                                    <p class="engineer_id">Инженер 1</p>
-                                </div>
-                                <div class="status">
-                                    <div class="point"></div>
-                                    <p class="status_text">Свободен</p>
-                                </div>
-                            </div>
-                            <div class="engineer_details">
-                                <img class="engineer_photo" src="../static/images/engineer_photo.png" alt="Инженер">
-                                <div class="engineer_info">
-                                    <p><b>Иванов Иван</b></p>
-                                    <p>ID: 1042</p>
-                                    <p>Инженер 1</p>
-                                    <p>Транспорт: 🚗</p>
-                                    <p>Навыки: Монтаж, настройка</p>
-                                </div>
-                            </div>
-                        </div>
+                        <button class="engineer" id="engineer{{engie['id']}}" type="button">
+                            <span class="engineer_block">
+                                <span class="engineers_block_name">
+                                    <span class="engineer_name">Иванов Иван</span>
+                                    <span class="engineer_id">Инженер 1</span>
+                                </span>
+                                <span class="status">
+                                    <span class="point"></span>
+                                    <span class="status_text">Свободен</span>
+                                </span>
+                            </span>
+                            <span class="engineer_details">
+                                <img
+                                    class="engineer_photo"
+                                    src="../static/images/engineer_photo.png"
+                                    alt="Инженер"
+                                >
+                                <span class="engineer_info">
+                                    <span><b>Иванов Иван</b></span>
+                                    <span>ID: 1042</span>
+                                    <span>Инженер 1</span>
+                                    <span>Транспорт: 🚗</span>
+                                    <span>Навыки: Монтаж, настройка</span>
+                                </span>
+                            </span>
+                        </button>
                     {% endfor %}
                 </div>
             </div>
