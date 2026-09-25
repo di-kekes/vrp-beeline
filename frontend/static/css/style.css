@@ -34,9 +34,52 @@ body {
 }
 
 .dashboard {
+    display: flex;
+    justify-content: space-between;
     width: 100%;
     height: 16vh;
-    background-color: #CED2D8;
+    background-color: #F5F7F9;
+}
+
+.dashboard_h2_text {
+    font-size: 26px;
+    font-weight: 700;
+}
+
+.dashboard_p_text {
+    font-size: 26px;
+}
+
+.line {
+    width: 0.08vw;
+    height: 12vh;
+    background-color: #000;
+}
+
+.general_plan {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    margin-top: 1vh;
+    margin-left: 0.5vw;
+    margin-bottom: 1vh;
+}
+
+.selected_engineer {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    margin-top: 1vh;
+    margin-bottom: 1vh;
+}
+
+.result_path {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    margin-top: 1vh;
+    margin-bottom: 1vh;
+    margin-right: 2vw;
 }
 
 .engineers_container {
