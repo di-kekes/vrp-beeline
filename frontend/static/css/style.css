@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Lobster&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
 body {
     background-color: #F5F7F9;
 }
@@ -9,6 +11,7 @@ body {
     padding-top: 11vh;
     width: 88vw;
     height: 80vh;
+    font-family: "Montserrat", sans-serif;
 }
 
 .main_container {
@@ -221,6 +224,7 @@ body {
     background-color: #159F40;
     margin-right: 1vh;
 }
+
 
 .status_text {
     font-size: 19px;

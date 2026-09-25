@@ -1,6 +1,6 @@
 import {addMark, initClusterer} from "./map.mjs"
 import {connectEngineerButtons} from "./elements.mjs";
-import {getEngineerJSON, getRequestJSON} from "./functions.mjs";
+import {getRequestJSON} from "./functions.mjs";
 
 async function placeRequestMarks() {
     const requestsJSON = await getRequestJSON();

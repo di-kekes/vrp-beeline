@@ -5,15 +5,28 @@ from requests import get
 import json
 
 router = APIRouter(tags=["Frontend Pages"])
-#!!!ВАЖНО: внизу дириктория отсчитывается не от web.py, а от main.py
+# !!!ВАЖНО: внизу дириктория отсчитывается не от web.py, а от main.py
 templates = Jinja2Templates(directory="frontend/templates")
-@router.get("/index",response_class=HTMLResponse)
-@router.get("/",response_class=HTMLResponse)
-def root(request: Request):
-    response = get("http://localhost:8000/api/get_optimizer_results")
-    engineers_json = response.json()
-    return templates.TemplateResponse(name="index.html", request=request, context={"JSON": engineers_json})
 
-@router.get("/admin",response_class=HTMLResponse)
+
+@router.get("/index", response_class=HTMLResponse)
+@router.get("/", response_class=HTMLResponse)
+def root(request: Request):
+    response = get("http://localhost:8000/api/get_engineers")
+    engineers_json = json.loads(response.json()['data'])
+    optimizer_json = json.loads(
+        "{\"routes\":[{\"engineer_id\":\"1\",\"stops\":[{\"request_id\":\"45\",\"visit_time\":\"2026-09-21T08:51:00\",\"duration_minutes\":30},{\"request_id\":\"44\",\"visit_time\":\"2026-09-21T12:31:00\",\"duration_minutes\":20},{\"request_id\":\"32\",\"visit_time\":\"2026-09-21T12:58:00\",\"duration_minutes\":20},{\"request_id\":\"46\",\"visit_time\":\"2026-09-21T15:06:00\",\"duration_minutes\":20},{\"request_id\":\"17\",\"visit_time\":\"2026-09-21T15:33:00\",\"duration_minutes\":20}],\"total_travel_minutes\":51,\"total_route_minutes\":486},{\"engineer_id\":\"2\",\"stops\":[{\"request_id\":\"1\",\"visit_time\":\"2026-09-21T09:20:00\",\"duration_minutes\":70},{\"request_id\":\"7\",\"visit_time\":\"2026-09-21T10:35:00\",\"duration_minutes\":70},{\"request_id\":\"23\",\"visit_time\":\"2026-09-21T11:47:00\",\"duration_minutes\":20},{\"request_id\":\"40\",\"visit_time\":\"2026-09-21T12:54:00\",\"duration_minutes\":20},{\"request_id\":\"15\",\"visit_time\":\"2026-09-21T13:24:00\",\"duration_minutes\":80},{\"request_id\":\"28\",\"visit_time\":\"2026-09-21T15:12:00\",\"duration_minutes\":80}],\"total_travel_minutes\":53,\"total_route_minutes\":521},{\"engineer_id\":\"3\",\"stops\":[{\"request_id\":\"13\",\"visit_time\":\"2026-09-21T08:03:00\",\"duration_minutes\":30},{\"request_id\":\"16\",\"visit_time\":\"2026-09-21T08:41:00\",\"duration_minutes\":80},{\"request_id\":\"29\",\"visit_time\":\"2026-09-21T11:05:00\",\"duration_minutes\":20},{\"request_id\":\"14\",\"visit_time\":\"2026-09-21T11:34:00\",\"duration_minutes\":70},{\"request_id\":\"27\",\"visit_time\":\"2026-09-21T12:53:00\",\"duration_minutes\":70}],\"total_travel_minutes\":50,\"total_route_minutes\":377},{\"engineer_id\":\"4\",\"stops\":[{\"request_id\":\"9\",\"visit_time\":\"2026-09-21T08:28:00\",\"duration_minutes\":20},{\"request_id\":\"18\",\"visit_time\":\"2026-09-21T10:45:00\",\"duration_minutes\":20},{\"request_id\":\"36\",\"visit_time\":\"2026-09-21T13:50:00\",\"duration_minutes\":80},{\"request_id\":\"5\",\"visit_time\":\"2026-09-21T15:26:00\",\"duration_minutes\":20}],\"total_travel_minutes\":64,\"total_route_minutes\":481},{\"engineer_id\":\"8\",\"stops\":[{\"request_id\":\"37\",\"visit_time\":\"2026-09-21T08:53:00\",\"duration_minutes\":80},{\"request_id\":\"33\",\"visit_time\":\"2026-09-21T10:14:00\",\"duration_minutes\":70},{\"request_id\":\"47\",\"visit_time\":\"2026-09-21T11:42:00\",\"duration_minutes\":30},{\"request_id\":\"20\",\"visit_time\":\"2026-09-21T12:18:00\",\"duration_minutes\":20},{\"request_id\":\"39\",\"visit_time\":\"2026-09-21T13:21:00\",\"duration_minutes\":20},{\"request_id\":\"31\",\"visit_time\":\"2026-09-21T14:49:00\",\"duration_minutes\":80}],\"total_travel_minutes\":65,\"total_route_minutes\":500},{\"engineer_id\":\"9\",\"stops\":[{\"request_id\":\"34\",\"visit_time\":\"2026-09-21T09:04:00\",\"duration_minutes\":20},{\"request_id\":\"3\",\"visit_time\":\"2026-09-21T09:34:00\",\"duration_minutes\":80},{\"request_id\":\"50\",\"visit_time\":\"2026-09-21T13:12:00\",\"duration_minutes\":20},{\"request_id\":\"25\",\"visit_time\":\"2026-09-21T13:42:00\",\"duration_minutes\":70},{\"request_id\":\"4\",\"visit_time\":\"2026-09-21T15:06:00\",\"duration_minutes\":80}],\"total_travel_minutes\":56,\"total_route_minutes\":511},{\"engineer_id\":\"10\",\"stops\":[{\"request_id\":\"48\",\"visit_time\":\"2026-09-21T10:42:00\",\"duration_minutes\":80},{\"request_id\":\"35\",\"visit_time\":\"2026-09-21T12:10:00\",\"duration_minutes\":80},{\"request_id\":\"26\",\"visit_time\":\"2026-09-21T13:41:00\",\"duration_minutes\":80},{\"request_id\":\"49\",\"visit_time\":\"2026-09-21T15:12:00\",\"duration_minutes\":20}],\"total_travel_minutes\":50,\"total_route_minutes\":459},{\"engineer_id\":\"14\",\"stops\":[{\"request_id\":\"24\",\"visit_time\":\"2026-09-21T09:55:00\",\"duration_minutes\":80},{\"request_id\":\"30\",\"visit_time\":\"2026-09-21T12:28:00\",\"duration_minutes\":30},{\"request_id\":\"2\",\"visit_time\":\"2026-09-21T13:27:00\",\"duration_minutes\":70},{\"request_id\":\"43\",\"visit_time\":\"2026-09-21T14:50:00\",\"duration_minutes\":70}],\"total_travel_minutes\":41,\"total_route_minutes\":487},{\"engineer_id\":\"17\",\"stops\":[{\"request_id\":\"11\",\"visit_time\":\"2026-09-21T08:33:00\",\"duration_minutes\":30},{\"request_id\":\"42\",\"visit_time\":\"2026-09-21T10:18:00\",\"duration_minutes\":20},{\"request_id\":\"38\",\"visit_time\":\"2026-09-21T10:43:00\",\"duration_minutes\":80},{\"request_id\":\"12\",\"visit_time\":\"2026-09-21T13:01:00\",\"duration_minutes\":80},{\"request_id\":\"22\",\"visit_time\":\"2026-09-21T14:28:00\",\"duration_minutes\":30},{\"request_id\":\"21\",\"visit_time\":\"2026-09-21T15:04:00\",\"duration_minutes\":70}],\"total_travel_minutes\":44,\"total_route_minutes\":505},{\"engineer_id\":\"18\",\"stops\":[{\"request_id\":\"19\",\"visit_time\":\"2026-09-21T10:15:00\",\"duration_minutes\":80},{\"request_id\":\"8\",\"visit_time\":\"2026-09-21T11:45:00\",\"duration_minutes\":70},{\"request_id\":\"41\",\"visit_time\":\"2026-09-21T13:01:00\",\"duration_minutes\":30},{\"request_id\":\"10\",\"visit_time\":\"2026-09-21T13:39:00\",\"duration_minutes\":30},{\"request_id\":\"6\",\"visit_time\":\"2026-09-21T14:43:00\",\"duration_minutes\":30}],\"total_travel_minutes\":45,\"total_route_minutes\":444}],\"unassigned_requests\":[]}"
+    )
+    response = get("http://localhost:8000/api/get_requests")
+    requests_json = json.loads(response.json()['data'])
+
+    return templates.TemplateResponse(name="index.html", request=request, context={
+        "JSON": optimizer_json,
+        "engineers": engineers_json,
+        "requests": requests_json
+    })
+
+
+@router.get("/admin", response_class=HTMLResponse)
 async def admin(request: Request):
     return templates.TemplateResponse(name="admin.html", request=request)

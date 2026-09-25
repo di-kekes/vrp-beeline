@@ -1,11 +1,12 @@
 import {updateMap, addMark, buildRoute} from "./map.mjs";
-import {getEngineerJSON} from "./functions.mjs";
+import {getEngineerJSON, getOptimizerJSON} from "./functions.mjs";
 
 export async function connectEngineerButtons() {
+    const optimizerJSON = await getOptimizerJSON();
     const engineerJSON = await getEngineerJSON();
-    for (let i in engineerJSON) {
-        let engineer = engineerJSON[i];
-        let id = engineer["id"];
+    for (let i in optimizerJSON['routes']) {
+        let id = Number(optimizerJSON['routes'][i]["engineer_id"]);
+        let engineer = engineerJSON[id];
         let location = engineer["start_location"];
         let coordinates = [location["longitude"], location["latitude"]];
         engineer["location"] = location;
@@ -21,6 +22,3 @@ export async function connectEngineerButtons() {
 function setDashboardInfo(id, name) {
     dashboard.textContent = `ID инженера: ${id}, Имя: ${name}`;
 }
-
-
-const dashboard = document.getElementById("dashboard");
