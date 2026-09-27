@@ -5,8 +5,8 @@ from requests import get
 import json
 
 router = APIRouter(tags=["Frontend Pages"])
-
-templates = Jinja2Templates(directory="../frontend/templates")
+#!!!ВАЖНО: внизу дириктория отсчитывается не от web.py, а от main.py
+templates = Jinja2Templates(directory="frontend/templates")
 @router.get("/index",response_class=HTMLResponse)
 @router.get("/",response_class=HTMLResponse)
 def root(request: Request):

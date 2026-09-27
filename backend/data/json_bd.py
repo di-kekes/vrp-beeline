@@ -16,7 +16,7 @@ DATA_DIR = BASE_DIR / "data_json"
 
 ENGINEERS_FILE = DATA_DIR / "engineers.json"
 REQUESTS_FILE = DATA_DIR / "requests.json"
-
+CASH_FILE = DATA_DIR / "optimizer_cash.json"
 
 def initialize_database() -> None:
     """
@@ -26,7 +26,7 @@ def initialize_database() -> None:
 
     DATA_DIR.mkdir(parents=True, exist_ok=True)
 
-    for file_path in (ENGINEERS_FILE, REQUESTS_FILE):
+    for file_path in (ENGINEERS_FILE, REQUESTS_FILE, CASH_FILE):
         if not file_path.exists():
             file_path.write_text(
                 "[]",
