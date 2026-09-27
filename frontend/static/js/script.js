@@ -1,29 +1,45 @@
-import {addMark, initClusterer} from "./map.mjs"
-import {connectEngineerButtons} from "./elements.mjs";
-import {getRequestJSON} from "./functions.mjs";
+import updateMap from "./map.mjs"
+import setupDialogs from "./form.js"
+function getDataFromBackend() {
+    let JSON_FROM_BACKEND = [
+        {
+            "id": 1,
+            "name": "Иван Сидоров",
+            "start_location": {
+                "latitude": 55.7558,
+                "longitude": 37.6173,
+                "address": "Москва"
+            },
+            "shift_start": "2026-09-17T09:00:00+03:00",
+            "shift_end": "2026-09-17T18:00:00+03:00",
+            "skills": [
+                "connection_client",
+                "accidents_on_tkd"
+            ],
+            "vehicle_type": "car"
+        }
+    ]
+    return JSON_FROM_BACKEND; // тут гет запрос на API
+}
 
-async function placeRequestMarks() {
-    const requestsJSON = await getRequestJSON();
+function setDashboardInfo(id, name) {
+    dashboard.textContent = `ID инженера: ${id}, Имя: ${name}`;
+}
 
-    for (let i in requestsJSON) {
-        let request = requestsJSON[i];
-        request['name'] = "Заявка " + request["id"];
-        await addMark(request);
+function main() {
+    for (let i in dataFromBackend) {
+        let engineer_JSON = dataFromBackend[i];
+        let id = engineer_JSON["id"];
+        document.getElementById("engineer" + id).addEventListener("click", () => {
+            updateMap(engineer_JSON["start_location"], []);
+            setDashboardInfo(id, engineer_JSON["name"]);
+        });
     }
-
+    setupDialogs();
 }
 
 
-async function main() {
-    await placeRequestMarks();
-    await connectEngineerButtons();
-    initClusterer();
+const dataFromBackend = getDataFromBackend();
+const dashboard = document.getElementById("dashboard");
 
-}
-
-
-if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', main);
-} else {
-    main();
-}
+main();

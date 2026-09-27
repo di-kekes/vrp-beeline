@@ -78,12 +78,85 @@
             </div>
         </div>
         <div class="buttons">
-            <button class="button button_1">Перерасёт маршрутов</button>
-            <button class="button button_2">Отмена заявки</button>
-            <button class="button button_3">Инженер недоступен</button>
-            <button class="button button_4">Срочная заявка</button>
-            <button class="button button_5">Добавить</button>
+            <button class="control-button" id="requests-button">
+                Заявки
+            </button>
+            <button class="control-button" id="engineers-button">
+                Инженеры
+            </button>
+            <button class="control-button" id="plan-button">
+                Планирование
+            </button>
         </div>
+        <!-- Модальное окно заявок -->
+        <dialog id="requests-dialog">
+            <div class="dialog-content">
+                <button
+                    class="close-button"
+                    data-close="requests-dialog"
+                >
+                    ×
+                </button>
+                <h2>Заявки</h2>
+                <button id="add-request-button">
+                    Добавить заявку
+                </button>
+                <button id="edit-request-button">
+                    Изменить заявку
+                </button>
+                <button id="delete-request-button">
+                    Удалить заявку
+                </button>
+            </div>
+        </dialog>
+        <!-- Модальное окно инженеров -->
+        <dialog id="engineers-dialog">
+            <div class="dialog-content">
+                <button
+                    class="close-button"
+                    data-close="engineers-dialog"
+                >
+                    ×
+                </button>
+                <h2>Инженеры</h2>
+                <button id="add-engineer-button">
+                    Добавить инженера
+                </button>
+                <button id="edit-engineer-button">
+                    Изменить инженера
+                </button>
+                <button id="delete-engineer-button">
+                    Удалить инженера
+                </button>
+            </div>
+        </dialog>
+        <!-- Модальное окно планирования -->
+        <dialog id="plan-dialog">
+            <div class="dialog-content">
+                <button
+                    class="close-button"
+                    data-close="plan-dialog"
+                >
+                    ×
+                </button>
+                <h2>Планирование</h2>
+                <button id="generate-button">
+                    Сгенерировать заявки
+                </button>
+                <button id="csv-button">
+                    Загрузить CSV
+                </button>
+                <input
+                    type="file"
+                    id="csv-input"
+                    accept=".csv"
+                    hidden
+                >
+                <button id="recalculate-button">
+                    Пересчитать план
+                </button>
+            </div>
+        </dialog>
     </section>
     <script src="https://unpkg.com/@2gis/mapgl-clusterer@^2/dist/clustering.js"></script>
     <script src="https://unpkg.com/@2gis/mapgl-directions@^2/dist/directions.js"></script>

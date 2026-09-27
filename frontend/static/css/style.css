@@ -16,6 +16,7 @@ body {
     background-color: #F5F7F9;
     width: 100%;
     height: 69vh;
+
     justify-content: space-between;
 }
 
@@ -30,7 +31,7 @@ body {
 .map {
     width: 100%;
     height: 52vh;
-    border-radius: 16px;
+    border-radius: 17px;
 }
 
 .dashboard {
@@ -245,7 +246,7 @@ body {
 
 .buttons {
     width: 88vw;
-    height: 11vh;
+    height: 19vh;
     background-color: #F5F7F9;
     display: flex;
     justify-content: space-between;
@@ -253,47 +254,128 @@ body {
     flex-wrap: wrap;
 }
 
-.button {
+.control-button {
     border-radius: 7px;
-    height: 50%;
+    height: 33%;
+    margin-bottom: 3.2vh;
 }
 
-.button_1 {
+.control-button:active {
+    transform: translateY(-1px) scale(.99);
+    transition-duration: 0.08s;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+}
+
+#requests-button {
     min-width: 320px;
-    width: 20vw;
-    font-size: 22px;
+    width: 28vw;
+    font-size: 26px;
     border-width: 0;
+    cursor: pointer;
     background-image: linear-gradient(#FFCB0F, #EDA105);
 }
 
-.button_2 {
-    width: 15vw;
+#requests-button:hover {
+    transform: translateY(-4px) scale(1.015);
+    background: linear-gradient(
+        135deg,
+        #ffd34d,
+        #ffb300
+    );
+    box-shadow:
+        0 10px 25px rgba(245, 169, 0, .30),
+        0 0 0 1px rgba(255,255,255,.25) inset;
+}
+
+#engineers-button {
+    width: 28vw;
     min-width: 200px;
-    font-size: 22px;
+    font-size: 26px;
     border-width: 2px;
+    cursor: pointer;
     border-color: #000;
 }
 
-.button_3 {
-    width: 20vw;
-    min-width: 320px;
-    font-size: 22px;
-    border-width: 2px;
-    border-color: #000;
+#engineers-button:hover {
+    transform: translateY(-4px) scale(1.015);
+    background: #ffffff;
+    border-color: #222;
+    box-shadow:
+        0 10px 25px rgba(0,0,0,.14),
+        0 0 0 1px rgba(255,255,255,.8) inset;
 }
 
-.button_4 {
-    width: 15vw;
+#plan-button {
+    width: 28vw;
     min-width: 200px;
-    font-size: 22px;
+    font-size: 26px;
     border-width: 0;
+    cursor: pointer;
     background-color: #FFE486;
 }
 
-.button_5 {
-    width: 10vw;
-    min-width: 180px;
-    font-size: 22px;
-    border-width: 2px;
-    border-color: #000;
+#plan-button:hover {
+    transform: translateY(-4px) scale(1.015);
+    background: linear-gradient(
+            135deg,
+            #ffedaa,
+            #ffdf61
+    );
+    box-shadow:
+        0 10px 25px rgba(255, 211, 70, .30),
+        0 0 0 1px rgba(255,255,255,.35) inset;
+}
+
+dialog {
+    width: 400px;
+    padding: 0;
+    background-color: #121212;
+    color: #DDDDDD;
+    border: 2px solid #DDDDDD;
+    border-radius: 6px;
+}
+
+
+/* Затемнение страницы */
+dialog::backdrop {
+    background: rgba(0, 0, 0, 0.75);
+}
+
+/* Содержимое */
+.dialog-content {
+    position: relative;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.dialog-content h2 {
+    margin-bottom: 10px;
+    color: #DDDDDD;
+}
+
+/* Кнопки */
+.dialog-content button {
+    padding: 12px;
+    background-color: #121212;
+    border: 1px solid #DDDDDD;
+    color: #DDDDDD;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+.dialog-content button:hover {
+    background-color: #1e1e1e;
+}
+
+/* Крестик */
+.close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 35px;
+    padding: 5px !important;
+    border: none !important;
+    font-size: 24px !important;
 }
