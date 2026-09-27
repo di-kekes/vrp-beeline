@@ -1,20 +1,5 @@
 [
     {
-        "id": 2,
-        "location": {
-            "latitude": 55.82608007794815,
-            "longitude": 37.589130668970085,
-            "address": null
-        },
-        "priority": "default",
-        "required_skill": "local_application",
-        "required_equipment": null,
-        "required_vehicle": null,
-        "time_window_start": "2026-09-21T13:27:00",
-        "time_window_end": "2026-09-21T14:27:00",
-        "duration": 70
-    },
-    {
         "id": 3,
         "location": {
             "latitude": 55.68746868053355,
@@ -733,20 +718,5 @@
         "time_window_start": "2026-09-21T13:12:00",
         "time_window_end": "2026-09-21T14:42:00",
         "duration": 20
-    },
-    {
-        "id": 1,
-        "location": {
-            "latitude": 55.75339491070186,
-            "longitude": 37.69359927639858,
-            "address": null
-        },
-        "priority": "default",
-        "required_skill": "local_application",
-        "required_equipment": null,
-        "required_vehicle": null,
-        "time_window_start": "2026-09-21T09:20:00",
-        "time_window_end": "2026-09-21T10:20:00",
-        "duration": 70
     }
 ]

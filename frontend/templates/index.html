@@ -147,7 +147,6 @@
 <!-- ==================== ДОБАВЛЕНИЕ ЗАЯВКИ ==================== -->
 
 <dialog id="add-request-dialog">
-
     <div class="dialog-content">
 
         <button
@@ -163,7 +162,6 @@
 
         <form id="request-form">
 
-            <!-- ID -->
             <label for="request-id">
                 ID заявки
             </label>
@@ -176,26 +174,23 @@
             >
 
 
-           <!-- Адрес -->
-<label for="request-address">
-    Адрес
-</label>
+            <label for="request-address">
+                Адрес
+            </label>
 
-<input
-    id="request-address"
-    type="text"
-    placeholder="Например: Москва, Тверская улица, 1"
-    required
->
+            <input
+                id="request-address"
+                type="text"
+                placeholder="Например: Москва, Тверская улица, 1"
+                required
+            >
 
 
-            <!-- Приоритет -->
             <label for="request-priority">
                 Приоритет
             </label>
 
             <select id="request-priority">
-
                 <option value="default">
                     Обычная
                 </option>
@@ -203,37 +198,62 @@
                 <option value="urgent">
                     Срочная
                 </option>
-
             </select>
 
 
-            <!-- Навык -->
             <label for="request-skill">
-                Требуемый навык
+                Тип заявки
             </label>
 
-            <select id="request-skill">
+            <select id="request-skill" required>
 
                 <option value="connection_client">
-                    connection_client
+                    Подключение клиента — 70 мин
                 </option>
 
                 <option value="accidents_on_tkd">
-                    accidents_on_tkd
+                    Происшествие на ТКД — 80 мин
                 </option>
 
                 <option value="add_equipment_order">
-                    add_equipment_order
+                    Дозаказ оборудования — 20 мин
                 </option>
 
                 <option value="local_application">
-                    local_application
+                    Локальная заявка — 30 мин
+                </option>
+
+            </select>
+            
+            <label for="request-vehicle">
+                Требуемый тип транспорта
+            </label>
+
+            <select id="request-vehicle">
+
+                <option value="">
+                    Не требуется
+                </option>
+
+                <option value="car">
+                    Автомобиль
+                </option>
+
+                <option value="on_foot">
+                    Пешком
+                </option>
+
+                <option value="bicycle">
+                    Велосипед
+                </option>
+
+                <option value="public_transport">
+                    Общественный транспорт
                 </option>
 
             </select>
 
 
-            <!-- Начало временного окна -->
             <label for="request-time-start">
                 Начало временного окна
             </label>
@@ -245,7 +265,6 @@
             >
 
 
-            <!-- Конец временного окна -->
             <label for="request-time-end">
                 Конец временного окна
             </label>
@@ -257,21 +276,6 @@
             >
 
 
-            <!-- Длительность -->
-            <label for="request-duration">
-                Длительность, мин
-            </label>
-
-            <input
-                id="request-duration"
-                type="number"
-                min="1"
-                placeholder="Например: 30"
-                required
-            >
-
-
-            <!-- Сохранение -->
             <button
                 type="button"
                 id="save-request-button"
@@ -280,9 +284,7 @@
             </button>
 
         </form>
-
     </div>
-
 </dialog>
 
 
@@ -497,13 +499,24 @@
                 Тип транспорта
             </label>
 
-            <select id="engineer-vehicle" required>
-                <option value="car">Автомобиль</option>
-                <option value="on_foot">Пешком</option>
-                <option value="bicycle">Велосипед</option>
+             <select id="engineer-vehicle">
+
+                <option value="car">
+                    Автомобиль
+                </option>
+
+                <option value="on_foot">
+                    Пешком
+                </option>
+
+                <option value="bicycle">
+                    Велосипед
+                </option>
+
                 <option value="public_transport">
                     Общественный транспорт
                 </option>
+
             </select>
 
             <button
