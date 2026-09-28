@@ -370,7 +370,7 @@ async function deleteEngineer() {
 
     try {
     const response = await fetch(
-        `http://127.0.0.1:8000/api/engineer_unavailable?id=${engineerId}`,
+        `http://127.0.0.1:8080/api/engineer_unavailable?id=${engineerId}`,
         {
             method: "DELETE"
         });

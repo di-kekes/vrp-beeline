@@ -102,9 +102,8 @@ async def delete_request(id:int):
         return {"code": 500, "message": str(e),}
 @router.delete("/engineer_unavailable")
 async def engineer_unavailable(id: int):
-    eng = db.get_engineer_by_id(id)
     try:
-        data = db.delete_engineer(eng)
+        data = db.delete_engineer(id)
         return {"code": 200,"data":data}
     except Exception as e:
         return {"code": 500, "message": str(e)}

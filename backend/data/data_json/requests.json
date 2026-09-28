@@ -150,21 +150,6 @@
         "duration": 30
     },
     {
-        "id": 12,
-        "location": {
-            "latitude": 55.74298821417879,
-            "longitude": 37.5567845019898,
-            "address": null
-        },
-        "priority": "default",
-        "required_skill": "local_application",
-        "required_equipment": null,
-        "required_vehicle": null,
-        "time_window_start": "2026-09-21T13:01:00",
-        "time_window_end": "2026-09-21T14:01:00",
-        "duration": 80
-    },
-    {
         "id": 13,
         "location": {
             "latitude": 55.76758175420241,
