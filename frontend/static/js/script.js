@@ -4,20 +4,22 @@ import {getOptimizerJSON, getRequestJSON} from "./functions.mjs";
 
 async function placeRequestMarks() {
     const optimizerJSON = await getOptimizerJSON();
-    const requestsJSON = await getRequestJSON();
-
-    for (let i in optimizerJSON['routes']) {
-        for (let stop in optimizerJSON['routes'][i]['stops']) {
-            debugger; let request = requestsJSON[Number(optimizerJSON['routes'][i]['stops'][stop]["request_id"])];
-            request['name'] = "Заявка " + request['id'];
-            await addMark(request);
-        }
-    }
-
+    const requestJSON = await getRequestJSON();
 
     for (let i in optimizerJSON['unassigned_requests']) {
         let request = {};
-        request['name'] = "Заявка " + optimizerJSON['unassigned_requests'][i];
+        for (let k in requestJSON) {
+            if (Number(requestJSON[k]['id']) === Number(optimizerJSON['unassigned_requests'][i])) {
+                request = requestJSON[k];
+                break;
+            }
+        }
+        request['title'] = "Заявка " + optimizerJSON['unassigned_requests'][i];
+        request['name'] = "?";
+        request['color'] = "red";
+        request['type'] = "request";
+        request['request_id'] = request["id"];
+        request["assigned"] = false;
         await addMark(request);
     }
 }

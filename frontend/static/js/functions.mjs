@@ -5,8 +5,8 @@ export function getClusterCenter(points) {
     let sumY = 0;
 
     for (let i = 0; i < points.length; i++) {
-        sumX += points[i].coordinates[0];
-        sumY += points[i].coordinates[1];
+        sumX += points[i][0];
+        sumY += points[i][1];
     }
 
     return [sumX / points.length, sumY / points.length];
