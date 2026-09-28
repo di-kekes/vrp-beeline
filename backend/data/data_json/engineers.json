@@ -327,20 +327,5 @@
             "local_application"
         ],
         "vehicle_type": "bicycle"
-    },
-    {
-        "id": 22,
-        "name": "арбуз",
-        "start_location": {
-            "latitude": 40.0,
-            "longitude": 40.0,
-            "address": "арбуз"
-        },
-        "shift_start": "2026-09-27T15:13:00",
-        "shift_end": "2026-09-27T19:13:00",
-        "skills": [
-            "add_equipment_order"
-        ],
-        "vehicle_type": "car"
     }
 ]

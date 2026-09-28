@@ -1,4 +1,3 @@
-
 from __future__ import annotations
 
 from dataclasses import dataclass
@@ -56,13 +55,12 @@ def parse_datetime(value: Any) -> datetime:
 
 
 def optimize_vrptw(
-    requests: list[Any],
-    engineers: list[Any],
-    time_matrix: list[list[int]],
-    depot_location: Any,
-    solver_time_limit_seconds: int = 10,
+        requests: list[Any],
+        engineers: list[Any],
+        time_matrix: list[list[int]],
+        depot_location: Any,
+        solver_time_limit_seconds: int = 10,
 ) -> OptimizationResult:
-
     if not engineers:
         raise ValueError("Список инженеров пуст")
 
@@ -169,8 +167,8 @@ def optimize_vrptw(
     # ---------------------------------------------------------
 
     def time_callback(
-        from_index: int,
-        to_index: int,
+            from_index: int,
+            to_index: int,
     ) -> int:
 
         from_node = manager.IndexToNode(from_index)
@@ -215,7 +213,6 @@ def optimize_vrptw(
     # ---------------------------------------------------------
 
     for vehicle_id, engineer in enumerate(engineers):
-
         start_index = routing.Start(vehicle_id)
         end_index = routing.End(vehicle_id)
 
@@ -251,7 +248,6 @@ def optimize_vrptw(
     # ---------------------------------------------------------
 
     for request_index, request in enumerate(requests):
-
         node = request_node_by_index[request_index]
         index = manager.NodeToIndex(node)
 
@@ -311,13 +307,13 @@ def optimize_vrptw(
             )
 
             skill_match = (
-                required_skill is None
-                or required_skill in engineer_skills
+                    required_skill is None
+                    or required_skill in engineer_skills
             )
 
             vehicle_match = (
-                required_vehicle is None
-                or engineer_vehicle == required_vehicle
+                    required_vehicle is None
+                    or engineer_vehicle == required_vehicle
             )
 
             if skill_match and vehicle_match:
@@ -430,8 +426,8 @@ def optimize_vrptw(
     for vehicle_id, engineer in enumerate(engineers):
 
         if not routing.IsVehicleUsed(
-            solution,
-            vehicle_id,
+                solution,
+                vehicle_id,
         ):
             continue
 
@@ -445,7 +441,6 @@ def optimize_vrptw(
             node = manager.IndexToNode(index)
 
             if node > 0:
-
                 request_index = node - 1
                 request = requests[request_index]
 
@@ -454,8 +449,8 @@ def optimize_vrptw(
                 visit_minutes = solution.Value(time_var)
 
                 visit_datetime = (
-                    planning_start
-                    + timedelta(minutes=visit_minutes)
+                        planning_start
+                        + timedelta(minutes=visit_minutes)
                 )
 
                 route_stops.append(
