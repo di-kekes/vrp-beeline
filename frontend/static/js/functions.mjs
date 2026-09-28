@@ -27,5 +27,5 @@ export async function getEngineerJSON() {
 export async function getOptimizerJSON() {
     const optimizerResponse = await fetch("http://localhost:8000/api/get_optimizer_results");
     const optimizerResponseData = await optimizerResponse.json();
-    return JSON.parse(optimizerResponseData['data']);
+    return JSON.parse(JSON.stringify(optimizerResponseData['data']));
 }
