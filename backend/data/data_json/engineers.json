@@ -327,5 +327,35 @@
             "local_application"
         ],
         "vehicle_type": "bicycle"
+    },
+    {
+        "id": 228,
+        "name": "арбуз",
+        "start_location": {
+            "latitude": 40.0,
+            "longitude": 40.0,
+            "address": "арбуз"
+        },
+        "shift_start": "2026-09-29T12:06:00",
+        "shift_end": "2026-09-29T15:06:00",
+        "skills": [
+            "add_equipment_order"
+        ],
+        "vehicle_type": "car"
+    },
+    {
+        "id": 1212,
+        "name": "арбуз",
+        "start_location": {
+            "latitude": 40.0,
+            "longitude": 40.0,
+            "address": "арбуз"
+        },
+        "shift_start": "2026-09-29T11:17:00",
+        "shift_end": "2026-09-29T14:17:00",
+        "skills": [
+            "local_application"
+        ],
+        "vehicle_type": "car"
     }
 ]
