@@ -27,14 +27,15 @@ async function placeRequestMarks() {
 }
 
 
-
 async function main() {
-     setupDialogs();
-     setupButtons();
+    setupDialogs();
+    setupButtons();
+
     await placeRequestMarks();
     await connectEngineerButtons();
     initClusterer();
 }
+
 
 if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', main);
