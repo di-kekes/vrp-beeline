@@ -1,0 +1,992 @@
+[
+    {
+        "id": 74198,
+        "location": {
+            "latitude": 55.700915,
+            "longitude": 37.782227,
+            "address": "Город Москва, пр-кт.Волгоградский, д. 128 к 5"
+        },
+        "priority": "default",
+        "required_skill": "connection_client",
+        "required_equipment": null,
+        "required_vehicle": null,
+        "time_window_start": "2026-08-17T20:00:00",
+        "time_window_end": "2026-08-17T22:00:00",
+        "duration": 70
+    },
+    {
+        "id": 86160,
+        "location": {
+            "latitude": 55.739783,
+            "longitude": 37.659879,
+            "address": "Город Москва, пер.Маяковского, д. 2"
+        },
+        "priority": "default",
+        "required_skill": "connection_client",
+        "required_equipment": null,
+        "required_vehicle": null,
+        "time_window_start": "2026-08-17T18:00:00",
+        "time_window_end": "2026-08-17T20:00:00",
+        "duration": 70
+    },
+    {
+        "id": 50104,
+        "location": {
+            "latitude": 55.718406,
+            "longitude": 37.731985,
+            "address": "Город Москва, ул.Грайвороновская, д. 10 к 2"
+        },
+        "priority": "default",
+        "required_skill": "connection_client",
+        "required_equipment": null,
+        "required_vehicle": null,
+        "time_window_start": "2026-08-17T18:00:00",
+        "time_window_end": "2026-08-17T20:00:00",
+        "duration": 70
+    },
+    {
+        "id": 46393,
+        "location": {
+            "latitude": 55.727002,
+            "longitude": 37.765823,
+            "address": "Город Москва, ул.Михайлова, д. 14"
+        },
+        "priority": "default",
+        "required_skill": "connection_client",
+        "required_equipment": null,
+        "required_vehicle": null,
+        "time_window_start": "2026-08-17T20:00:00",
+        "time_window_end": "2026-08-17T22:00:00",
+        "duration": 70
+    },
+    {
+        "id": 10135,
+        "location": {
+            "latitude": 55.722053,
+            "longitude": 37.782251,
+            "address": "Город Москва, ул.3-я Институтская, д. 5 к 2"
+        },
+        "priority": "default",
+        "required_skill": "connection_client",
+        "required_equipment": null,
+        "required_vehicle": null,
+        "time_window_start": "2026-08-17T18:00:00",
+        "time_window_end": "2026-08-17T20:00:00",
+        "duration": 70
+    },
+    {
+        "id": 18754,
+        "location": {
+            "latitude": 55.714306,
+            "longitude": 37.789732,
+            "address": "Город Москва, ул.1-я Новокузьминская, д. 16 к 1"
+        },
+        "priority": "default",
+        "required_skill": "connection_client",
+        "required_equipment": null,
+        "required_vehicle": null,
+        "time_window_start": "2026-08-17T18:00:00",
+        "time_window_end": "2026-08-17T20:00:00",
+        "duration": 70
+    },
+    {
+        "id": 84627,
+        "location": {
+            "latitude": 55.714631,
+            "longitude": 37.769468,
+            "address": "Город Москва, ул.Окская, д. 32"
+        },
+        "priority": "default",
+        "required_skill": "connection_client",
+        "required_equipment": null,
+        "required_vehicle": null,
+        "time_window_start": "2026-08-17T20:00:00",
+        "time_window_end": "2026-08-17T22:00:00",
+        "duration": 70
+    },
+    {
+        "id": 61540,
+        "location": {
+            "latitude": 55.698167,
+            "longitude": 37.778544,
+            "address": "Город Москва, ул.Юных Ленинцев, д. 84"
+        },
+        "priority": "default",
+        "required_skill": "connection_client",
+        "required_equipment": null,
+        "required_vehicle": null,
+        "time_window_start": "2026-08-17T16:00:00",
+        "time_window_end": "2026-08-17T18:00:00",
+        "duration": 70
+    },
+    {
+        "id": 74949,
+        "location": {
+            "latitude": 55.743087,
+            "longitude": 37.687668,
+            "address": "Город Москва, ул.Международная, д. 28 стр. 1"
+        },
+        "priority": "default",
+        "required_skill": "connection_client",
+        "required_equipment": null,
+        "required_vehicle": null,
+        "time_window_start": "2026-08-17T10:00:00",
+        "time_window_end": "2026-08-17T12:00:00",
+        "duration": 70
+    },
+    {
+        "id": 41077,
+        "location": {
+            "latitude": 55.741106,
+            "longitude": 37.684122,
+            "address": "Город Москва, ул.Новорогожская, д. 8"
+        },
+        "priority": "default",
+        "required_skill": "connection_client",
+        "required_equipment": null,
+        "required_vehicle": null,
+        "time_window_start": "2026-08-17T12:00:00",
+        "time_window_end": "2026-08-17T14:00:00",
+        "duration": 70
+    },
+    {
+        "id": 87693,
+        "location": {
+            "latitude": 55.696542,
+            "longitude": 37.742008,
+            "address": "Город Москва, ул.Чистова, д. 12"
+        },
+        "priority": "default",
+        "required_skill": "connection_client",
+        "required_equipment": null,
+        "required_vehicle": null,
+        "time_window_start": "2026-08-17T16:00:00",
+        "time_window_end": "2026-08-17T18:00:00",
+        "duration": 70
+    },
+    {
+        "id": 93086,
+        "location": {
+            "latitude": 55.72184,
+            "longitude": 37.790669,
+            "address": "Город Москва, ул.Паперника, д. 19"
+        },
+        "priority": "default",
+        "required_skill": "connection_client",
+        "required_equipment": null,
+        "required_vehicle": null,
+        "time_window_start": "2026-08-17T12:00:00",
+        "time_window_end": "2026-08-17T14:00:00",
+        "duration": 70
+    },
+    {
+        "id": 57866,
+        "location": {
+            "latitude": 55.717571,
+            "longitude": 37.779393,
+            "address": "Город Москва, ул.Окская, д. 48/2"
+        },
+        "priority": "default",
+        "required_skill": "connection_client",
+        "required_equipment": null,
+        "required_vehicle": null,
+        "time_window_start": "2026-08-17T14:00:00",
+        "time_window_end": "2026-08-17T16:00:00",
+        "duration": 70
+    },
+    {
+        "id": 35675,
+        "location": {
+            "latitude": 55.701969,
+            "longitude": 37.676708,
+            "address": "Город Москва, ул.Трофимова, д. 24 к 2"
+        },
+        "priority": "default",
+        "required_skill": "connection_client",
+        "required_equipment": null,
+        "required_vehicle": null,
+        "time_window_start": "2026-08-17T16:00:00",
+        "time_window_end": "2026-08-17T18:00:00",
+        "duration": 70
+    },
+    {
+        "id": 82388,
+        "location": {
+            "latitude": 55.726973,
+            "longitude": 37.669454,
+            "address": "Город Москва, ул.1-я Дубровская, д. 6"
+        },
+        "priority": "default",
+        "required_skill": "connection_client",
+        "required_equipment": null,
+        "required_vehicle": null,
+        "time_window_start": "2026-08-17T14:00:00",
+        "time_window_end": "2026-08-17T16:00:00",
+        "duration": 70
+    },
+    {
+        "id": 23380,
+        "location": {
+            "latitude": 55.745753,
+            "longitude": 37.677987,
+            "address": "Город Москва, ул.Рогожский Вал, д. 2/50"
+        },
+        "priority": "default",
+        "required_skill": "connection_client",
+        "required_equipment": null,
+        "required_vehicle": null,
+        "time_window_start": "2026-08-17T12:00:00",
+        "time_window_end": "2026-08-17T14:00:00",
+        "duration": 70
+    },
+    {
+        "id": 37272,
+        "location": {
+            "latitude": 55.73703,
+            "longitude": 37.673347,
+            "address": "Город Москва, ул.Талалихина, д. 2/1 к 4"
+        },
+        "priority": "default",
+        "required_skill": "connection_client",
+        "required_equipment": null,
+        "required_vehicle": null,
+        "time_window_start": "2026-08-17T10:00:00",
+        "time_window_end": "2026-08-17T12:00:00",
+        "duration": 70
+    },
+    {
+        "id": 71388,
+        "location": {
+            "latitude": 55.69737,
+            "longitude": 37.736599,
+            "address": "Город Москва, ул.Артюхиной, д. 20А"
+        },
+        "priority": "default",
+        "required_skill": "connection_client",
+        "required_equipment": null,
+        "required_vehicle": null,
+        "time_window_start": "2026-08-17T14:00:00",
+        "time_window_end": "2026-08-17T16:00:00",
+        "duration": 70
+    },
+    {
+        "id": 34366,
+        "location": {
+            "latitude": 55.698138,
+            "longitude": 37.743856,
+            "address": "Город Москва, ул.Малышева, д. 13"
+        },
+        "priority": "default",
+        "required_skill": "connection_client",
+        "required_equipment": null,
+        "required_vehicle": null,
+        "time_window_start": "2026-08-17T10:00:00",
+        "time_window_end": "2026-08-17T12:00:00",
+        "duration": 70
+    },
+    {
+        "id": 67554,
+        "location": {
+            "latitude": 55.731485,
+            "longitude": 37.759512,
+            "address": "Город Москва, ул.Бронницкая, д. 12"
+        },
+        "priority": "default",
+        "required_skill": "connection_client",
+        "required_equipment": null,
+        "required_vehicle": null,
+        "time_window_start": "2026-08-17T12:00:00",
+        "time_window_end": "2026-08-17T14:00:00",
+        "duration": 70
+    },
+    {
+        "id": 94409,
+        "location": {
+            "latitude": 55.752492,
+            "longitude": 37.716278,
+            "address": "Город Москва, ул.Авиамоторная, д. 14"
+        },
+        "priority": "default",
+        "required_skill": "connection_client",
+        "required_equipment": null,
+        "required_vehicle": null,
+        "time_window_start": "2026-08-17T12:00:00",
+        "time_window_end": "2026-08-17T14:00:00",
+        "duration": 70
+    },
+    {
+        "id": 10245,
+        "location": {
+            "latitude": 55.713554,
+            "longitude": 37.771996,
+            "address": "Город Москва, ул.Фёдора Полетаева, д. 2 к 6"
+        },
+        "priority": "default",
+        "required_skill": "connection_client",
+        "required_equipment": null,
+        "required_vehicle": null,
+        "time_window_start": "2026-08-17T12:00:00",
+        "time_window_end": "2026-08-17T14:00:00",
+        "duration": 70
+    },
+    {
+        "id": 52405,
+        "location": {
+            "latitude": 55.72795,
+            "longitude": 37.77714,
+            "address": "Город Москва, ул.Зарайская, д. 51 к 2"
+        },
+        "priority": "default",
+        "required_skill": "connection_client",
+        "required_equipment": null,
+        "required_vehicle": null,
+        "time_window_start": "2026-08-17T10:00:00",
+        "time_window_end": "2026-08-17T12:00:00",
+        "duration": 70
+    },
+    {
+        "id": 30769,
+        "location": {
+            "latitude": 55.715022,
+            "longitude": 37.738372,
+            "address": "Город Москва, ул.Саратовская, д. 14/1"
+        },
+        "priority": "default",
+        "required_skill": "connection_client",
+        "required_equipment": null,
+        "required_vehicle": null,
+        "time_window_start": "2026-08-17T14:00:00",
+        "time_window_end": "2026-08-17T16:00:00",
+        "duration": 70
+    },
+    {
+        "id": 98182,
+        "location": {
+            "latitude": 55.732415,
+            "longitude": 37.718683,
+            "address": "Город Москва, ул.Нижегородская, д. 63"
+        },
+        "priority": "default",
+        "required_skill": "connection_client",
+        "required_equipment": null,
+        "required_vehicle": null,
+        "time_window_start": "2026-08-17T10:00:00",
+        "time_window_end": "2026-08-17T12:00:00",
+        "duration": 70
+    },
+    {
+        "id": 76082,
+        "location": {
+            "latitude": 55.736897,
+            "longitude": 37.707998,
+            "address": "Город Москва, ул.Смирновская, д. 6"
+        },
+        "priority": "default",
+        "required_skill": "connection_client",
+        "required_equipment": null,
+        "required_vehicle": null,
+        "time_window_start": "2026-08-17T12:00:00",
+        "time_window_end": "2026-08-17T14:00:00",
+        "duration": 70
+    },
+    {
+        "id": 29890,
+        "location": {
+            "latitude": 55.732484,
+            "longitude": 37.717801,
+            "address": "Город Москва, ул.Нижегородская, д. 61"
+        },
+        "priority": "default",
+        "required_skill": "connection_client",
+        "required_equipment": null,
+        "required_vehicle": null,
+        "time_window_start": "2026-08-17T12:00:00",
+        "time_window_end": "2026-08-17T14:00:00",
+        "duration": 70
+    },
+    {
+        "id": 77563,
+        "location": {
+            "latitude": 55.711964,
+            "longitude": 37.770692,
+            "address": "Город Москва, ул.Зеленодольская, д. 28Б"
+        },
+        "priority": "default",
+        "required_skill": "connection_client",
+        "required_equipment": null,
+        "required_vehicle": null,
+        "time_window_start": "2026-08-17T10:00:00",
+        "time_window_end": "2026-08-17T12:00:00",
+        "duration": 70
+    },
+    {
+        "id": 53587,
+        "location": {
+            "latitude": 55.698588,
+            "longitude": 37.737818,
+            "address": "Город Москва, ул.Артюхиной, д. 16"
+        },
+        "priority": "default",
+        "required_skill": "connection_client",
+        "required_equipment": null,
+        "required_vehicle": null,
+        "time_window_start": "2026-08-17T12:00:00",
+        "time_window_end": "2026-08-17T14:00:00",
+        "duration": 70
+    },
+    {
+        "id": 82808,
+        "location": {
+            "latitude": 55.733761,
+            "longitude": 37.744648,
+            "address": "Город Москва, ул.3-я Карачаровская, д. 4 к 1"
+        },
+        "priority": "default",
+        "required_skill": "connection_client",
+        "required_equipment": null,
+        "required_vehicle": null,
+        "time_window_start": "2026-08-17T14:00:00",
+        "time_window_end": "2026-08-17T16:00:00",
+        "duration": 70
+    },
+    {
+        "id": 7939,
+        "location": {
+            "latitude": 55.718499,
+            "longitude": 37.790235,
+            "address": "Город Москва, пр-кт.Рязанский, д. 73"
+        },
+        "priority": "default",
+        "required_skill": "connection_client",
+        "required_equipment": null,
+        "required_vehicle": null,
+        "time_window_start": "2026-08-17T12:00:00",
+        "time_window_end": "2026-08-17T14:00:00",
+        "duration": 70
+    },
+    {
+        "id": 92031,
+        "location": {
+            "latitude": 55.701022,
+            "longitude": 37.824919,
+            "address": "Город Москва, ул.Ферганская, д. 28/7"
+        },
+        "priority": "default",
+        "required_skill": "add_equipment_order",
+        "required_equipment": null,
+        "required_vehicle": null,
+        "time_window_start": "2026-08-17T18:00:00",
+        "time_window_end": "2026-08-17T20:00:00",
+        "duration": 20
+    },
+    {
+        "id": 31260,
+        "location": {
+            "latitude": 55.700086,
+            "longitude": 37.819297,
+            "address": "Город Москва, б-р.Самаркандский Квартал 137а, д. к5"
+        },
+        "priority": "default",
+        "required_skill": "add_equipment_order",
+        "required_equipment": null,
+        "required_vehicle": null,
+        "time_window_start": "2026-08-17T20:00:00",
+        "time_window_end": "2026-08-17T22:00:00",
+        "duration": 20
+    },
+    {
+        "id": 69967,
+        "location": {
+            "latitude": 55.769593,
+            "longitude": 37.715587,
+            "address": "Город Москва, ул.Боровая, д. 14"
+        },
+        "priority": "default",
+        "required_skill": "add_equipment_order",
+        "required_equipment": null,
+        "required_vehicle": null,
+        "time_window_start": "2026-08-17T10:00:00",
+        "time_window_end": "2026-08-17T12:00:00",
+        "duration": 20
+    },
+    {
+        "id": 22634,
+        "location": {
+            "latitude": 55.734727,
+            "longitude": 37.673859,
+            "address": "Город Москва, ул.Стройковская, д. 8"
+        },
+        "priority": "default",
+        "required_skill": "add_equipment_order",
+        "required_equipment": null,
+        "required_vehicle": null,
+        "time_window_start": "2026-08-17T14:00:00",
+        "time_window_end": "2026-08-17T16:00:00",
+        "duration": 20
+    },
+    {
+        "id": 98815,
+        "location": {
+            "latitude": 55.762673,
+            "longitude": 37.713106,
+            "address": "Город Москва, ул.2-я Синичкина, д. 9 к 1"
+        },
+        "priority": "default",
+        "required_skill": "add_equipment_order",
+        "required_equipment": null,
+        "required_vehicle": null,
+        "time_window_start": "2026-08-17T18:00:00",
+        "time_window_end": "2026-08-17T20:00:00",
+        "duration": 20
+    },
+    {
+        "id": 33527,
+        "location": {
+            "latitude": 55.731406,
+            "longitude": 37.753812,
+            "address": "Москва, проезд Орехово-Зуевский, д. 18/8"
+        },
+        "priority": "default",
+        "required_skill": "add_equipment_order",
+        "required_equipment": null,
+        "required_vehicle": null,
+        "time_window_start": "2026-08-17T10:00:00",
+        "time_window_end": "2026-08-17T12:00:00",
+        "duration": 20
+    },
+    {
+        "id": 21571,
+        "location": {
+            "latitude": 55.742086,
+            "longitude": 37.667631,
+            "address": "Город Москва, пер.Большой Рогожский, д. 10 к 2"
+        },
+        "priority": "default",
+        "required_skill": "local_application",
+        "required_equipment": null,
+        "required_vehicle": null,
+        "time_window_start": "2026-08-17T18:00:00",
+        "time_window_end": "2026-08-17T20:00:00",
+        "duration": 30
+    },
+    {
+        "id": 47670,
+        "location": {
+            "latitude": 55.764372,
+            "longitude": 37.652092,
+            "address": "Город Москва, ул.Машкова, д. 13 стр. 1"
+        },
+        "priority": "default",
+        "required_skill": "local_application",
+        "required_equipment": null,
+        "required_vehicle": null,
+        "time_window_start": "2026-08-17T20:00:00",
+        "time_window_end": "2026-08-17T22:00:00",
+        "duration": 30
+    },
+    {
+        "id": 17892,
+        "location": {
+            "latitude": 55.70694,
+            "longitude": 37.743173,
+            "address": "Город Москва, ул.11-я Текстильщиков, д. 10"
+        },
+        "priority": "default",
+        "required_skill": "local_application",
+        "required_equipment": null,
+        "required_vehicle": null,
+        "time_window_start": "2026-08-17T18:00:00",
+        "time_window_end": "2026-08-17T20:00:00",
+        "duration": 30
+    },
+    {
+        "id": 51115,
+        "location": {
+            "latitude": 55.7213,
+            "longitude": 37.793442,
+            "address": "Город Москва, ул.Паперника, д. 18"
+        },
+        "priority": "default",
+        "required_skill": "local_application",
+        "required_equipment": null,
+        "required_vehicle": null,
+        "time_window_start": "2026-08-17T18:00:00",
+        "time_window_end": "2026-08-17T20:00:00",
+        "duration": 30
+    },
+    {
+        "id": 76643,
+        "location": {
+            "latitude": 55.736208,
+            "longitude": 37.686191,
+            "address": "Город Москва, ул.Большая Калитниковская, д. 38"
+        },
+        "priority": "default",
+        "required_skill": "local_application",
+        "required_equipment": null,
+        "required_vehicle": null,
+        "time_window_start": "2026-08-17T18:00:00",
+        "time_window_end": "2026-08-17T20:00:00",
+        "duration": 30
+    },
+    {
+        "id": 43506,
+        "location": {
+            "latitude": 55.700086,
+            "longitude": 37.819297,
+            "address": "Город Москва, б-р.Самаркандский Квартал 137а, д. к5"
+        },
+        "priority": "default",
+        "required_skill": "local_application",
+        "required_equipment": null,
+        "required_vehicle": null,
+        "time_window_start": "2026-08-17T20:00:00",
+        "time_window_end": "2026-08-17T22:00:00",
+        "duration": 30
+    },
+    {
+        "id": 48174,
+        "location": {
+            "latitude": 55.697186,
+            "longitude": 37.762018,
+            "address": "Город Москва, ул.Маршала Чуйкова, д. 9 к 2"
+        },
+        "priority": "default",
+        "required_skill": "local_application",
+        "required_equipment": null,
+        "required_vehicle": null,
+        "time_window_start": "2026-08-17T18:00:00",
+        "time_window_end": "2026-08-17T20:00:00",
+        "duration": 30
+    },
+    {
+        "id": 48227,
+        "location": {
+            "latitude": 55.735499,
+            "longitude": 37.676791,
+            "address": "Город Москва, ул.Талалихина, д. 16"
+        },
+        "priority": "default",
+        "required_skill": "local_application",
+        "required_equipment": null,
+        "required_vehicle": null,
+        "time_window_start": "2026-08-17T12:00:00",
+        "time_window_end": "2026-08-17T14:00:00",
+        "duration": 30
+    },
+    {
+        "id": 60720,
+        "location": {
+            "latitude": 55.696576,
+            "longitude": 37.752271,
+            "address": "Город Москва, б-р.Волжский, д. 50 к 2"
+        },
+        "priority": "default",
+        "required_skill": "local_application",
+        "required_equipment": null,
+        "required_vehicle": null,
+        "time_window_start": "2026-08-17T12:00:00",
+        "time_window_end": "2026-08-17T14:00:00",
+        "duration": 30
+    },
+    {
+        "id": 48238,
+        "location": {
+            "latitude": 55.702978,
+            "longitude": 37.737823,
+            "address": "Город Москва, ул.Артюхиной, д. 3"
+        },
+        "priority": "default",
+        "required_skill": "local_application",
+        "required_equipment": null,
+        "required_vehicle": null,
+        "time_window_start": "2026-08-17T14:00:00",
+        "time_window_end": "2026-08-17T16:00:00",
+        "duration": 30
+    },
+    {
+        "id": 41912,
+        "location": {
+            "latitude": 55.694165,
+            "longitude": 37.824817,
+            "address": "Город Москва, проезд.Ферганский, д. 7 к 5"
+        },
+        "priority": "default",
+        "required_skill": "local_application",
+        "required_equipment": null,
+        "required_vehicle": null,
+        "time_window_start": "2026-08-17T12:00:00",
+        "time_window_end": "2026-08-17T14:00:00",
+        "duration": 30
+    },
+    {
+        "id": 4893,
+        "location": {
+            "latitude": 55.75873,
+            "longitude": 37.657204,
+            "address": "Город Москва, ул.Земляной Вал, д. 24/30 стр. 1"
+        },
+        "priority": "default",
+        "required_skill": "local_application",
+        "required_equipment": null,
+        "required_vehicle": null,
+        "time_window_start": "2026-08-17T12:00:00",
+        "time_window_end": "2026-08-17T14:00:00",
+        "duration": 30
+    },
+    {
+        "id": 68476,
+        "location": {
+            "latitude": 55.733358,
+            "longitude": 37.747224,
+            "address": "Город Москва, ул.3-я Карачаровская, д. 8 к 2"
+        },
+        "priority": "default",
+        "required_skill": "local_application",
+        "required_equipment": null,
+        "required_vehicle": null,
+        "time_window_start": "2026-08-17T10:00:00",
+        "time_window_end": "2026-08-17T12:00:00",
+        "duration": 30
+    },
+    {
+        "id": 50219,
+        "location": {
+            "latitude": 55.73057,
+            "longitude": 37.758154,
+            "address": "Город Москва, ул.Чистопольская, д. 2 к 2"
+        },
+        "priority": "default",
+        "required_skill": "local_application",
+        "required_equipment": null,
+        "required_vehicle": null,
+        "time_window_start": "2026-08-17T10:00:00",
+        "time_window_end": "2026-08-17T12:00:00",
+        "duration": 30
+    },
+    {
+        "id": 76678,
+        "location": {
+            "latitude": 55.7703,
+            "longitude": 37.714768,
+            "address": "Город Москва, ул.Боровая, д. 12"
+        },
+        "priority": "default",
+        "required_skill": "local_application",
+        "required_equipment": null,
+        "required_vehicle": null,
+        "time_window_start": "2026-08-17T10:00:00",
+        "time_window_end": "2026-08-17T12:00:00",
+        "duration": 30
+    },
+    {
+        "id": 47330,
+        "location": {
+            "latitude": 55.758735,
+            "longitude": 37.699531,
+            "address": "Город Москва, ул.Красноказарменная, д. 9Б стр. 1"
+        },
+        "priority": "default",
+        "required_skill": "local_application",
+        "required_equipment": null,
+        "required_vehicle": null,
+        "time_window_start": "2026-08-17T14:00:00",
+        "time_window_end": "2026-08-17T16:00:00",
+        "duration": 30
+    },
+    {
+        "id": 26645,
+        "location": {
+            "latitude": 55.764936,
+            "longitude": 37.716869,
+            "address": "Город Москва, ул.Сторожевая, д. 31"
+        },
+        "priority": "default",
+        "required_skill": "local_application",
+        "required_equipment": null,
+        "required_vehicle": null,
+        "time_window_start": "2026-08-17T16:00:00",
+        "time_window_end": "2026-08-17T18:00:00",
+        "duration": 30
+    },
+    {
+        "id": 24076,
+        "location": {
+            "latitude": 55.740114,
+            "longitude": 37.683197,
+            "address": "Город Москва, ул.Новорогожская, д. 10"
+        },
+        "priority": "default",
+        "required_skill": "local_application",
+        "required_equipment": null,
+        "required_vehicle": null,
+        "time_window_start": "2026-08-17T12:00:00",
+        "time_window_end": "2026-08-17T14:00:00",
+        "duration": 30
+    },
+    {
+        "id": 30243,
+        "location": {
+            "latitude": 55.737335,
+            "longitude": 37.694395,
+            "address": "Город Москва, ул.Нижегородская, д. 25"
+        },
+        "priority": "default",
+        "required_skill": "local_application",
+        "required_equipment": null,
+        "required_vehicle": null,
+        "time_window_start": "2026-08-17T18:00:00",
+        "time_window_end": "2026-08-17T20:00:00",
+        "duration": 30
+    },
+    {
+        "id": 32807,
+        "location": {
+            "latitude": 55.71042,
+            "longitude": 37.751364,
+            "address": "Город Москва, ул.Окская, д. 6 к 1"
+        },
+        "priority": "default",
+        "required_skill": "local_application",
+        "required_equipment": null,
+        "required_vehicle": null,
+        "time_window_start": "2026-08-17T10:00:00",
+        "time_window_end": "2026-08-17T12:00:00",
+        "duration": 30
+    },
+    {
+        "id": 73572,
+        "location": {
+            "latitude": 55.707853,
+            "longitude": 37.751847,
+            "address": "Город Москва, пр-кт.Волгоградский, д. 97 к 1"
+        },
+        "priority": "default",
+        "required_skill": "local_application",
+        "required_equipment": null,
+        "required_vehicle": null,
+        "time_window_start": "2026-08-17T14:00:00",
+        "time_window_end": "2026-08-17T16:00:00",
+        "duration": 30
+    },
+    {
+        "id": 41962,
+        "location": {
+            "latitude": 55.697699,
+            "longitude": 37.812618,
+            "address": "г.Город Москва, б-р.Самаркандский, д. 32к1"
+        },
+        "priority": "default",
+        "required_skill": "accidents_on_tkd",
+        "required_equipment": null,
+        "required_vehicle": null,
+        "time_window_start": "2026-08-17T16:00:00",
+        "time_window_end": "2026-08-17T18:00:00",
+        "duration": 80
+    },
+    {
+        "id": 97886,
+        "location": {
+            "latitude": 55.706472,
+            "longitude": 37.826247,
+            "address": "г.Город Москва, б-р.Самаркандский, д. 10к2"
+        },
+        "priority": "default",
+        "required_skill": "accidents_on_tkd",
+        "required_equipment": null,
+        "required_vehicle": null,
+        "time_window_start": "2026-08-17T16:00:00",
+        "time_window_end": "2026-08-17T18:00:00",
+        "duration": 80
+    },
+    {
+        "id": 17349,
+        "location": {
+            "latitude": 55.740082,
+            "longitude": 37.687738,
+            "address": "г.Город Москва, ул.Новорогожская, д. 20"
+        },
+        "priority": "default",
+        "required_skill": "accidents_on_tkd",
+        "required_equipment": null,
+        "required_vehicle": null,
+        "time_window_start": "2026-08-17T14:00:00",
+        "time_window_end": "2026-08-17T16:00:00",
+        "duration": 80
+    },
+    {
+        "id": 54964,
+        "location": {
+            "latitude": 55.703946,
+            "longitude": 37.813102,
+            "address": "г.Город Москва, ул.Ташкентская, д. 16к2"
+        },
+        "priority": "default",
+        "required_skill": "accidents_on_tkd",
+        "required_equipment": null,
+        "required_vehicle": null,
+        "time_window_start": "2026-08-17T10:00:00",
+        "time_window_end": "2026-08-17T12:00:00",
+        "duration": 80
+    },
+    {
+        "id": 21367,
+        "location": {
+            "latitude": 55.715028,
+            "longitude": 37.739928,
+            "address": "г.Город Москва, ул.Саратовская, д. 16"
+        },
+        "priority": "default",
+        "required_skill": "accidents_on_tkd",
+        "required_equipment": null,
+        "required_vehicle": null,
+        "time_window_start": "2026-08-17T20:00:00",
+        "time_window_end": "2026-08-17T22:00:00",
+        "duration": 80
+    },
+    {
+        "id": 24980,
+        "location": {
+            "latitude": 55.778386,
+            "longitude": 37.707432,
+            "address": "г.Город Москва, наб.Семеновская, д. 3/1к2"
+        },
+        "priority": "default",
+        "required_skill": "accidents_on_tkd",
+        "required_equipment": null,
+        "required_vehicle": null,
+        "time_window_start": "2026-08-17T10:00:00",
+        "time_window_end": "2026-08-17T12:00:00",
+        "duration": 80
+    },
+    {
+        "id": 15648,
+        "location": {
+            "latitude": 55.777278,
+            "longitude": 37.704732,
+            "address": "г.Город Москва, наб.Семеновская, д. 2/1"
+        },
+        "priority": "default",
+        "required_skill": "accidents_on_tkd",
+        "required_equipment": null,
+        "required_vehicle": null,
+        "time_window_start": "2026-08-17T16:00:00",
+        "time_window_end": "2026-08-17T18:00:00",
+        "duration": 80
+    },
+    {
+        "id": 57299,
+        "location": {
+            "latitude": 55.702408,
+            "longitude": 37.782839,
+            "address": "г.Город Москва, пр-кт.Волгоградский, д. 128к1"
+        },
+        "priority": "default",
+        "required_skill": "accidents_on_tkd",
+        "required_equipment": null,
+        "required_vehicle": null,
+        "time_window_start": "2026-08-17T20:00:00",
+        "time_window_end": "2026-08-17T22:00:00",
+        "duration": 80
+    }
+]

@@ -1,0 +1,333 @@
+{
+    "routes": [
+        {
+            "engineer_id": "1",
+            "stops": [
+                {
+                    "request_id": "32807",
+                    "visit_time": "2026-08-17T10:00:00",
+                    "duration_minutes": 30
+                },
+                {
+                    "request_id": "50219",
+                    "visit_time": "2026-08-17T10:38:00",
+                    "duration_minutes": 30
+                },
+                {
+                    "request_id": "33527",
+                    "visit_time": "2026-08-17T11:09:00",
+                    "duration_minutes": 20
+                },
+                {
+                    "request_id": "24076",
+                    "visit_time": "2026-08-17T12:00:00",
+                    "duration_minutes": 30
+                },
+                {
+                    "request_id": "4893",
+                    "visit_time": "2026-08-17T12:37:00",
+                    "duration_minutes": 30
+                },
+                {
+                    "request_id": "48227",
+                    "visit_time": "2026-08-17T13:14:00",
+                    "duration_minutes": 30
+                },
+                {
+                    "request_id": "22634",
+                    "visit_time": "2026-08-17T14:00:00",
+                    "duration_minutes": 20
+                },
+                {
+                    "request_id": "47330",
+                    "visit_time": "2026-08-17T14:28:00",
+                    "duration_minutes": 30
+                },
+                {
+                    "request_id": "17349",
+                    "visit_time": "2026-08-17T15:06:00",
+                    "duration_minutes": 80
+                },
+                {
+                    "request_id": "30243",
+                    "visit_time": "2026-08-17T18:00:00",
+                    "duration_minutes": 30
+                },
+                {
+                    "request_id": "76643",
+                    "visit_time": "2026-08-17T18:33:00",
+                    "duration_minutes": 30
+                },
+                {
+                    "request_id": "51115",
+                    "visit_time": "2026-08-17T19:14:00",
+                    "duration_minutes": 30
+                },
+                {
+                    "request_id": "21367",
+                    "visit_time": "2026-08-17T20:00:00",
+                    "duration_minutes": 80
+                },
+                {
+                    "request_id": "57299",
+                    "visit_time": "2026-08-17T21:26:00",
+                    "duration_minutes": 80
+                }
+            ],
+            "total_travel_minutes": 89,
+            "total_route_minutes": 826
+        },
+        {
+            "engineer_id": "2",
+            "stops": [
+                {
+                    "request_id": "54964",
+                    "visit_time": "2026-08-17T10:00:00",
+                    "duration_minutes": 80
+                },
+                {
+                    "request_id": "41912",
+                    "visit_time": "2026-08-17T12:00:00",
+                    "duration_minutes": 30
+                },
+                {
+                    "request_id": "41962",
+                    "visit_time": "2026-08-17T16:00:00",
+                    "duration_minutes": 80
+                },
+                {
+                    "request_id": "97886",
+                    "visit_time": "2026-08-17T17:24:00",
+                    "duration_minutes": 80
+                },
+                {
+                    "request_id": "92031",
+                    "visit_time": "2026-08-17T18:46:00",
+                    "duration_minutes": 20
+                },
+                {
+                    "request_id": "43506",
+                    "visit_time": "2026-08-17T20:00:00",
+                    "duration_minutes": 30
+                },
+                {
+                    "request_id": "31260",
+                    "visit_time": "2026-08-17T20:30:00",
+                    "duration_minutes": 20
+                }
+            ],
+            "total_travel_minutes": 31,
+            "total_route_minutes": 703
+        },
+        {
+            "engineer_id": "3",
+            "stops": [
+                {
+                    "request_id": "34366",
+                    "visit_time": "2026-08-17T10:00:00",
+                    "duration_minutes": 70
+                },
+                {
+                    "request_id": "98182",
+                    "visit_time": "2026-08-17T11:18:00",
+                    "duration_minutes": 70
+                },
+                {
+                    "request_id": "29890",
+                    "visit_time": "2026-08-17T12:29:00",
+                    "duration_minutes": 70
+                },
+                {
+                    "request_id": "41077",
+                    "visit_time": "2026-08-17T13:44:00",
+                    "duration_minutes": 70
+                },
+                {
+                    "request_id": "82388",
+                    "visit_time": "2026-08-17T14:59:00",
+                    "duration_minutes": 70
+                },
+                {
+                    "request_id": "35675",
+                    "visit_time": "2026-08-17T16:15:00",
+                    "duration_minutes": 70
+                },
+                {
+                    "request_id": "18754",
+                    "visit_time": "2026-08-17T18:00:00",
+                    "duration_minutes": 70
+                }
+            ],
+            "total_travel_minutes": 50,
+            "total_route_minutes": 720
+        },
+        {
+            "engineer_id": "4",
+            "stops": [
+                {
+                    "request_id": "60720",
+                    "visit_time": "2026-08-17T12:00:00",
+                    "duration_minutes": 30
+                },
+                {
+                    "request_id": "73572",
+                    "visit_time": "2026-08-17T14:00:00",
+                    "duration_minutes": 30
+                },
+                {
+                    "request_id": "48238",
+                    "visit_time": "2026-08-17T14:34:00",
+                    "duration_minutes": 30
+                },
+                {
+                    "request_id": "17892",
+                    "visit_time": "2026-08-17T18:00:00",
+                    "duration_minutes": 30
+                },
+                {
+                    "request_id": "48174",
+                    "visit_time": "2026-08-17T18:35:00",
+                    "duration_minutes": 30
+                }
+            ],
+            "total_travel_minutes": 27,
+            "total_route_minutes": 593
+        },
+        {
+            "engineer_id": "5",
+            "stops": [
+                {
+                    "request_id": "77563",
+                    "visit_time": "2026-08-17T10:00:00",
+                    "duration_minutes": 70
+                },
+                {
+                    "request_id": "52405",
+                    "visit_time": "2026-08-17T11:17:00",
+                    "duration_minutes": 70
+                },
+                {
+                    "request_id": "93086",
+                    "visit_time": "2026-08-17T12:31:00",
+                    "duration_minutes": 70
+                },
+                {
+                    "request_id": "10245",
+                    "visit_time": "2026-08-17T13:44:00",
+                    "duration_minutes": 70
+                },
+                {
+                    "request_id": "57866",
+                    "visit_time": "2026-08-17T14:57:00",
+                    "duration_minutes": 70
+                }
+            ],
+            "total_travel_minutes": 30,
+            "total_route_minutes": 595
+        },
+        {
+            "engineer_id": "7",
+            "stops": [
+                {
+                    "request_id": "68476",
+                    "visit_time": "2026-08-17T10:00:00",
+                    "duration_minutes": 30
+                },
+                {
+                    "request_id": "76678",
+                    "visit_time": "2026-08-17T10:41:00",
+                    "duration_minutes": 30
+                },
+                {
+                    "request_id": "69967",
+                    "visit_time": "2026-08-17T11:12:00",
+                    "duration_minutes": 20
+                },
+                {
+                    "request_id": "24980",
+                    "visit_time": "2026-08-17T11:35:00",
+                    "duration_minutes": 80
+                },
+                {
+                    "request_id": "15648",
+                    "visit_time": "2026-08-17T16:00:00",
+                    "duration_minutes": 80
+                },
+                {
+                    "request_id": "26645",
+                    "visit_time": "2026-08-17T17:23:00",
+                    "duration_minutes": 30
+                },
+                {
+                    "request_id": "98815",
+                    "visit_time": "2026-08-17T18:00:00",
+                    "duration_minutes": 20
+                },
+                {
+                    "request_id": "21571",
+                    "visit_time": "2026-08-17T18:28:00",
+                    "duration_minutes": 30
+                },
+                {
+                    "request_id": "47670",
+                    "visit_time": "2026-08-17T20:00:00",
+                    "duration_minutes": 30
+                }
+            ],
+            "total_travel_minutes": 71,
+            "total_route_minutes": 866
+        },
+        {
+            "engineer_id": "15",
+            "stops": [
+                {
+                    "request_id": "53587",
+                    "visit_time": "2026-08-17T12:37:00",
+                    "duration_minutes": 70
+                },
+                {
+                    "request_id": "71388",
+                    "visit_time": "2026-08-17T14:00:00",
+                    "duration_minutes": 70
+                },
+                {
+                    "request_id": "30769",
+                    "visit_time": "2026-08-17T15:14:00",
+                    "duration_minutes": 70
+                },
+                {
+                    "request_id": "61540",
+                    "visit_time": "2026-08-17T16:29:00",
+                    "duration_minutes": 70
+                },
+                {
+                    "request_id": "87693",
+                    "visit_time": "2026-08-17T17:43:00",
+                    "duration_minutes": 70
+                },
+                {
+                    "request_id": "50104",
+                    "visit_time": "2026-08-17T19:00:00",
+                    "duration_minutes": 70
+                }
+            ],
+            "total_travel_minutes": 35,
+            "total_route_minutes": 467
+        }
+    ],
+    "unassigned_requests": [
+        "74198",
+        "86160",
+        "46393",
+        "10135",
+        "84627",
+        "74949",
+        "23380",
+        "37272",
+        "67554",
+        "94409",
+        "76082",
+        "82808",
+        "7939"
+    ]
+}

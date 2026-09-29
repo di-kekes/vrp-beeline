@@ -1,0 +1,254 @@
+[
+    {
+        "id": 1,
+        "name": "арбуз 1",
+        "start_location": {
+            "latitude": 55.702293,
+            "longitude": 37.77392,
+            "address": "г. Москва, ул Юных Ленинцев, д 83с 4"
+        },
+        "shift_start": "2026-08-17T09:05:00",
+        "shift_end": "2026-08-17T23:05:00",
+        "skills": [
+            "accidents_on_tkd",
+            "add_equipment_order",
+            "local_application"
+        ],
+        "vehicle_type": "car"
+    },
+    {
+        "id": 2,
+        "name": "ваня",
+        "start_location": {
+            "latitude": 55.702293,
+            "longitude": 37.77392,
+            "address": "г. Москва, ул Юных Ленинцев, д 83с 4"
+        },
+        "shift_start": "2026-08-17T09:15:00",
+        "shift_end": "2026-08-17T21:15:00",
+        "skills": [
+            "accidents_on_tkd",
+            "add_equipment_order",
+            "local_application"
+        ],
+        "vehicle_type": "public_transport"
+    },
+    {
+        "id": 3,
+        "name": "саша",
+        "start_location": {
+            "latitude": 55.702293,
+            "longitude": 37.77392,
+            "address": "г. Москва, ул Юных Ленинцев, д 83с 4"
+        },
+        "shift_start": "2026-08-17T07:16:00",
+        "shift_end": "2026-08-17T19:16:00",
+        "skills": [
+            "connection_client",
+            "accidents_on_tkd",
+            "add_equipment_order"
+        ],
+        "vehicle_type": "car"
+    },
+    {
+        "id": 4,
+        "name": "леня",
+        "start_location": {
+            "latitude": 55.702293,
+            "longitude": 37.77392,
+            "address": "г. Москва, ул Юных Ленинцев, д 83с 4"
+        },
+        "shift_start": "2026-08-17T09:16:00",
+        "shift_end": "2026-08-17T19:16:00",
+        "skills": [
+            "accidents_on_tkd",
+            "add_equipment_order",
+            "local_application"
+        ],
+        "vehicle_type": "public_transport"
+    },
+    {
+        "id": 5,
+        "name": "гриша",
+        "start_location": {
+            "latitude": 55.702293,
+            "longitude": 37.77392,
+            "address": "г. Москва, ул Юных Ленинцев, д 83с 4"
+        },
+        "shift_start": "2026-08-17T06:19:00",
+        "shift_end": "2026-08-17T16:19:00",
+        "skills": [
+            "connection_client",
+            "accidents_on_tkd",
+            "add_equipment_order"
+        ],
+        "vehicle_type": "bicycle"
+    },
+    {
+        "id": 6,
+        "name": "петя",
+        "start_location": {
+            "latitude": 55.702293,
+            "longitude": 37.77392,
+            "address": "г. Москва, ул Юных Ленинцев, д 83с 4"
+        },
+        "shift_start": "2026-08-17T08:20:00",
+        "shift_end": "2026-08-17T17:20:00",
+        "skills": [
+            "accidents_on_tkd",
+            "add_equipment_order",
+            "local_application"
+        ],
+        "vehicle_type": "car"
+    },
+    {
+        "id": 7,
+        "name": "петя сильный",
+        "start_location": {
+            "latitude": 55.702293,
+            "longitude": 37.77392,
+            "address": "г. Москва, ул Юных Ленинцев, д 83с 4"
+        },
+        "shift_start": "2026-08-17T06:21:00",
+        "shift_end": "2026-08-17T21:21:00",
+        "skills": [
+            "accidents_on_tkd",
+            "add_equipment_order",
+            "local_application"
+        ],
+        "vehicle_type": "car"
+    },
+    {
+        "id": 8,
+        "name": "егор",
+        "start_location": {
+            "latitude": 55.702293,
+            "longitude": 37.77392,
+            "address": "г. Москва, ул Юных Ленинцев, д 83с 4"
+        },
+        "shift_start": "2026-08-17T07:24:00",
+        "shift_end": "2026-08-17T17:24:00",
+        "skills": [
+            "accidents_on_tkd",
+            "add_equipment_order",
+            "local_application"
+        ],
+        "vehicle_type": "car"
+    },
+    {
+        "id": 9,
+        "name": "кирилл",
+        "start_location": {
+            "latitude": 55.702293,
+            "longitude": 37.77392,
+            "address": "г. Москва, ул Юных Ленинцев, д 83с 4"
+        },
+        "shift_start": "2026-08-17T07:24:00",
+        "shift_end": "2026-08-17T16:25:00",
+        "skills": [
+            "accidents_on_tkd",
+            "add_equipment_order"
+        ],
+        "vehicle_type": "public_transport"
+    },
+    {
+        "id": 10,
+        "name": "гоша",
+        "start_location": {
+            "latitude": 55.702293,
+            "longitude": 37.77392,
+            "address": "г. Москва, ул Юных Ленинцев, д 83с 4"
+        },
+        "shift_start": "2026-08-17T12:25:00",
+        "shift_end": "2026-08-17T21:25:00",
+        "skills": [
+            "accidents_on_tkd",
+            "add_equipment_order"
+        ],
+        "vehicle_type": "car"
+    },
+    {
+        "id": 11,
+        "name": "андрей",
+        "start_location": {
+            "latitude": 55.702293,
+            "longitude": 37.77392,
+            "address": "г. Москва, ул Юных Ленинцев, д 83с 4"
+        },
+        "shift_start": "2026-08-17T08:27:00",
+        "shift_end": "2026-08-17T18:27:00",
+        "skills": [
+            "accidents_on_tkd",
+            "add_equipment_order",
+            "local_application"
+        ],
+        "vehicle_type": "public_transport"
+    },
+    {
+        "id": 12,
+        "name": "петр",
+        "start_location": {
+            "latitude": 55.702293,
+            "longitude": 37.77392,
+            "address": "г. Москва, ул Юных Ленинцев, д 83с 4"
+        },
+        "shift_start": "2026-08-17T05:28:00",
+        "shift_end": "2026-08-17T16:28:00",
+        "skills": [
+            "accidents_on_tkd",
+            "add_equipment_order",
+            "local_application"
+        ],
+        "vehicle_type": "car"
+    },
+    {
+        "id": 13,
+        "name": "антон",
+        "start_location": {
+            "latitude": 55.702293,
+            "longitude": 37.77392,
+            "address": "г. Москва, ул Юных Ленинцев, д 83с 4"
+        },
+        "shift_start": "2026-08-17T00:29:00",
+        "shift_end": "2026-08-17T08:29:00",
+        "skills": [
+            "connection_client",
+            "accidents_on_tkd",
+            "add_equipment_order"
+        ],
+        "vehicle_type": "car"
+    },
+    {
+        "id": 14,
+        "name": "миша",
+        "start_location": {
+            "latitude": 55.702293,
+            "longitude": 37.77392,
+            "address": "г. Москва, ул Юных Ленинцев, д 83с 4"
+        },
+        "shift_start": "2026-08-17T00:30:00",
+        "shift_end": "2026-08-17T09:30:00",
+        "skills": [
+            "add_equipment_order",
+            "local_application"
+        ],
+        "vehicle_type": "car"
+    },
+    {
+        "id": 15,
+        "name": "афанасий",
+        "start_location": {
+            "latitude": 55.702293,
+            "longitude": 37.77392,
+            "address": "г. Москва, ул Юных Ленинцев, д 83с 4"
+        },
+        "shift_start": "2026-08-17T12:31:00",
+        "shift_end": "2026-08-17T20:31:00",
+        "skills": [
+            "connection_client",
+            "accidents_on_tkd",
+            "add_equipment_order"
+        ],
+        "vehicle_type": "public_transport"
+    }
+]
