@@ -7,7 +7,6 @@ import backend.data.json_bd as db
 import os, json
 
 import csv
-
 router = APIRouter(
     prefix="/api",
     tags=["All api by now"]

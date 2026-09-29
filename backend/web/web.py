@@ -14,15 +14,29 @@ templates = Jinja2Templates(directory="frontend/templates")
 @router.get("/index", response_class=HTMLResponse)
 @router.get("/", response_class=HTMLResponse)
 async def root(request: Request):
-    engineers_json = (await get_engineers())['data']
+    def find_engineer(engineer_id: int, engineers):
+        for engineer in engineers:
+            if engineer["id"] == engineer_id:
+                return engineer
+        return None
+
+    vehicle_dict = {
+        "car": "автомобиль",
+        "on_foot": "пешком",
+        "bicycle": "велосипед",
+        "public_transport": "общественный транспорт",
+    }
+
     optimizer_json = (await get_optimizer_results())['data']
+    engineers_json = json.loads((await get_engineers())['data'])
     requests_json = json.loads((await get_requests())['data'])
 
     return templates.TemplateResponse(name="index.html", request=request, context={
         "JSON": optimizer_json,
         "engineers": engineers_json,
         "requests": requests_json,
-        "requests_length": len(requests_json)
+        "find_engineer": find_engineer,
+        "vehicles": vehicle_dict
     })
 
 
