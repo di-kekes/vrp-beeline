@@ -7,6 +7,7 @@ import backend.data.json_bd as db
 import os, json
 
 import csv
+
 router = APIRouter(
     prefix="/api",
     tags=["All api by now"]
@@ -92,17 +93,18 @@ async def upload_csv(file: UploadFile = File(...)):
     }
 #DELETE
 @router.delete("/delete_request")
-async def delete_request(request: db.Request):
+async def delete_request(id:int):
+    request = db.get_request_by_id(id)
     try:
         data = db.delete_request(request.id)
         return {"code": 200,"data":data}
     except Exception as e:
         return {"code": 500, "message": str(e),}
 @router.delete("/engineer_unavailable")
-async def engineer_unavailable(engineer: db.Engineer):
+async def engineer_unavailable(id: int):
     try:
-        data = db.delete_engineer(engineer.id )
-        return {"code": 200,"data":data,"database":...}
+        data = db.delete_engineer(id)
+        return {"code": 200,"data":data}
     except Exception as e:
         return {"code": 500, "message": str(e)}
 #PUT

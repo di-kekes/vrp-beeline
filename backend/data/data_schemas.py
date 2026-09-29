@@ -92,3 +92,6 @@ class Engineer(BaseModel):
             )
 
         return self
+
+class Id(BaseModel):
+    id: int

@@ -1,6 +1,8 @@
 import {addMark, initClusterer} from "./map.mjs"
 import {connectEngineerButtons} from "./elements.mjs";
 import {getOptimizerJSON, getRequestJSON} from "./functions.mjs";
+import setupDialogs from "./form.js";
+import setupButtons from "./buttons.js";
 
 async function placeRequestMarks() {
     const optimizerJSON = await getOptimizerJSON();

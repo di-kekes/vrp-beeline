@@ -84,6 +84,8 @@ function saveRequest() {
         id: document.getElementById("request-id").value.trim(),
 
         location: {
+            "latitude": 40.0,
+            "longitude": 40.0,
             address: document.getElementById("request-address").value.trim()
         },
 
@@ -106,7 +108,7 @@ function saveRequest() {
 
     try {
         const response = fetch(
-            "http://127.0.0.1:8000/api/urgent_request",
+            "http://localhost:8000/api/urgent_request",
             {
                 method: "POST",
                 headers: {
@@ -370,7 +372,7 @@ async function deleteEngineer() {
 
     try {
     const response = await fetch(
-        `http://127.0.0.1:8000/api/engineer_unavailable?id=${engineerId}`,
+        `http://localhost:8000/api/engineer_unavailable?id=${engineerId}`,
         {
             method: "DELETE"
         });
