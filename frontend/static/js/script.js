@@ -26,6 +26,9 @@ async function placeRequestMarks() {
 
 
 async function main() {
+    setupDialogs();
+    setupButtons();
+
     await placeRequestMarks();
     await connectEngineerButtons();
     initClusterer();
