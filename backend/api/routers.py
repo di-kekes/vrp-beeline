@@ -6,7 +6,14 @@ from backend.data import sintetic_dataset
 import backend.data.json_bd as db
 import os, json
 
-import csv
+from csv import DictReader
+from io import StringIO
+import requests
+
+from backend.data.data_schemas import Location
+# import csv
+
+from backend.optimizer_v01.cash_creator import initialize_optimizer_cash
 router = APIRouter(
     prefix="/api",
     tags=["All api by now"]
@@ -65,6 +72,15 @@ async def get_optimizer_results():
 @router.post("/add_engineer")
 async def add_engineer(engineer: db.Engineer):
     try:
+        adr = engineer.start_location.address
+        resp = requests.get('https://catalog.api.2gis.ru/3.0/items/geocode',
+                            params={"key": '1e36bf3c-fadf-4a6c-9f48-255481765ebd',
+                                    "type": "building",
+                                    "fields": 'items.point',
+                                    "q": adr}).json()
+        coords = resp["result"]["items"][0]['point']
+        lat, lon = coords['lat'], coords['lon']
+        engineer.start_location = Location(latitude=lat, longitude=lon, address=adr)
         data = db.create_engineer(engineer)
         return {"code":200, "data":data}
     except Exception as e:
@@ -72,6 +88,15 @@ async def add_engineer(engineer: db.Engineer):
 @router.post("/urgent_request")
 async def urgent_request(request: db.Request):
     try:
+        adr = request.location.address
+        resp = requests.get('https://catalog.api.2gis.ru/3.0/items/geocode',
+                            params={"key": '1e36bf3c-fadf-4a6c-9f48-255481765ebd',
+                                    "type": "building",
+                                    "fields": 'items.point',
+                                    "q": adr}).json()
+        coords = resp["result"]["items"][0]['point']
+        lat, lon = coords['lat'], coords['lon']
+        request.location = Location(latitude=lat, longitude=lon, address=adr)
         data = db.create_request(request)
         return {"code":200, "data":data}
     except Exception as e:
@@ -85,7 +110,12 @@ async def upload_csv(file: UploadFile = File(...)):
             "detail":"Разрешены только CSV-файлы"
         }
     string = await file.read()
-    csv_dict = csv.DictReader(string.decode().strip('(').strip(')').splitlines(),delimiter=';')
+    try:
+        text = string.decode("utf-8-sig")
+    except UnicodeDecodeError:
+        text = string.decode("cp1251")
+
+    csv_dict = DictReader(StringIO(text), delimiter=";")
     add_requests_from_csv(csv_dict)
     return {
         "code":200
@@ -114,3 +144,11 @@ async def generate_dataset(data=None):
         return {"code":200}
     except Exception as e:
         return {"code":500, "error":e}
+@router.put("/recalculate_plan")
+async def recalculate_plan(api_flag:bool):
+    try:
+        await initialize_optimizer_cash(api_flag)
+        return {"code":200, "api_flag":api_flag}
+    except Exception as e:
+        return {"code": 500, "message": str(e)}
+

@@ -9,7 +9,8 @@ import backend.optimizer_v01.time_matrix as time
 from backend.optimizer_v01.vrp_optimazer import optimize_vrptw, OptimizationResult
 
 
-async def initialize_optimizer_cash():
+async def initialize_optimizer_cash(api_flag = False):
+    # если api_flag = True, запрос пришел от фронтенда, необходимо пересчитать план
     db.initialize_database()
     type_adapter = TypeAdapter(OptimizationResult)
 
@@ -42,8 +43,10 @@ async def initialize_optimizer_cash():
     else:
         # Если файл вообще пустой или не существует
         should_write = True
-
-    # 2. Записываем данные только если файл был пуст, поврежден или содержал {}
+    # пересчет если запрос пришел из фронтенда
+    if api_flag == True:
+        should_write = True
+    # 2. Записываем данные только если файл был пуст, поврежден или содержал {}, или запрос пришел из фронтенда
     if should_write:
         # ИСПРАВЛЕНО: добавлен await перед вызовом асинхронной функции
         optimization_result = await get_optimization()

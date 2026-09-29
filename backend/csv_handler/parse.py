@@ -4,6 +4,8 @@ import requests
 
 from backend.data.data_schemas import *
 from backend.data.json_bd import create_request
+from backend.data.sintetic_dataset import clear_dataset
+
 
 translate = {
     'Подключение': Skill.CONNECTION_CLIENT,
@@ -11,6 +13,7 @@ translate = {
     'Локальная заявка': Skill.LOCAL_APPLICATION,
     'Глобальная проблема': Skill.ACCIDENTS_ON_TKD
 }
+
 durations = {
     'Подключение': Duration.CONNECTION_CLIENT_T,
     'Дозаказ': Duration.ADD_EQUIPMENT_ORDER_T,
@@ -18,69 +21,131 @@ durations = {
     'Глобальная проблема': Duration.ACCIDENTS_ON_TKD_T
 }
 
+def is_empty_row(row: dict) -> bool:
+    return not any(
+        str(value).strip()
+        for value in row.values()
+    )
 
 def add_requests_from_csv(csv_dict: DictReader) -> None:
-    sp = parse_csv(csv_dict)
-    for request in sp:
+    requests_list = parse_csv(csv_dict)
+
+    # Очищаем старый датасет только после успешного парсинга
+    clear_dataset()
+
+    for request in requests_list:
         data = create_request(request)
         print(data)
 
 
-def parse_csv(csv_dict: DictReader, have_column_names=True) -> list[Request]:
-    result = []
-    locations = get_locations(csv_dict)
-    for i, row in enumerate(csv_dict):
-        try:
-            ##!!!УБРАТЬ ОГРАНИЧЕНИЕ В 2 СТРОКИ ПРИ ДЕПЛОЕ
-            if i == 3:
-                break
-            request = Request(id=int(row['Заявка']),
-                              required_skill=translate[row['Тип заявки BK']],
-                              priority=Priority.DEFAULT,
-                              location=locations[i],
-                              time_window_start=get_datetime(row['Начало']),
-                              time_window_end=get_datetime(row['Окончание']),
-                              duration=durations[row['Тип заявки BK']]
-                              )
-            result.append(request)
-        except Exception as e:
+def parse_csv(csv_dict: DictReader) -> list[Request]:
+    # DictReader — итератор, поэтому сохраняем строки
+    rows = []
+    
+    for row in csv_dict:
+        if is_empty_row(row):
             break
+        rows.append(row)
+
+    locations = get_locations(rows)
+
+    result = []
+
+    for i, row in enumerate(rows):
+        try:
+            request = Request(
+                id=int(row['Заявка']),
+                required_skill=translate[row['Тип заявки BK']],
+                priority=Priority.DEFAULT,
+                location=locations[i],
+                time_window_start=get_datetime(row['Начало']),
+                time_window_end=get_datetime(row['Окончание']),
+                duration=durations[row['Тип заявки BK']]
+            )
+
+            result.append(request)
+
+        except Exception as e:
+            print(f"Ошибка в строке CSV №{i + 2}: {e}")
+            print(f"Данные строки: {row}")
+            raise
+
     return result
 
 
 def get_location(address: str) -> Location:
-    # https://catalog.api.2gis.ru/3.0/items/geocode?key=YOUR_API_KEY&type=building%2Cstation_platform%2Cattraction%2Cadm_div.place%2Cstreet%2Cadm_div.district%2Cadm_div.city&fields=items.point&location=37.64%2C55.74&q=Город+Москва%2C+пр-кт.Волгоградский%2C+д.+128+к+5%2C+кв.+1
-    resp = requests.get('https://catalog.api.2gis.ru/3.0/items/geocode',
-                        params={"key": '2d64e373-d8b2-4338-b90b-53939cd66d6c',
-                                "type": "building",
-                                "fields": 'items.point',
-                                "q": address}).json()
-    coords = resp["result"]["items"][0]['point']
-    lat, lon = coords['lat'], coords['lon']
-    return Location(latitude=lat, longitude=lon, address=address)
+    address = address.strip()
+
+    if not address:
+        raise ValueError("Пустой адрес")
+
+    response = requests.get(
+        'https://catalog.api.2gis.ru/3.0/items/geocode',
+        params={
+            "key": "1e36bf3c-fadf-4a6c-9f48-255481765ebd",
+            "type": "building",
+            "fields": "items.point",
+            "q": address
+        }
+    )
+
+    response.raise_for_status()
+
+    resp = response.json()
+
+    if "result" not in resp:
+        raise ValueError(
+            f"2ГИС не вернул result для адреса '{address}': {resp}"
+        )
+
+    items = resp["result"].get("items", [])
+
+    if not items:
+        raise ValueError(
+            f"2ГИС не нашёл адрес '{address}'"
+        )
+
+    coords = items[0].get("point")
+
+    if not coords:
+        raise ValueError(
+            f"2ГИС не вернул координаты для адреса '{address}'"
+        )
+
+    return Location(
+        latitude=coords['lat'],
+        longitude=coords['lon'],
+        address=address
+    )
 
 
-def get_locations(csv_dict: DictReader) -> list[Location]:
+def get_locations(rows: list[dict]) -> list[Location]:
     locations = []
-    n = 0
-    for i, row in enumerate(csv_dict):
-        #УБРАТЬ ОГРАНИЧЕНИЕ В ДВЕ СТРОКИ ПРИ ДЕПЛОЕ
-        if i == 3:
-            break
-        locations.append(get_location(row['Адрес']))
-        n += 1
-    while len(locations) != n:
-        continue
+
+    for i, row in enumerate(rows):
+        address = row.get('Адрес', '').strip()
+
+        if not address:
+            raise ValueError(
+                f"Пустой адрес в строке CSV №{i + 2}. "
+                f"Данные строки: {row}"
+            )
+
+        print(f"Геокодирование строки {i + 2}: {address}")
+
+        locations.append(
+            get_location(address)
+        )
+
     return locations
 
 
 def get_datetime(str_date: str) -> datetime:
     # 17.08.2026 20:00
-    str_date = str_date.split()
-    date, time = str_date[0], str_date[1]
-    date = date.split('.')
-    year, month, day = int(date[2]), int(date[1]), int(date[0])
-    time = time.split(':')
-    hour = int(time[0])
-    minute = int(time[1])
-    return datetime(year, month, day, hour, minute)
+
+    date_part, time_part = str_date.strip().split()
+
+    day, month, year = map(int, date_part.split('.'))
+    hour, minute = map(int, time_part.split(':'))
+
+    return datetime(year,month,day,hour,minute)

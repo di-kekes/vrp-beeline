@@ -3,7 +3,7 @@ import {setDashboardInfo} from "./elements.mjs";
 
 async function initMap() {
     const map = new mapgl.Map("map", {
-        key: "2d64e373-d8b2-4338-b90b-53939cd66d6c",
+        key: "1e36bf3c-fadf-4a6c-9f48-255481765ebd",
 
         // [longitude, latitude]
         center: [37.6156, 55.7522],
@@ -122,5 +122,5 @@ export function buildRoute(points, vehicle_type) {
 let requestsMarks = [];
 const map = await initMap();
 const directions = new mapgl.Directions(map, {
-    directionsApiKey: '2d64e373-d8b2-4338-b90b-53939cd66d6c',
+    directionsApiKey: '1e36bf3c-fadf-4a6c-9f48-255481765ebd',
 });

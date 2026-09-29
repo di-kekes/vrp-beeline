@@ -400,11 +400,9 @@ function setupPlanning() {
     document
         .getElementById("generate-button")
         .addEventListener("click", async () => {
-            // Здесь позже будет:
-            // await fetch(
-            //     "/api/generate_dataset",
-            //     { method: "POST" }
-            // );
+            const response = await fetch("http://localhost:8000/api/generate_dataset", {
+        method: "PUT"
+    });
         });
 
     const csvButton = document.getElementById("csv-button");
@@ -425,21 +423,22 @@ function setupPlanning() {
             "file",
             csvInput.files[0]
         );
-
-        // Здесь позже будет отправка CSV
-        // в FastAPI
+        const response = await fetch(
+            "http://localhost:8000/api/upload_csv",
+            {
+                method: "POST",
+                body: formData
+            });
     });
 
     document
         .getElementById("recalculate-button")
         .addEventListener("click", async () => {
+            const response = await fetch("http://localhost:8000/api/recalculate_plan?api_flag=true", {
+            method: "PUT"
+            });
             planDialog.close();
 
-            // Здесь позже будет:
-            // await fetch(
-            //     "/api/recalculate",
-            //     { method: "POST" }
-            // );
         });
 }
 

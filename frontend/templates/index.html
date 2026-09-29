@@ -17,7 +17,7 @@
                 <div class="general_plan">
                     <h2 class="dashboard_h2_text">Общий план</h2>
                     <p class="dashboard_p_text">Исполнителей: {{ JSON['routes']|count }}</p>
-                    <p class="dashboard_p_text">Всего заявок: {{ requests|length }}</p>
+                    <p class="dashboard_p_text">Заявок выполнено: {{assigned_requests_count}}/{{ requests|length }}</p>
                 </div>
                 <div class="line"></div>
                 <div class="selected_engineer">

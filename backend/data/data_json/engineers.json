@@ -1,331 +1,254 @@
 [
     {
         "id": 1,
-        "name": "Engineer 1",
+        "name": "арбуз 1",
         "start_location": {
-            "latitude": 55.780411685418876,
-            "longitude": 37.603418630180855,
-            "address": null
+            "latitude": 55.702293,
+            "longitude": 37.77392,
+            "address": "г. Москва, ул Юных Ленинцев, д 83с 4"
         },
-        "shift_start": "2026-09-21T08:00:00",
-        "shift_end": "2026-09-21T17:00:00",
+        "shift_start": "2026-08-17T09:05:00",
+        "shift_end": "2026-08-17T23:05:00",
         "skills": [
             "accidents_on_tkd",
-            "connection_client",
-            "add_equipment_order"
+            "add_equipment_order",
+            "local_application"
         ],
-        "vehicle_type": "public_transport"
+        "vehicle_type": "car"
     },
     {
         "id": 2,
-        "name": "Engineer 2",
+        "name": "ваня",
         "start_location": {
-            "latitude": 55.76638637609892,
-            "longitude": 37.613001534532344,
-            "address": null
+            "latitude": 55.702293,
+            "longitude": 37.77392,
+            "address": "г. Москва, ул Юных Ленинцев, д 83с 4"
         },
-        "shift_start": "2026-09-21T08:00:00",
-        "shift_end": "2026-09-21T17:00:00",
+        "shift_start": "2026-08-17T09:15:00",
+        "shift_end": "2026-08-17T21:15:00",
         "skills": [
-            "local_application",
+            "accidents_on_tkd",
             "add_equipment_order",
-            "connection_client"
+            "local_application"
         ],
         "vehicle_type": "public_transport"
     },
     {
         "id": 3,
-        "name": "Engineer 3",
+        "name": "саша",
         "start_location": {
-            "latitude": 55.71666656032542,
-            "longitude": 37.649128501356664,
-            "address": null
+            "latitude": 55.702293,
+            "longitude": 37.77392,
+            "address": "г. Москва, ул Юных Ленинцев, д 83с 4"
         },
-        "shift_start": "2026-09-21T08:00:00",
-        "shift_end": "2026-09-21T17:00:00",
+        "shift_start": "2026-08-17T07:16:00",
+        "shift_end": "2026-08-17T19:16:00",
         "skills": [
-            "local_application",
+            "connection_client",
+            "accidents_on_tkd",
             "add_equipment_order"
         ],
         "vehicle_type": "car"
     },
     {
         "id": 4,
-        "name": "Engineer 4",
+        "name": "леня",
         "start_location": {
-            "latitude": 55.74283460326506,
-            "longitude": 37.55165357583043,
-            "address": null
+            "latitude": 55.702293,
+            "longitude": 37.77392,
+            "address": "г. Москва, ул Юных Ленинцев, д 83с 4"
         },
-        "shift_start": "2026-09-21T08:00:00",
-        "shift_end": "2026-09-21T17:00:00",
+        "shift_start": "2026-08-17T09:16:00",
+        "shift_end": "2026-08-17T19:16:00",
         "skills": [
-            "connection_client",
-            "local_application",
-            "accidents_on_tkd"
+            "accidents_on_tkd",
+            "add_equipment_order",
+            "local_application"
         ],
-        "vehicle_type": "bicycle"
+        "vehicle_type": "public_transport"
     },
     {
         "id": 5,
-        "name": "Engineer 5",
+        "name": "гриша",
         "start_location": {
-            "latitude": 55.70596144072611,
-            "longitude": 37.64102255704992,
-            "address": null
+            "latitude": 55.702293,
+            "longitude": 37.77392,
+            "address": "г. Москва, ул Юных Ленинцев, д 83с 4"
         },
-        "shift_start": "2026-09-21T08:00:00",
-        "shift_end": "2026-09-21T17:00:00",
+        "shift_start": "2026-08-17T06:19:00",
+        "shift_end": "2026-08-17T16:19:00",
         "skills": [
-            "accidents_on_tkd",
             "connection_client",
+            "accidents_on_tkd",
             "add_equipment_order"
         ],
         "vehicle_type": "bicycle"
     },
     {
         "id": 6,
-        "name": "Engineer 6",
+        "name": "петя",
         "start_location": {
-            "latitude": 55.77050292533722,
-            "longitude": 37.60930923043792,
-            "address": null
+            "latitude": 55.702293,
+            "longitude": 37.77392,
+            "address": "г. Москва, ул Юных Ленинцев, д 83с 4"
         },
-        "shift_start": "2026-09-21T08:00:00",
-        "shift_end": "2026-09-21T17:00:00",
+        "shift_start": "2026-08-17T08:20:00",
+        "shift_end": "2026-08-17T17:20:00",
         "skills": [
             "accidents_on_tkd",
-            "connection_client",
-            "add_equipment_order"
+            "add_equipment_order",
+            "local_application"
         ],
-        "vehicle_type": "on_foot"
+        "vehicle_type": "car"
     },
     {
         "id": 7,
-        "name": "Engineer 7",
+        "name": "петя сильный",
         "start_location": {
-            "latitude": 55.72423861776694,
-            "longitude": 37.562500391703416,
-            "address": null
+            "latitude": 55.702293,
+            "longitude": 37.77392,
+            "address": "г. Москва, ул Юных Ленинцев, д 83с 4"
         },
-        "shift_start": "2026-09-21T08:00:00",
-        "shift_end": "2026-09-21T17:00:00",
+        "shift_start": "2026-08-17T06:21:00",
+        "shift_end": "2026-08-17T21:21:00",
         "skills": [
-            "connection_client",
+            "accidents_on_tkd",
+            "add_equipment_order",
             "local_application"
         ],
-        "vehicle_type": "bicycle"
+        "vehicle_type": "car"
     },
     {
         "id": 8,
-        "name": "Engineer 8",
+        "name": "егор",
         "start_location": {
-            "latitude": 55.79688181319625,
-            "longitude": 37.65082561320938,
-            "address": null
+            "latitude": 55.702293,
+            "longitude": 37.77392,
+            "address": "г. Москва, ул Юных Ленинцев, д 83с 4"
         },
-        "shift_start": "2026-09-21T08:00:00",
-        "shift_end": "2026-09-21T17:00:00",
+        "shift_start": "2026-08-17T07:24:00",
+        "shift_end": "2026-08-17T17:24:00",
         "skills": [
-            "local_application",
-            "connection_client"
+            "accidents_on_tkd",
+            "add_equipment_order",
+            "local_application"
         ],
         "vehicle_type": "car"
     },
     {
         "id": 9,
-        "name": "Engineer 9",
+        "name": "кирилл",
         "start_location": {
-            "latitude": 55.75494237531635,
-            "longitude": 37.664541981931436,
-            "address": null
+            "latitude": 55.702293,
+            "longitude": 37.77392,
+            "address": "г. Москва, ул Юных Ленинцев, д 83с 4"
         },
-        "shift_start": "2026-09-21T08:00:00",
-        "shift_end": "2026-09-21T17:00:00",
+        "shift_start": "2026-08-17T07:24:00",
+        "shift_end": "2026-08-17T16:25:00",
         "skills": [
-            "add_equipment_order",
-            "local_application"
+            "accidents_on_tkd",
+            "add_equipment_order"
         ],
-        "vehicle_type": "on_foot"
+        "vehicle_type": "public_transport"
     },
     {
         "id": 10,
-        "name": "Engineer 10",
+        "name": "гоша",
         "start_location": {
-            "latitude": 55.75971400456104,
-            "longitude": 37.67695934106083,
-            "address": null
+            "latitude": 55.702293,
+            "longitude": 37.77392,
+            "address": "г. Москва, ул Юных Ленинцев, д 83с 4"
         },
-        "shift_start": "2026-09-21T08:00:00",
-        "shift_end": "2026-09-21T17:00:00",
+        "shift_start": "2026-08-17T12:25:00",
+        "shift_end": "2026-08-17T21:25:00",
         "skills": [
-            "add_equipment_order",
             "accidents_on_tkd",
-            "connection_client"
+            "add_equipment_order"
         ],
-        "vehicle_type": "bicycle"
+        "vehicle_type": "car"
     },
     {
         "id": 11,
-        "name": "Engineer 11",
+        "name": "андрей",
         "start_location": {
-            "latitude": 55.796318729504286,
-            "longitude": 37.567739048426475,
-            "address": null
+            "latitude": 55.702293,
+            "longitude": 37.77392,
+            "address": "г. Москва, ул Юных Ленинцев, д 83с 4"
         },
-        "shift_start": "2026-09-21T08:00:00",
-        "shift_end": "2026-09-21T17:00:00",
+        "shift_start": "2026-08-17T08:27:00",
+        "shift_end": "2026-08-17T18:27:00",
         "skills": [
-            "connection_client",
-            "local_application",
-            "add_equipment_order"
+            "accidents_on_tkd",
+            "add_equipment_order",
+            "local_application"
         ],
-        "vehicle_type": "bicycle"
+        "vehicle_type": "public_transport"
     },
     {
         "id": 12,
-        "name": "Engineer 12",
+        "name": "петр",
         "start_location": {
-            "latitude": 55.6996741510645,
-            "longitude": 37.67994305231086,
-            "address": null
+            "latitude": 55.702293,
+            "longitude": 37.77392,
+            "address": "г. Москва, ул Юных Ленинцев, д 83с 4"
         },
-        "shift_start": "2026-09-21T08:00:00",
-        "shift_end": "2026-09-21T17:00:00",
+        "shift_start": "2026-08-17T05:28:00",
+        "shift_end": "2026-08-17T16:28:00",
         "skills": [
-            "accidents_on_tkd"
+            "accidents_on_tkd",
+            "add_equipment_order",
+            "local_application"
         ],
         "vehicle_type": "car"
     },
     {
         "id": 13,
-        "name": "Engineer 13",
+        "name": "антон",
         "start_location": {
-            "latitude": 55.75986660353152,
-            "longitude": 37.60259036521872,
-            "address": null
+            "latitude": 55.702293,
+            "longitude": 37.77392,
+            "address": "г. Москва, ул Юных Ленинцев, д 83с 4"
         },
-        "shift_start": "2026-09-21T08:00:00",
-        "shift_end": "2026-09-21T17:00:00",
+        "shift_start": "2026-08-17T00:29:00",
+        "shift_end": "2026-08-17T08:29:00",
         "skills": [
+            "connection_client",
             "accidents_on_tkd",
-            "local_application",
             "add_equipment_order"
         ],
         "vehicle_type": "car"
     },
     {
         "id": 14,
-        "name": "Engineer 14",
+        "name": "миша",
         "start_location": {
-            "latitude": 55.68938530037569,
-            "longitude": 37.666992749033895,
-            "address": null
+            "latitude": 55.702293,
+            "longitude": 37.77392,
+            "address": "г. Москва, ул Юных Ленинцев, д 83с 4"
         },
-        "shift_start": "2026-09-21T08:00:00",
-        "shift_end": "2026-09-21T17:00:00",
+        "shift_start": "2026-08-17T00:30:00",
+        "shift_end": "2026-08-17T09:30:00",
         "skills": [
-            "local_application",
             "add_equipment_order",
-            "accidents_on_tkd"
+            "local_application"
         ],
         "vehicle_type": "car"
     },
     {
         "id": 15,
-        "name": "Engineer 15",
+        "name": "афанасий",
         "start_location": {
-            "latitude": 55.68363630598067,
-            "longitude": 37.55248504548478,
-            "address": null
+            "latitude": 55.702293,
+            "longitude": 37.77392,
+            "address": "г. Москва, ул Юных Ленинцев, д 83с 4"
         },
-        "shift_start": "2026-09-21T08:00:00",
-        "shift_end": "2026-09-21T17:00:00",
+        "shift_start": "2026-08-17T12:31:00",
+        "shift_end": "2026-08-17T20:31:00",
         "skills": [
-            "local_application",
-            "connection_client"
-        ],
-        "vehicle_type": "bicycle"
-    },
-    {
-        "id": 16,
-        "name": "Engineer 16",
-        "start_location": {
-            "latitude": 55.75369990653966,
-            "longitude": 37.570275913934594,
-            "address": null
-        },
-        "shift_start": "2026-09-21T08:00:00",
-        "shift_end": "2026-09-21T17:00:00",
-        "skills": [
-            "accidents_on_tkd"
+            "connection_client",
+            "accidents_on_tkd",
+            "add_equipment_order"
         ],
         "vehicle_type": "public_transport"
-    },
-    {
-        "id": 17,
-        "name": "Engineer 17",
-        "start_location": {
-            "latitude": 55.762261762093274,
-            "longitude": 37.6863473660531,
-            "address": null
-        },
-        "shift_start": "2026-09-21T08:00:00",
-        "shift_end": "2026-09-21T17:00:00",
-        "skills": [
-            "accidents_on_tkd",
-            "connection_client",
-            "local_application"
-        ],
-        "vehicle_type": "on_foot"
-    },
-    {
-        "id": 18,
-        "name": "Engineer 18",
-        "start_location": {
-            "latitude": 55.76645512111063,
-            "longitude": 37.64062180435654,
-            "address": null
-        },
-        "shift_start": "2026-09-21T08:00:00",
-        "shift_end": "2026-09-21T17:00:00",
-        "skills": [
-            "add_equipment_order",
-            "connection_client",
-            "accidents_on_tkd"
-        ],
-        "vehicle_type": "bicycle"
-    },
-    {
-        "id": 19,
-        "name": "Engineer 19",
-        "start_location": {
-            "latitude": 55.778420207799975,
-            "longitude": 37.60612495776718,
-            "address": null
-        },
-        "shift_start": "2026-09-21T08:00:00",
-        "shift_end": "2026-09-21T17:00:00",
-        "skills": [
-            "local_application"
-        ],
-        "vehicle_type": "bicycle"
-    },
-    {
-        "id": 20,
-        "name": "Engineer 20",
-        "start_location": {
-            "latitude": 55.712431674679266,
-            "longitude": 37.56899381767932,
-            "address": null
-        },
-        "shift_start": "2026-09-21T08:00:00",
-        "shift_end": "2026-09-21T17:00:00",
-        "skills": [
-            "add_equipment_order",
-            "connection_client",
-            "local_application"
-        ],
-        "vehicle_type": "bicycle"
     }
 ]

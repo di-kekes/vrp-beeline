@@ -57,7 +57,7 @@ export async function connectEngineerButtons() {
 
         document.getElementById("engineer" + id).addEventListener("click", () => {
             updateMap(coordinates, 13);
-            setDashboardInfo(selected_engineer, {"assigned": false});
+            setDashboardInfo(selected_engineer, {"assigned": false, "id":"..."});
             buildRoute(engineer_route, selected_engineer["vehicle_type"]);
         });
     }

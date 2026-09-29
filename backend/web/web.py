@@ -20,6 +20,7 @@ async def root(request: Request):
                 return engineer
         return None
 
+
     vehicle_dict = {
         "car": "автомобиль",
         "on_foot": "пешком",
@@ -30,13 +31,15 @@ async def root(request: Request):
     optimizer_json = (await get_optimizer_results())['data']
     engineers_json = json.loads((await get_engineers())['data'])
     requests_json = json.loads((await get_requests())['data'])
+    assigned_requests_count = len(requests_json) - len(optimizer_json['unassigned_requests'])
 
     return templates.TemplateResponse(name="index.html", request=request, context={
         "JSON": optimizer_json,
         "engineers": engineers_json,
         "requests": requests_json,
         "find_engineer": find_engineer,
-        "vehicles": vehicle_dict
+        "vehicles": vehicle_dict,
+        "assigned_requests_count": assigned_requests_count,
     })
 
 
